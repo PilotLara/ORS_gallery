@@ -3073,6 +3073,31 @@ define gallery_scenes = [
         })
     ),
 
+    GalleryScene( #
+        kind="image",
+        chapter=12,
+        name=_("Alison entertains herself while Ian is away"),
+        img=["blackbg1.webp", "v12_alison_jeremy.webp"],
+        param=["v12_alison_jeremy"],
+        unlocked_if="gallery_scene_unlocked('CH12_I40')",
+        chars=['Alison', 'Jeremy']
+    ),
+
+    GalleryScene( #
+        kind="scene",
+        chapter=12,
+        name=_("Cherry facetimes Ian"),
+        img=["blackbg1.webp", "v12_cherry_phone1.webp"],
+        param="gallery_CH12_S41",
+        unlocked_if="gallery_scene_unlocked('CH12_S41')",
+        chars=['Cherry'],
+        scope=merge_two_dicts(cheatScope, {
+            'ian_cherry_love': True,
+            'v12_cherry_dom': True,
+            'v12_moon_text': 'cherry'
+        })
+    ),
+
     GalleryScene(
         kind="image",
         chapter=12,

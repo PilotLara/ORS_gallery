@@ -8773,6 +8773,7 @@ label setup_CH12_S11:
 
     call gallVar_ian_chad from _call_gallVar_ian_chad_4
 
+    $ lena_bikini = 2
     call gallVar_emma_bikini from _call_gallVar_emma_bikini
 
     $ fperry = "n"
@@ -10712,6 +10713,15 @@ label setup_CH12_S38:
 
     scene summerroomnight
     with long
+return
+
+label setup_CH12_S41:
+    scene blackbg
+    with long
+
+    call gallVar_ian_summer_look
+
+    play music "music/calm.mp3" loop
 return
 
 ################################################################################
