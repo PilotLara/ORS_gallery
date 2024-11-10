@@ -10737,7 +10737,6 @@ label setup_CH13_S03:
     scene blackbg
     with long
 
-    #ToDO lena dating variables
     call gallVar_seymour_disposition
     call gallVar_v13_seymour_shoot
     if v13_seymour_shoot == 0:
@@ -10746,9 +10745,10 @@ label setup_CH13_S03:
 
 
     scene fancyhotel
+    with long
     show lenanude
     show lena_towel
-    with long
+    with short
     menu:
         gal "Which lingerie set did Lena choose to pose in?"
         "The Black lingerie set":

@@ -1333,10 +1333,33 @@ label gallVar_lena_seymour_dating:
 return
 
 label gallVar_seymour_disposition:
-    #ToDO
+    $ flena = "smile"
+    $ fseymour = "smile"
+    $ lena_look = "wits"
+    $ seymour_look = 1
 
-    # $ seymour_disposition = 
+    scene seymourofficenight
+    with long
+    show seymour2 at lef
+    show lena2 at rig
+    with short
+    menu:
+        gal "Does Lena like working for Seymour?"
+        "Absolutely, she obeys him":
+            $ seymour_disposition = 3
 
+        "Yes, she does":
+            $ seymour_disposition = 2
+
+        "She's neutral about it":
+            $ flena = "n"
+            $ seymour_disposition = 1
+
+        "No, she doesn't":
+            $ seymour_disposition = 0
+
+            $ fseymour = "n"
+            $ flena = "worried"
     scene blackbg
     with long
 return
@@ -1349,9 +1372,10 @@ label gallVar_v13_seymour_shoot:
     $ lena_makeup = 2
 
     scene showroom
+    with long
     show lenabra at rig
     show seymour2 at lef
-    with long
+    with short
     menu:
         gal "How did Lena behave during Seymour's Vanity Fair shoot?"
         "She refused to pose for the shoot":
@@ -1388,7 +1412,7 @@ label gallVar_v13_seymour_shoot:
 
             scene v13_seymour_pose3
             with long
-            pause 1
+            pause 2
 
     if v13_seymour_shoot > 1:
         menu:
@@ -1397,7 +1421,7 @@ label gallVar_v13_seymour_shoot:
                 scene v13_seymour_pose3
                 show v13_seymour_pose3_hand
                 with long
-                pause 1
+                pause 2
 
                 $ v13_seymour_shoot = 3
 
