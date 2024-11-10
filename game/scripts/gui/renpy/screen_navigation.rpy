@@ -212,9 +212,9 @@ screen navigation_gallery(selected_char=None, char_page=1, chapter=0, page=1):
                 xysize (258, 95)
                 xalign 0.5
                 imagebutton:
-                    auto "gui/gm_controls_%s.webp"
+                    auto "gui/gm_controls_%s.webp" #ToDO Placeholder
                     hovered Play("ch_one", "sfx/paper_hover.mp3")
-                    action Play("ch_three", "sfx/paper_click.mp3"), Return()
+                    action Play("ch_three", "sfx/paper_click.mp3")# , ShowMenu('screen_gallery_customisation')
 
             fixed:
                 xysize (258, 95)

@@ -3116,15 +3116,30 @@ define gallery_scenes = [
         kind="scene",
         chapter=13,
         name=_("Seymour joins Lena in front of the camera"),
-        # img = ".webp",
-        img = "wipbg.webp",
-        # param="gallery_CH13_S01",
-        param= "gallery_WIP",
+        img = "v13_seymour_pose2.webp",
+        param="gallery_CH13_S01",
         unlocked_if="gallery_scene_unlocked('CH13_S01')",
         chars=['Lena', "Seymour"],
         scope=merge_two_dicts(cheatScope, {
             'ian_active': False,
             'lena_travel': 'italy',
+            'lena_posh': 4,
+            'seymour_desire': True,
+            'v6_seymour_shoot': True,
+            'v6_axel_pose': 3
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena discovers Seymour's gift"),
+        img = "v13_seymour0b.webp",
+        param="gallery_CH13_S02",
+        unlocked_if="gallery_scene_unlocked('CH13_S02')",
+        chars=['Lena'],
+        scope=merge_two_dicts(cheatScope, {
+            'ian_active': False,
             'lena_posh': 4,
             'seymour_desire': True
         })
@@ -3133,29 +3148,9 @@ define gallery_scenes = [
     GalleryScene(
         kind="scene",
         chapter=13,
-        name=_("Lena discovers Seymours gift"),
-        # img = ".webp",
-        img = "wipbg.webp",
-        # param="gallery_CH13_S02",
-        param= "gallery_WIP",
-        unlocked_if="gallery_scene_unlocked('CH13_S02')",
-        chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
-            'ian_active': False,
-            'ian_lena_couple': True,
-            'ian_lena_pure': True,
-            'seymour_desire': True
-        })
-    ),
-
-    GalleryScene(
-        kind="scene",
-        chapter=13,
         name=_("Lena gives herself completely to Seymour"),
-        # img = ".webp",
-        img = "wipbg.webp",
-        # param="gallery_CH13_S03",
-        param= "gallery_WIP",
+        img = "v13_seymour10a.webp",
+        param="gallery_CH13_S03",
         unlocked_if="gallery_scene_unlocked('CH13_S03')",
         chars=['Lena', 'Seymour'],
         scope=merge_two_dicts(cheatScope, {

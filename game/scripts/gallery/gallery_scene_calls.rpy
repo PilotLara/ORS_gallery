@@ -1310,8 +1310,21 @@ label gallVar_lena_seymour_dating:
     menu:
         gal "Did Lena sign the contract for Seymour?"
         "Yes, she did":
-            # scene
             $ lena_seymour_dating = True
+
+            scene v9_seymour3
+            if lena_tattoo1:
+                show v9_seymour3_t1
+            if lena_tattoo2:
+                show v9_seymour3_t2
+            if lena_piercing1:
+                show v9_seymour3_p1
+            elif lena_piercing2:
+                show v9_seymour3_p2
+            if v7_necklace_sell == False:
+                show v9_seymour3_sy
+            with long
+            pause (2)
 
         "No, she refused":
             pass
@@ -1322,5 +1335,75 @@ return
 label gallVar_seymour_disposition:
     #ToDO
 
+    # $ seymour_disposition = 
+
+    scene blackbg
+    with long
 return
 
+label gallVar_v13_seymour_shoot:
+    $ seymour_look = 2
+    $ fseymour = "smile"
+    $ flena = "smile"
+    $ lena_look = "black_lingerie"
+    $ lena_makeup = 2
+
+    scene showroom
+    show lenabra at rig
+    show seymour2 at lef
+    with long
+    menu:
+        gal "How did Lena behave during Seymour's Vanity Fair shoot?"
+        "She refused to pose for the shoot":
+            $ v13_seymour_shoot = 0
+
+        "She followed Seymour's lead":
+            $ v13_seymour_shoot = 1
+
+            scene v13_seymour_pose2
+            if lena_piercing1:
+                show v13_seymour_pose2_p1
+            if lena_piercing2:
+                show v13_seymour_pose2_p2
+            if lena_tattoo2:
+                show v13_seymour_pose2_t2
+            if lena_tattoo3:
+                show v13_seymour_pose2_t3
+            with long
+            pause 2
+            menu:
+                gal "Did she pull Seymour by his tie?"
+                "Yes, she did":
+                    scene v13_seymour_pose3
+                    with long
+                    pause 2
+
+                    $ v13_seymour_shoot = 1.5
+
+                "No, she didn't":
+                    pass
+
+        "She took control":
+            $ v13_seymour_shoot = 2
+
+            scene v13_seymour_pose3
+            with long
+            pause 1
+
+    if v13_seymour_shoot > 1:
+        menu:
+            gal "Did she ask Seymour to touch her?"
+            "Yes, she did":
+                scene v13_seymour_pose3
+                show v13_seymour_pose3_hand
+                with long
+                pause 1
+
+                $ v13_seymour_shoot = 3
+
+            "No, she didn't":
+                pass
+
+    scene blackbg
+    with long
+return

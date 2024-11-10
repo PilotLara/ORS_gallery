@@ -4622,42 +4622,10 @@ label setup_CH10_S14:
     $ v10posingathletics = False
     $ v10posinglust = False
 
-    $ flena = "smile"
-    $ lena_makeup = 1
-    $ lena_look = "wits"
-    $ lena_necklace = "seymour"
+    call gallVar_lena_seymour_dating
 
-    scene seymourofficenight
-    with long
-    show seymour at lef
-    show lena2 at rig
-    with short
-
-    menu:
-        gal "Did Lena sign the contract for Seymour?"
-        "Yes, she did":
-            $ lena_seymour_dating = True
-
-            $ lena_wardrobe_charisma1 = True
-            $ seymour_disposition = 3
-
-            scene v9_seymour3
-            if lena_tattoo1:
-                show v9_seymour3_t1
-            if lena_tattoo2:
-                show v9_seymour3_t2
-            if lena_piercing1:
-                show v9_seymour3_p1
-            elif lena_piercing2:
-                show v9_seymour3_p2
-            if v7_necklace_sell == False:
-                show v9_seymour3_sy
-            with long
-            pause (2)
-        "No, she refused":
-            $ lena_seymour_dating = False
-            $ stalkfap_pro = True
-
+    if not lena_seymour_dating:
+        $ stalkfap_pro = True
     scene blackbg
     with long
 
@@ -10732,10 +10700,8 @@ label setup_CH13_S01:
     scene blackbg
     with long
 
-    #lena_seymour_dating
-    #seymour_disposition
-    #v6_seymour_shoot or v6_agnes_shoot
-    #v6_axel_pose
+    call gallVar_lena_seymour_dating
+    call gallVar_seymour_disposition
 
     # no  music
 
@@ -10746,18 +10712,19 @@ label setup_CH13_S02:
     scene blackbg
     with long
 
-    #seymour_disposition
-    #v13_seymour_shoot
-    #lena_posh = 4
+    call gallVar_seymour_disposition
+    call gallVar_v13_seymour_shoot
 
     $ flena = "n"
     $ seymour_necklace = False
-    #$ lena_look = 
-    #$ lena_makeup =
+    $ lena_look = 1
+    $ lena_makeup = 0
+    $ lena_necklace = 0
 
-    #$ fseymour = 
+    $ fseymour = "smile"
+    $ seymour_look = 4
 
-    #play music
+    play music "music/normal_day2.mp3" loop
 
     scene fancyhotel
     with long
@@ -10770,15 +10737,90 @@ label setup_CH13_S03:
     scene blackbg
     with long
 
-    # v13_seymour_shoot
-    # seymour_disposition
-    # lena dating variables
+    #ToDO lena dating variables
+    call gallVar_seymour_disposition
+    call gallVar_v13_seymour_shoot
+    if v13_seymour_shoot == 0:
+        gal "Uh oh. Lena needs to join Seymour's shoot to unlock this scene, please try again."
+        jump setup_CH13_S03
 
-    #$ flena =
-    #$ lena_look = 
-    #$ lena_makeup =
 
-    #ToDO  music
+    scene fancyhotel
+    show lenanude
+    show lena_towel
+    with long
+    menu:
+        gal "Which lingerie set did Lena choose to pose in?"
+        "The Black lingerie set":
+            hide lenanude
+            hide lena_towel
+            with long
+            $ lena_look = "lingerie2b"
+
+        "The White lingerie set":
+            hide lenanude
+            hide lena_towel
+            with long
+            $ lena_look = "lingerie2w"
+    pause 1
+    show lena with long
+    pause 1
+    if seymour_disposition > 1:
+        l "I love it! It's super sexy and classy, and it looks great on me. Seymour has good taste!"
+    elif seymour_disposition > 0:
+        l "This is different... Very sexy, but classy too. Seymour has good taste..."
+    else:
+        l "This is different... Very sexy. I kinda like it, though."
+    menu:
+        "Try the other set":
+            $ renpy.block_rollback()
+            $ flena = "n"
+            l "Let me see how the other set looks on me..."
+            hide lena with long
+            if lena_look == "lingerie2b":
+                $ lena_look = "lingerie2w"
+            else:
+                $ lena_look = "lingerie2b"
+            show lena with long
+            l "Mhh..."
+            menu:
+                "I like this one":
+                    $ renpy.block_rollback()
+                    $ flena = "smile"
+                    l "I'm going with this one. This color definitely suits me best..."
+
+                "I prefer the previous one":
+                    $ renpy.block_rollback()
+                    l "I think I prefer the other one..."
+                    hide lena with long
+                    if lena_look == "lingerie2b":
+                        $ lena_look = "lingerie2w"
+                    else:
+                        $ lena_look = "lingerie2b"
+                    show lena with long
+                    $ flena = "smile"
+                    l "Yeah, definitely."
+
+        "I like this color":
+            $ renpy.block_rollback()
+            $ flena = "smile"
+            l "I'm going with this one. This color definitely suits me best."
+
+    $ flena = "crazy"
+    $ lena_makeup = 0
+    $ lena_necklace = "seymour3"
+
+    $ fseymour = "evil"
+    $ seymour_look = 4
+
+    play music "music/necklace.mp3" loop
+
+    if seymour_disposition > 2:
+        scene v13_seymour4b
+    else:
+        scene v13_seymour4a
+    with long
+    pause 1
 return
 
 ################################################################################
