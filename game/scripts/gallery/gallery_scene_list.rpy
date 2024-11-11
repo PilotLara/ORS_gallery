@@ -15,7 +15,7 @@ define gallery_scenes = [
         param="gallery_CH01_S01",
         unlocked_if="gallery_scene_unlocked('CH01_S01')",
         chars=['Ian'],
-        scope=merge_two_dicts(cheatScope, lenaCleanBodyScope)
+        scope=merge_two_dicts(lenaPureScope)
     ),
 
     GalleryScene( # Unlocks in all branches
@@ -36,7 +36,7 @@ define gallery_scenes = [
         param="gallery_CH01_S02",
         unlocked_if="gallery_scene_unlocked('CH01_S02')",
         chars=['Lena', 'Ivy'],
-        scope=merge_three_dicts(cheatScope,lenaCleanBodyScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaPure=True)
     ),
 
     GalleryScene(
@@ -47,7 +47,7 @@ define gallery_scenes = [
         param="gallery_CH01_S03",
         unlocked_if="gallery_scene_unlocked('CH01_S03')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope,lenaCleanBodyScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaPure=True)
     ),
 
     GalleryScene(
@@ -58,7 +58,7 @@ define gallery_scenes = [
         param="gallery_CH01_S04",
         unlocked_if="gallery_scene_unlocked('CH01_S04')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope,lenaCleanBodyScope, {'v1_name': True})
+        scope=merge_two_dicts({'ian_active': False}, lenaPure=True)
     ),
 
     ##################################################################################################################
@@ -103,10 +103,10 @@ define gallery_scenes = [
         param="gallery_CH02_S01",
         unlocked_if="gallery_scene_unlocked('CH02_S01')",
         chars=['Lena', 'Ivy'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {
-            'v1_talk_ivy': True, 
+        scope=merge_two_dicts({
+            'v1_talk_ivy': True,
             'ian_active': False
-        })
+        }, lenaPure=True)
     ),
 
     GalleryScene(
@@ -117,10 +117,10 @@ define gallery_scenes = [
         param="gallery_CH02_S03",
         unlocked_if="gallery_scene_unlocked('CH02_S03')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {
+        scope=merge_two_dicts({
             'lena_robert': 5,
             'ian_active': False
-        })
+        }, lenaPure=True)
     ),
 
     GalleryScene(
@@ -131,10 +131,10 @@ define gallery_scenes = [
         param="gallery_CH02_S04",
         unlocked_if="gallery_scene_unlocked('CH02_S04')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {
+        scope=merge_two_dicts({
             'v2_robert_home': True,
             'ian_active': False
-        })
+        }, lenaPure=True)
     ),
 
     GalleryScene(
@@ -145,7 +145,7 @@ define gallery_scenes = [
         param="gallery_CH02_S05",
         unlocked_if="gallery_scene_unlocked('CH02_S05')",
         chars=['Lena', 'Ivy'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaPure=True)
     ),
 
     GalleryScene(
@@ -156,7 +156,7 @@ define gallery_scenes = [
         param="gallery_CH02_S06",
         unlocked_if="gallery_scene_unlocked('CH02_S06')",
         chars=['Ian', 'Cherry'],
-        scope=merge_two_dicts(cheatScope, lenaCleanBodyScope)
+        scope=merge_two_dicts(lenaPureScope)
     ),
 
     GalleryScene(
@@ -167,7 +167,7 @@ define gallery_scenes = [
         param="gallery_CH02_S07",
         unlocked_if="gallery_scene_unlocked('CH02_S07')",
         chars=['Ian', 'Alison'],
-        scope=merge_two_dicts(cheatScope,lenaCleanBodyScope)
+        scope=merge_two_dicts(lenaPureScope)
     ),
 
     ##################################################################################################################
@@ -202,10 +202,10 @@ define gallery_scenes = [
         param="gallery_CH03_S01",
         unlocked_if="gallery_scene_unlocked('CH03_S01')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {
+        scope=merge_two_dicts({
             'v2_robert_bj': True,
             'ian_active': False
-        })
+        }, lenaPure=True)
     ),
 
     GalleryScene(
@@ -216,7 +216,7 @@ define gallery_scenes = [
         param="gallery_CH03_S02",
         unlocked_if="gallery_scene_unlocked('CH03_S02')",
         chars=['Louise', 'Jeremy'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaPure=True)
     ),
 
     GalleryScene(
@@ -227,10 +227,10 @@ define gallery_scenes = [
         param="gallery_CH03_S08",
         unlocked_if="gallery_scene_unlocked('CH03_S08')",
         chars=['Lena', 'Stan'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {
+        scope=merge_two_dicts({
             'v2_stan_model': True,
             'ian_active': False
-        })
+        }, lenaPure=True)
     ),
 
     GalleryScene(
@@ -241,7 +241,7 @@ define gallery_scenes = [
         param="gallery_CH03_S03",
         unlocked_if="gallery_scene_unlocked('CH03_S03')",
         chars=['Ian', 'Cherry'],
-        scope=merge_two_dicts(cheatScope,lenaCleanBodyScope)
+        scope=merge_two_dicts(lenaPureScope)
     ),
 
     GalleryScene(
@@ -292,7 +292,7 @@ define gallery_scenes = [
         param="gallery_CH03_S04",
         unlocked_if="gallery_scene_unlocked('CH03_S04')",
         chars=['Ian', 'Alison'],
-        scope=merge_two_dicts(cheatScope,lenaCleanBodyScope)
+        scope=merge_two_dicts(lenaPureScope)
     ),
 
     GalleryScene(
@@ -303,12 +303,12 @@ define gallery_scenes = [
         param="gallery_CH03_S05",
         unlocked_if="gallery_scene_unlocked('CH03_S05')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {
+        scope=merge_two_dicts({
             'v3_spy': True,
             'v3_spy_full': True, 
             'v2_ian_date': True,
             'ian_active': False
-        })
+        }, lenaPure=True)
     ),
 
     GalleryScene(
@@ -319,10 +319,10 @@ define gallery_scenes = [
         param="gallery_CH03_S06",
         unlocked_if="gallery_scene_unlocked('CH03_S06')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaCleanBodyScope, {
+        scope=merge_two_dicts({
             'v2_robert_home': True,
             'ian_active': False
-        })
+        }, lenaPure=True)
     ),
 
     ##################################################################################################################
@@ -347,10 +347,10 @@ define gallery_scenes = [
         param="gallery_CH04_S01",
         unlocked_if="gallery_scene_unlocked('CH04_S01')",
         chars=['Lena', 'Seymour'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'lena_posh': 2,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -361,14 +361,14 @@ define gallery_scenes = [
         param="gallery_CH04_S02",
         unlocked_if="gallery_scene_unlocked('CH04_S02')",
         chars=['Lena', 'Axel'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v2_ian_date': True,
             'v3_robert_repeat': False,
             'v3_spy': True,
             'v4_seymour_date': True,
             'seymour_shoot': 4,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -379,7 +379,7 @@ define gallery_scenes = [
         param="gallery_CH04_S03",
         unlocked_if="gallery_scene_unlocked('CH04_S03')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks in Ch 4 if v3_alison_boobjob == True
@@ -430,7 +430,7 @@ define gallery_scenes = [
         param="gallery_CH04_S04",
         unlocked_if="gallery_scene_unlocked('CH04_S04')",
         chars=['Lena', 'Holly', 'Ivy'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -441,7 +441,7 @@ define gallery_scenes = [
         param="gallery_CH04_S06",
         unlocked_if="gallery_scene_unlocked('CH04_S06')",
         chars=['Lena', 'Ian'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     ##################################################################################################################
@@ -456,7 +456,7 @@ define gallery_scenes = [
         param="gallery_CH05_S01",
         unlocked_if="gallery_scene_unlocked('CH05_S01')",
         chars=['Cindy'],
-        scope=merge_two_dicts(cheatScope,lenaNoTattooScope)
+        scope=merge_two_dicts(lenaNoTattooScope)
     ),
 
     GalleryScene(
@@ -467,7 +467,7 @@ define gallery_scenes = [
         param="gallery_CH05_S02",
         unlocked_if="gallery_scene_unlocked('CH05_S02')",
         chars=['Ivy'],
-        scope=merge_two_dicts(cheatScope,lenaNoTattooScope)
+        scope=merge_two_dicts(lenaNoTattooScope)
     ),
 
     GalleryScene(
@@ -478,10 +478,10 @@ define gallery_scenes = [
         param="gallery_CH05_S03",
         unlocked_if="gallery_scene_unlocked('CH05_S03')",
         chars=['Ian', 'Emma'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'alison_jeremy': True,
             'ian_alison_sex': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -492,7 +492,9 @@ define gallery_scenes = [
         param="gallery_CH05_S04",
         unlocked_if="gallery_scene_unlocked('CH05_S04')",
         chars=['Ian', 'Alison'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'v5_perry_club': False})
+        scope=merge_two_dicts({
+            'v5_perry_club': False
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks in Ch 5 if v2_alison_home == False + alison_voyeur == True
@@ -523,10 +525,10 @@ define gallery_scenes = [
         param="gallery_CH05_S05",
         unlocked_if="gallery_scene_unlocked('CH05_S05')",
         chars=['Lena', 'Louise'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v4_confront_louise': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -537,7 +539,7 @@ define gallery_scenes = [
         param="gallery_CH05_S06",
         unlocked_if="gallery_scene_unlocked('CH05_S06')",
         chars=['Lena', 'Mike'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -548,10 +550,10 @@ define gallery_scenes = [
         param="gallery_CH05_S07",
         unlocked_if="gallery_scene_unlocked('CH05_S07') or gallery_scene_unlocked('CH05_S08')",
         chars=['Lena', 'Stan'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v3_stan_shoot': 3,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -562,10 +564,10 @@ define gallery_scenes = [
         param="gallery_CH05_S09",
         unlocked_if="gallery_scene_unlocked('CH05_S09')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v4_robert_sex': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks in Ch 5 if stalkfap_pro > 0
@@ -630,10 +632,10 @@ define gallery_scenes = [
         param="gallery_CH06_S01",
         unlocked_if="gallery_scene_unlocked('CH06_S01')",
         chars=['Ian', 'Alison'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v6_rightaway': 'alison',
             'ian_alison_like': 2
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -644,7 +646,9 @@ define gallery_scenes = [
         param="gallery_CH06_S02",
         unlocked_if="gallery_scene_unlocked('CH06_S02')",
         chars=['Ian', 'Cherry'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'v6_rightaway': 'cherry'})
+        scope=merge_two_dicts({
+            'v6_rightaway': 'cherry'
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -655,7 +659,9 @@ define gallery_scenes = [
         param="gallery_CH06_S03",
         unlocked_if="gallery_scene_unlocked('CH06_S03')",
         chars=['Ian', 'Lena'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'lena_bj': 5})
+        scope=merge_two_dicts({
+            'lena_bj': 5
+        }, lenaNoTattoo=True)
     ),
     
     GalleryScene(
@@ -666,7 +672,9 @@ define gallery_scenes = [
         param="gallery_CH06_S04",
         unlocked_if="gallery_scene_unlocked('CH06_S04')",
         chars=['Ian', 'Minerva'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'holly_gym': True})
+        scope=merge_two_dicts({
+            'holly_gym': True
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks if v6_ian_selfie == True / lena_mike_dating == True / (v6_robert_date == True + v5_robert_sexting == True)
@@ -677,7 +685,7 @@ define gallery_scenes = [
         param="gallery_CH06_S15",
         unlocked_if="gallery_scene_unlocked('CH06_S15')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks if stalkfap == True + v5_shoot == 0
@@ -698,7 +706,7 @@ define gallery_scenes = [
         param="gallery_CH06_S05",
         unlocked_if="gallery_scene_unlocked('CH06_S05')",
         chars=['Lena', 'Holly', 'Ivy'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -709,7 +717,7 @@ define gallery_scenes = [
         param="gallery_CH06_S06",
         unlocked_if="gallery_scene_unlocked('CH06_S06')",
         chars=['Lena', 'Holly', 'Ivy'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -720,7 +728,7 @@ define gallery_scenes = [
         param="gallery_CH06_S07",
         unlocked_if="gallery_scene_unlocked('CH06_S07')",
         chars=['Lena', 'Louise'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks in Ch 6/7 if v6_stalkfap_ivy == True
@@ -741,7 +749,7 @@ define gallery_scenes = [
         param="gallery_CH06_S08",
         unlocked_if="gallery_scene_unlocked('CH06_S08')",
         chars=['Lena', 'Jeremy', 'Louise'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -752,7 +760,7 @@ define gallery_scenes = [
         param="gallery_CH06_S09",
         unlocked_if="gallery_scene_unlocked('CH06_S09')",
         chars=['Lena', 'Mike'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -763,7 +771,7 @@ define gallery_scenes = [
         param="gallery_CH06_S10",
         unlocked_if="gallery_scene_unlocked('CH06_S10')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -774,7 +782,7 @@ define gallery_scenes = [
         param="gallery_CH06_S11",
         unlocked_if="gallery_scene_unlocked('CH06_S11')",
         chars=['Lena', 'Ian'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -785,7 +793,7 @@ define gallery_scenes = [
         param="gallery_CH06_S12",
         unlocked_if="gallery_scene_unlocked('CH06_S12')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -796,7 +804,7 @@ define gallery_scenes = [
         param="gallery_CH06_S13",
         unlocked_if="gallery_scene_unlocked('CH06_S13') or gallery_scene_unlocked('CH06_S14')",
         chars=['Lena', 'Axel', 'Seymour'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks in all branches
@@ -821,7 +829,7 @@ define gallery_scenes = [
         param="gallery_CH07_S01",
         unlocked_if="gallery_scene_unlocked('CH07_S01')",
         chars=['Ian'],
-        scope=merge_two_dicts(cheatScope,lenaNoTattooScope)
+        scope=merge_two_dicts(lenaNoTattooScope)
     ),
 
     GalleryScene(
@@ -832,7 +840,7 @@ define gallery_scenes = [
         param="gallery_CH07_S20",
         unlocked_if="gallery_scene_unlocked('CH07_S20')",
         chars=['Alison', 'Jeremy'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v1_encourage_alison': True,
             'ian_alison_dating': False,
             'ian_alison_sex': False,
@@ -844,7 +852,7 @@ define gallery_scenes = [
             'v2_alison_home': False,
             'alison_voyeur': True,
             'v5_alison_jeremy': True,
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -855,13 +863,13 @@ define gallery_scenes = [
         param="gallery_CH07_S21",
         unlocked_if="gallery_scene_unlocked('CH07_S21')",
         chars=['Cindy'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'ian_cindy_model': True,
             'ian_go_cindy': 3,
             'v5_cindy_shoot': True,
             'wade_cindy': 0,
             'v5_cindy_nude': 2
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -872,7 +880,7 @@ define gallery_scenes = [
         param="gallery_CH07_S02",
         unlocked_if="gallery_scene_unlocked('CH07_S02')",
         chars=['Ian', 'Minerva'],
-        scope=merge_two_dicts(cheatScope,lenaNoTattooScope)
+        scope=merge_two_dicts(lenaNoTattooScope)
     ),
 
     GalleryScene(
@@ -883,7 +891,7 @@ define gallery_scenes = [
         param="gallery_CH07_S03",
         unlocked_if="gallery_scene_unlocked('CH07_S03')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope,lenaNoTattooScope)
+        scope=merge_two_dicts(lenaNoTattooScope)
     ),
 
     GalleryScene(
@@ -894,7 +902,7 @@ define gallery_scenes = [
         param="gallery_CH07_S04",
         unlocked_if="gallery_scene_unlocked('CH07_S04')",
         chars=['Lena', 'Axel'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -905,7 +913,7 @@ define gallery_scenes = [
         param="gallery_CH07_S05",
         unlocked_if="gallery_scene_unlocked('CH07_S05')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -916,7 +924,7 @@ define gallery_scenes = [
         param="gallery_CH07_S06",
         unlocked_if="gallery_scene_unlocked('CH07_S06')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -927,7 +935,7 @@ define gallery_scenes = [
         param="gallery_CH07_S07",
         unlocked_if="gallery_scene_unlocked('CH07_S07')",
         chars=['Lena', 'Ian'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False}, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -938,10 +946,10 @@ define gallery_scenes = [
         param="gallery_CH07_S08",
         unlocked_if="gallery_scene_unlocked('CH07_S08')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_robert_dating': True
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -952,10 +960,10 @@ define gallery_scenes = [
         param="gallery_CH07_S18",
         unlocked_if="gallery_scene_unlocked('CH07_S18')",
         chars=['Lena', 'Ian'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v7_ian_date': True
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -966,10 +974,10 @@ define gallery_scenes = [
         param="gallery_CH07_S19",
         unlocked_if="gallery_scene_unlocked('CH07_S19')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_axel_desire': True
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks if holly_gym == True and v7_talkclubholly == True
@@ -990,7 +998,7 @@ define gallery_scenes = [
         param="gallery_CH07_S09",
         unlocked_if="gallery_scene_unlocked('CH07_S09')",
         chars=['Lena', 'Mike'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v7mikemusic': 'latin',
             'lena_wardrobe_charisma1': True,
             'lena_wardrobe_athletics1': True,
@@ -998,7 +1006,7 @@ define gallery_scenes = [
             'lena_wardrobe_lust1': True,
             'lena_mike_dating': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1009,14 +1017,14 @@ define gallery_scenes = [
         param="gallery_CH07_S10",
         unlocked_if="gallery_scene_unlocked('CH07_S10')",
         chars=['Lena', 'Louise'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'lena_louise_sex': True,
             'lena_wardrobe_charisma1': True,
             'lena_wardrobe_athletics1': True,
             'lena_wardrobe_wits1': True,
             'lena_wardrobe_lust1': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1027,7 +1035,7 @@ define gallery_scenes = [
         param="gallery_CH07_S11",
         unlocked_if="gallery_scene_unlocked('CH07_S11')",
         chars=['Lena', 'Ivy', 'Jeremy', 'Louise'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v3_spy_full': True,
             'lena_bbc': True,
             'lena_axel_desire': True,
@@ -1036,7 +1044,7 @@ define gallery_scenes = [
             'lena_wardrobe_wits1': True,
             'lena_wardrobe_lust1': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1047,10 +1055,10 @@ define gallery_scenes = [
         param="gallery_CH07_S12",
         unlocked_if="gallery_scene_unlocked('CH07_S12')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'stan_simp': 1,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1061,7 +1069,7 @@ define gallery_scenes = [
         param="gallery_CH07_S13",
         unlocked_if="gallery_scene_unlocked('CH07_S13')",
         chars=['Ian', 'Emma'],
-        scope=merge_two_dicts(cheatScope,lenaNoTattooScope)
+        scope=merge_two_dicts(lenaNoTattooScope)
     ),
 
     GalleryScene(
@@ -1072,7 +1080,9 @@ define gallery_scenes = [
         param="gallery_CH07_S14",
         unlocked_if="gallery_scene_unlocked('CH07_S14')",
         chars=['Ian', 'Alison'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'alison_sexy': 2})
+        scope=merge_two_dicts({
+            'alison_sexy': 2
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1083,7 +1093,9 @@ define gallery_scenes = [
         param="gallery_CH07_S15",
         unlocked_if="gallery_scene_unlocked('CH07_S15')",
         chars=['Ian', 'Cindy'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'ian_go_cindy': True})
+        scope=merge_two_dicts({
+            'ian_go_cindy': True
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1094,7 +1106,9 @@ define gallery_scenes = [
         param="gallery_CH07_S16",
         unlocked_if="gallery_scene_unlocked('CH07_S16')",
         chars=['Ian', 'Holly'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {'v7_effort_holly': True})
+        scope=merge_two_dicts({
+            'v7_effort_holly': True
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1105,11 +1119,11 @@ define gallery_scenes = [
         param="gallery_CH07_S17",
         unlocked_if="gallery_scene_unlocked('CH07_S17')",
         chars=['Lena'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v7_game': True,
             'cafe_music': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     ##################################################################################################################
@@ -1124,10 +1138,10 @@ define gallery_scenes = [
         param="gallery_CH08_S01",
         unlocked_if="gallery_scene_unlocked('CH08_S01')",
         chars=['Ian', 'Holly'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v7_holly_bj': True,
             'v7_holly_rough': True
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1138,10 +1152,10 @@ define gallery_scenes = [
         param="gallery_CH08_S02",
         unlocked_if="gallery_scene_unlocked('CH08_S02')",
         chars=['Lena', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v8_robert_public': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene( # Unlocks in all branches
@@ -1172,10 +1186,10 @@ define gallery_scenes = [
         param="gallery_CH08_S03",
         unlocked_if="gallery_scene_unlocked('CH08_S03')",
         chars=['Lena', 'Louise'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'v6_louise_orgasm': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1186,10 +1200,10 @@ define gallery_scenes = [
         param="gallery_CH08_S04",
         unlocked_if="gallery_scene_unlocked('CH08_S04')",
         chars=['Lena', 'Ian', 'Jeremy', 'Mike', 'Robert'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'lena_money': 3,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     ## CH8 - B ##
@@ -1232,10 +1246,10 @@ define gallery_scenes = [
         param="gallery_CH08_S05",
         unlocked_if="gallery_scene_unlocked('CH08_S05')",
         chars=['Ian', 'Minerva'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'ian_minerva_sex': True,
             'v7_minerva_sex': True
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1246,7 +1260,7 @@ define gallery_scenes = [
         param="gallery_CH08_S06",
         unlocked_if="gallery_scene_unlocked('CH08_S06')",
         chars=['Ian', 'Lena'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'ian_lena_sex_late': False,
             'v7_cindy_kiss': False,
             'ian_lena_love': True,
@@ -1254,7 +1268,7 @@ define gallery_scenes = [
             'lena_bj': 4,
             'ian_dirty_talk': 2,
             'lena_wardrobe_wits1': True
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1285,7 +1299,7 @@ define gallery_scenes = [
         param="gallery_CH08_S08",
         unlocked_if="gallery_scene_unlocked('CH08_S08')",
         chars=['Emma', 'Perry'],
-        scope=merge_two_dicts(cheatScope,lenaNoTattooScope)
+        scope=merge_two_dicts(lenaNoTattooScope)
     ),
 
     ## CH8 - C ##
@@ -1298,12 +1312,12 @@ define gallery_scenes = [
         param="gallery_CH08_S09",
         unlocked_if="gallery_scene_unlocked('CH08_S09')",
         chars=['Lena', 'Jeremy'],
-        scope=merge_three_dicts(cheatScope, lenaNoTattooScope, {
+        scope=merge_two_dicts({
             'lena_bbc': True,
             'v3_spy_full': True,
             'v7_bbc_cum': True,
             'ian_active': False
-        })
+        }, lenaNoTattoo=True)
     ),
 
     GalleryScene(
@@ -1314,7 +1328,7 @@ define gallery_scenes = [
         param="gallery_CH08_S10",
         unlocked_if="gallery_scene_unlocked('CH08_S10')",
         chars=['Lena', 'Holly', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_ivy': 5,
             'lena_go_holly': 3,
             'holly_change': 2,
@@ -1334,7 +1348,7 @@ define gallery_scenes = [
         param="gallery_CH08_S12",
         unlocked_if="gallery_scene_unlocked('CH08_S12')",
         chars=['Lena', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'lena_go_holly': 3,
             'holly_change': 2,
             'holly_gym': True,
@@ -1353,7 +1367,7 @@ define gallery_scenes = [
         param="gallery_CH08_S07",
         unlocked_if="gallery_scene_unlocked('CH08_S07')",
         chars=['Ian', 'Emma'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v8_trip': True,
             'v7_emma_bj': True
         })
@@ -1367,7 +1381,7 @@ define gallery_scenes = [
         param="gallery_CH08_S11",
         unlocked_if="gallery_scene_unlocked('CH08_S11')",
         chars=['Lena', 'Mike'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v8_lena_sexting': 'mike',
             'v7_mike_bj': True,
             'mike_dirty_talk': 2,
@@ -1398,7 +1412,7 @@ define gallery_scenes = [
         param="gallery_CH09_S01",
         unlocked_if="gallery_scene_unlocked('CH09_S01')",
         chars=['Ian', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'holly_change': 3,
             'ian_chad': 4,
             'v8_holly_bj': True,
@@ -1414,7 +1428,7 @@ define gallery_scenes = [
         param="gallery_CH09_S13",
         unlocked_if="gallery_scene_unlocked('CH09_S13')",
         chars=['Ian', 'Emma'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -1425,7 +1439,7 @@ define gallery_scenes = [
         param="gallery_CH09_S14",
         unlocked_if="gallery_scene_unlocked('CH09_S14')",
         chars=['Emma', 'Jeremy'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -1436,7 +1450,7 @@ define gallery_scenes = [
         param="gallery_CH09_S02",
         unlocked_if="gallery_scene_unlocked('CH09_S02')",
         chars=['Ian', 'Cherry'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -1453,7 +1467,7 @@ define gallery_scenes = [
         param="gallery_CH09_S03",
         unlocked_if="gallery_scene_unlocked('CH09_S03')",
         chars=['Ian', 'Alison'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'alison_sexy': 2,
             'alison_extras': 1,
             'ian_alison_like': 2,
@@ -1495,7 +1509,7 @@ define gallery_scenes = [
         param="gallery_CH09_S04",
         unlocked_if="gallery_scene_unlocked('CH09_S04')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_lena_couple': True,
             'ian_lena_sex': True,
             'lena_bj': 4,
@@ -1511,7 +1525,7 @@ define gallery_scenes = [
         param="gallery_CH09_S05",
         unlocked_if="gallery_scene_unlocked('CH09_S05')",
         chars=['Alison', 'Billy', 'Jeremy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'alison_sexy': 2,
             'v9alisonphone': True
         })
@@ -1525,7 +1539,7 @@ define gallery_scenes = [
         param="gallery_CH09_S06",
         unlocked_if="gallery_scene_unlocked('CH09_S06')",
         chars=['Axel', 'Cindy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v5_cindy_shoot': True,
             'v5_cindy_nude': 2,
             'v7_axel_date': True,
@@ -1547,7 +1561,7 @@ define gallery_scenes = [
         param="gallery_CH09_S07",
         unlocked_if="gallery_scene_unlocked('CH09_S07')",
         chars=['Ian', 'Cindy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -1583,7 +1597,7 @@ define gallery_scenes = [
         param="gallery_CH09_S08",
         unlocked_if="gallery_scene_unlocked('CH09_S08')",
         chars=['Lena', 'Robert'],
-        scope=merge_two_dicts(cheatScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False})
     ),
 
     GalleryScene(
@@ -1594,7 +1608,7 @@ define gallery_scenes = [
         param="gallery_CH09_S09",
         unlocked_if="gallery_scene_unlocked('CH09_S09')",
         chars=['Lena', 'Mike'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'lena_anal': 2,
             'ian_active': False
         })
@@ -1608,7 +1622,7 @@ define gallery_scenes = [
         param="gallery_CH09_S10",
         unlocked_if="gallery_scene_unlocked('CH09_S10')",
         chars=['Lena', 'Axel'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v6_axel_pose': 3,
             'axel_disposition': 2,
             'axel_pictures_watch': True,
@@ -1625,7 +1639,7 @@ define gallery_scenes = [
         param="gallery_CH09_S11",
         unlocked_if="gallery_scene_unlocked('CH09_S11')",
         chars=['Lena', 'Axel'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v6_axel_pose': 3,
             'axel_disposition': 2,
             'axel_pictures_watch': True,
@@ -1642,7 +1656,7 @@ define gallery_scenes = [
         param="gallery_CH09_S15",
         unlocked_if="gallery_scene_unlocked('CH09_S15')",
         chars=['Holly', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False})
     ),
 
     GalleryScene(
@@ -1653,7 +1667,7 @@ define gallery_scenes = [
         param="gallery_CH09_S12",
         unlocked_if="gallery_scene_unlocked('CH09_S12')",
         chars=['Lena', 'Seymour'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'seymour_disposition': 3,
             'ian_active': False
         })
@@ -1673,7 +1687,7 @@ define gallery_scenes = [
         param="gallery_CH10_S19",
         unlocked_if="gallery_scene_unlocked('CH10_S19')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_lena_couple': True,
             'stalkfap': True,
             'ian_stalkfap': True,
@@ -1751,7 +1765,7 @@ define gallery_scenes = [
         param="gallery_CH10_S04",
         unlocked_if="gallery_scene_unlocked('CH10_S04')",
         chars=['Ian', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -1768,7 +1782,7 @@ define gallery_scenes = [
         param="gallery_CH10_S02",
         unlocked_if="gallery_scene_unlocked('CH10_S02')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -1784,7 +1798,7 @@ define gallery_scenes = [
         param="gallery_CH10_S01",
         unlocked_if="gallery_scene_unlocked('CH10_S01')",
         chars=['Jessica'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v10_text_jess': 3
         })
     ),
@@ -1797,7 +1811,7 @@ define gallery_scenes = [
         param="gallery_CH10_S21",
         unlocked_if="gallery_scene_unlocked('CH10_S21')",
         chars=['Ian', 'Minerva'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -1814,7 +1828,7 @@ define gallery_scenes = [
         param="gallery_CH10_S05",
         unlocked_if="gallery_scene_unlocked('CH10_S05')",
         chars=['Ian', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {'jiujitsu': 4})
+        scope=merge_two_dicts({'jiujitsu': 4})
     ),
 
     GalleryScene(
@@ -1825,7 +1839,7 @@ define gallery_scenes = [
         param="gallery_CH10_S06",
         unlocked_if="gallery_scene_unlocked('CH10_S06')",
         chars=['Ian', 'Emma'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -1845,7 +1859,7 @@ define gallery_scenes = [
         param="gallery_CH10_S20",
         unlocked_if="gallery_scene_unlocked('CH10_S20')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'cafe_help': True,
             'stalkfap': True,
             'ian_stalkfap': 2,
@@ -1866,7 +1880,7 @@ define gallery_scenes = [
         param="gallery_CH10_S03",
         unlocked_if="gallery_scene_unlocked('CH10_S03')",
         chars=['Ian', 'Cindy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v10_text_cindy': True,
             'cindy_satisfaction': 3,
             'v9cindycunnilingus': True
@@ -1891,7 +1905,7 @@ define gallery_scenes = [
         param="gallery_CH10_S07",
         unlocked_if="gallery_scene_unlocked('CH10_S07')",
         chars=['Ian', 'Alison', 'Jeremy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'alison_jeremy_3some': 2
         })
     ),
@@ -1904,7 +1918,7 @@ define gallery_scenes = [
         param="gallery_CH10_S17",
         unlocked_if="gallery_scene_unlocked('CH10_S17')",
         chars=['Ian', 'Alison'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_alison_love': True,
             'v9_alison_trip': True,
             'v10ianshoppedwine': True,
@@ -1932,7 +1946,7 @@ define gallery_scenes = [
         param="gallery_CH10_S18",
         unlocked_if="gallery_scene_unlocked('CH10_S18')",
         chars=['Lena', 'Mike'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v10_lena_sex': 0,
             'lena_mike_love': True,
@@ -1948,7 +1962,7 @@ define gallery_scenes = [
         param="gallery_CH10_S12",
         unlocked_if="gallery_scene_unlocked('CH10_S12')",
         chars=['Lena', 'Louise'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v5_louise_orgasm': True,
             'v6_louise_orgasm': True,
@@ -1964,7 +1978,7 @@ define gallery_scenes = [
         param="gallery_CH10_S15",
         unlocked_if="gallery_scene_unlocked('CH10_S15')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v10_axel_text': 1,
             'v9_axel_sex': True
@@ -1979,7 +1993,7 @@ define gallery_scenes = [
         param="gallery_CH10_S08",
         unlocked_if="gallery_scene_unlocked('CH10_S08')",
         chars=['Lena', 'Holly', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_go_holly': 4
         })
@@ -2003,7 +2017,7 @@ define gallery_scenes = [
         param="gallery_CH10_S09",
         unlocked_if="gallery_scene_unlocked('CH10_S09')",
         chars=['Lena', 'Ian', 'Mark', 'Mike'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v10_lena_drug': True,
             'billy_model': True,
@@ -2028,7 +2042,7 @@ define gallery_scenes = [
         param="gallery_CH10_S10",
         unlocked_if="gallery_scene_unlocked('CH10_S10')",
         chars=['Lena', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v10_lena_drug': True,
             'v8_holly_sex': 'lenaivy'
@@ -2043,7 +2057,7 @@ define gallery_scenes = [
         param="gallery_CH10_S13",
         unlocked_if="gallery_scene_unlocked('CH10_S13')",
         chars=['Lena', 'Ian', 'Mike', 'Stan'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_wardrobe_bunny': True,
             'lena_wardrobe_lingerie': True,
@@ -2059,7 +2073,7 @@ define gallery_scenes = [
         param="gallery_CH10_S14",
         unlocked_if="gallery_scene_unlocked('CH10_S14')",
         chars=['Lena', "Seymour"],
-        scope=merge_two_dicts(cheatScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False})
     ),
 
     GalleryScene(
@@ -2070,7 +2084,7 @@ define gallery_scenes = [
         param="gallery_CH10_S11",
         unlocked_if="gallery_scene_unlocked('CH10_S11')",
         chars=['Lena', 'Jeremy','Louise'],
-        scope=merge_two_dicts(cheatScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False})
     ),
 
     ##################################################################################################################
@@ -2086,7 +2100,7 @@ define gallery_scenes = [
         param="gallery_CH11_S01",
         unlocked_if="gallery_scene_unlocked('CH11_S01')",
         chars=['Lena', 'Louise'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'toy_double': True
         })
@@ -2100,7 +2114,7 @@ define gallery_scenes = [
         param="gallery_CH11_S02",
         unlocked_if="gallery_scene_unlocked('CH11_S02')",
         chars=['Lena', 'Ian'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v11iandinner': True,
             'cafe_help': True
@@ -2116,7 +2130,7 @@ define gallery_scenes = [
         param="gallery_CH11_S03",
         unlocked_if="gallery_scene_unlocked('CH11_S03')",
         chars=['Gillian'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2127,7 +2141,7 @@ define gallery_scenes = [
         param="gallery_CH11_S04",
         unlocked_if="gallery_scene_unlocked('CH11_S04')",
         chars=['Ian', 'Cindy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_cindy_love': True,
             'v10_cindy_bj': True
         })
@@ -2141,7 +2155,7 @@ define gallery_scenes = [
         param="gallery_CH11_S05",
         unlocked_if="gallery_scene_unlocked('CH11_S05')",
         chars=['Ian', 'Holly'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2152,7 +2166,7 @@ define gallery_scenes = [
         param="gallery_CH11_S06",
         unlocked_if="gallery_scene_unlocked('CH11_S06')",
         chars=['Ian', 'Alison'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -2168,7 +2182,7 @@ define gallery_scenes = [
         param="gallery_CH11_S07",
         unlocked_if="gallery_scene_unlocked('CH11_S07')",
         chars=['Ian', 'Cherry'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_cherry_love': True,
             'v6_cherry_anal': 2,
             'ian_wardrobe_wits1': True,
@@ -2186,7 +2200,7 @@ define gallery_scenes = [
         param="gallery_CH11_S08",
         unlocked_if="gallery_scene_unlocked('CH11_S08')",
         chars=['Ian', 'Alison'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_wardrobe_wits1': True,
             'ian_wardrobe_charisma1': True,
             'ian_wardrobe_athletics1': True,
@@ -2203,7 +2217,7 @@ define gallery_scenes = [
         param="gallery_CH11_S09",
         unlocked_if="gallery_scene_unlocked('CH11_S09')",
         chars=['Ian', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_holly_love': True,
             'holly_gym': True
         })
@@ -2217,7 +2231,7 @@ define gallery_scenes = [
         param="gallery_CH11_S10",
         unlocked_if="gallery_scene_unlocked('CH11_S10')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_lena_dating': True
         })
     ),
@@ -2231,7 +2245,7 @@ define gallery_scenes = [
         param="gallery_CH11_S11",
         unlocked_if="gallery_scene_unlocked('CH11_S11')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'ian_lena_dating': True,
             'lena_mike_dating': True,
@@ -2254,7 +2268,7 @@ define gallery_scenes = [
         param="gallery_CH11_S11b",
         unlocked_if="gallery_scene_unlocked('CH11_S11b')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'stalkfap': True,
             'stalkfap_pro': 2,
@@ -2272,7 +2286,7 @@ define gallery_scenes = [
         param="gallery_CH11_S11c",
         unlocked_if="gallery_scene_unlocked('CH11_S11c')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_anal': 2
         })
@@ -2286,7 +2300,7 @@ define gallery_scenes = [
         param="gallery_CH11_S13",
         unlocked_if="gallery_scene_unlocked('CH11_S13')",
         chars=['Lena', 'Mike'],
-        scope=merge_two_dicts(cheatScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False})
     ),
 
     GalleryScene(
@@ -2297,7 +2311,7 @@ define gallery_scenes = [
         param="gallery_CH11_S14",
         unlocked_if="gallery_scene_unlocked('CH11_S14')",
         chars=['Lena', 'Robert'],
-        scope=merge_two_dicts(cheatScope, {'ian_active': False})
+        scope=merge_two_dicts({'ian_active': False})
     ),
 
     GalleryScene(
@@ -2318,7 +2332,7 @@ define gallery_scenes = [
         param="gallery_CH11_S15",
         unlocked_if="gallery_scene_unlocked('CH11_S15')",
         chars=['Lena', 'Holly', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'ian_minerva_sex': True,
             'holly_gym': True,
@@ -2335,7 +2349,7 @@ define gallery_scenes = [
         param="gallery_CH11_S16",
         unlocked_if="gallery_scene_unlocked('CH11_S16')",
         chars=['Lena', 'Holly', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'ian_minerva_sex': True,
             'holly_gym': True
@@ -2350,7 +2364,7 @@ define gallery_scenes = [
         param="gallery_CH11_S16b",
         unlocked_if="gallery_scene_unlocked('CH11_S16b')",
         chars=['Lena', 'Ivy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'ian_minerva_sex': True,
             'holly_gym': True,
@@ -2366,7 +2380,7 @@ define gallery_scenes = [
         param="gallery_CH11_S17",
         unlocked_if="gallery_scene_unlocked('CH11_S17')",
         chars=['Lena', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_holly_dating': True,
             'ian_holly_dating': False
@@ -2381,7 +2395,7 @@ define gallery_scenes = [
         param="gallery_CH11_S18",
         unlocked_if="gallery_scene_unlocked('CH11_S18')",
         chars=['Lena', 'Louise', 'Ian'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'ian_lena_couple': True
         })
@@ -2395,7 +2409,7 @@ define gallery_scenes = [
         param="gallery_CH11_S19",
         unlocked_if="gallery_scene_unlocked('CH11_S19')",
         chars=['Lena', 'Louise', 'Mike'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_mike_love': True
         })
@@ -2419,7 +2433,7 @@ define gallery_scenes = [
         param="gallery_CH11_S20",
         unlocked_if="gallery_scene_unlocked('CH11_S20')",
         chars=['Lena', 'Seymour'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_wardrobe_charisma1': True,
             'lena_wardrobe_black_dress': True,
@@ -2437,7 +2451,7 @@ define gallery_scenes = [
         param="gallery_CH11_S21",
         unlocked_if="gallery_scene_unlocked('CH11_S21')",
         chars=['Lena', 'Emma'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v11_lena_dress': 4,
             'v11_emma_date': True
@@ -2452,7 +2466,7 @@ define gallery_scenes = [
         param="gallery_CH11_S22",
         unlocked_if="gallery_scene_unlocked('CH11_S22')",
         chars=['Lena', 'Jeremy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'v11sms2_jeremy': True,
             'lena_jeremy_sex': True
@@ -2467,7 +2481,7 @@ define gallery_scenes = [
         param="gallery_CH11_S23",
         unlocked_if="gallery_scene_unlocked('CH11_S23')",
         chars=['Lena', 'Marcel'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False
         })
     ),
@@ -2480,7 +2494,7 @@ define gallery_scenes = [
         param="gallery_CH11_S24",
         unlocked_if="gallery_scene_unlocked('CH11_S24')",
         chars=['Lena', 'Axel'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'axel_disposition': 3,
             'lena_axel_desire': True,
@@ -2497,7 +2511,7 @@ define gallery_scenes = [
         param="gallery_CH11_S27",
         unlocked_if="gallery_scene_unlocked('CH11_S27')",
         chars=['Lena', 'Jack'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False
         })
     ),
@@ -2510,7 +2524,7 @@ define gallery_scenes = [
         param="gallery_CH11_S25",
         unlocked_if="gallery_scene_unlocked('CH11_S25')",
         chars=['Lena', 'Mark'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'stalkfap_pro': True,
             'lena_anal': 2,
@@ -2526,7 +2540,7 @@ define gallery_scenes = [
         param="gallery_CH11_S26",
         unlocked_if="gallery_scene_unlocked('CH11_S26')",
         chars=['Lena', 'Ian'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False
         })
     ),
@@ -2543,7 +2557,7 @@ define gallery_scenes = [
         param="gallery_CH12_S01",
         unlocked_if="gallery_scene_unlocked('CH12_S01')",
         chars=['Ian', 'Cherry'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_cherry_love': True
         })
     ),
@@ -2576,7 +2590,7 @@ define gallery_scenes = [
         param="gallery_CH12_S02",
         unlocked_if="gallery_scene_unlocked('CH12_S02')",
         chars=['Ian', 'Minerva'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2587,7 +2601,7 @@ define gallery_scenes = [
         param="gallery_CH12_S03",
         unlocked_if="gallery_scene_unlocked('CH12_S03')",
         chars=['Ian', 'Cindy'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2598,7 +2612,7 @@ define gallery_scenes = [
         param="gallery_CH12_S04",
         unlocked_if="gallery_scene_unlocked('CH12_S04')",
         chars=['Ian', 'Alison'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2609,7 +2623,7 @@ define gallery_scenes = [
         param="gallery_CH12_S05",
         unlocked_if="gallery_scene_unlocked('CH12_S05')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'lena_wardrobe_bunny': True,
             'lena_wardrobe_lingerie': True
         })
@@ -2623,7 +2637,7 @@ define gallery_scenes = [
         param="gallery_CH12_S06",
         unlocked_if="gallery_scene_unlocked('CH12_S06')",
         chars=['Ian', 'Jessica'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v10_jess_porn': True
         })
     ),
@@ -2658,7 +2672,7 @@ define gallery_scenes = [
         param="gallery_CH12_S07",
         unlocked_if="gallery_scene_unlocked('CH12_S07')",
         chars=['Holly', 'Clark', 'Robert'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'holly_gym': True,
             'holly_slut': True
@@ -2673,7 +2687,7 @@ define gallery_scenes = [
         param="gallery_CH12_S08",
         unlocked_if="gallery_scene_unlocked('CH12_S08')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False
         })
     ),
@@ -2686,7 +2700,7 @@ define gallery_scenes = [
         param="gallery_CH12_S09",
         unlocked_if="gallery_scene_unlocked('CH12_S09')",
         chars=['Lena', 'Axel'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v9_axel_sex': True,
             'ian_active': False
         })
@@ -2702,7 +2716,7 @@ define gallery_scenes = [
         param="gallery_CH12_S10",
         unlocked_if="gallery_scene_unlocked('CH12_S10')",
         chars=['Ian', 'Holly'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2713,7 +2727,7 @@ define gallery_scenes = [
         param="gallery_CH12_S11",
         unlocked_if="gallery_scene_unlocked('CH12_S11')",
         chars=['Ian', 'Emma'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_emma_sex': True
         })
     ),
@@ -2726,7 +2740,7 @@ define gallery_scenes = [
         param="gallery_CH12_S12",
         unlocked_if="gallery_scene_unlocked('CH12_S12')",
         chars=['Holly'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2737,7 +2751,7 @@ define gallery_scenes = [
         param="gallery_CH12_S13",
         unlocked_if="gallery_scene_unlocked('CH12_S13')",
         chars=['Ian', 'Emma'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v12_emma_dress': 3,
             'emma_bikini': True
         })
@@ -2751,7 +2765,7 @@ define gallery_scenes = [
         param="gallery_CH12_S14",
         unlocked_if="gallery_scene_unlocked('CH12_S14')",
         chars=['Ian', 'Holly'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2762,7 +2776,7 @@ define gallery_scenes = [
         param="gallery_CH12_S15",
         unlocked_if="gallery_scene_unlocked('CH12_S15')",
         chars=['Ian', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_holly_love': True,
             'v12_holly_sea_sex': True,
             'v12_holly_sex1': True
@@ -2777,7 +2791,7 @@ define gallery_scenes = [
         param="gallery_CH12_S16",
         unlocked_if="gallery_scene_unlocked('CH12_S16')",
         chars=['Ian', 'Lena'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2788,7 +2802,7 @@ define gallery_scenes = [
         param="gallery_CH12_S17",
         unlocked_if="gallery_scene_unlocked('CH12_S17')",
         chars=['Ian', 'Emma'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_emma_sex': True,
             'v12_emma_sex1': True,
             'v12_emma_sunscreen': 2
@@ -2803,7 +2817,7 @@ define gallery_scenes = [
         param="gallery_CH12_S18",
         unlocked_if="gallery_scene_unlocked('CH12_S18')",
         chars=['Ian', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v12_holly_sea_sex': True,
             'v12_holly_sex2': True,
             'holly_trinity': 2
@@ -2818,7 +2832,7 @@ define gallery_scenes = [
         param="gallery_CH12_S19",
         unlocked_if="gallery_scene_unlocked('CH12_S19')",
         chars=['Ian', 'Lena'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2829,7 +2843,7 @@ define gallery_scenes = [
         param="gallery_CH12_S20",
         unlocked_if="gallery_scene_unlocked('CH12_S20')",
         chars=['Louise'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2840,7 +2854,7 @@ define gallery_scenes = [
         param="gallery_CH12_S21",
         unlocked_if="gallery_scene_unlocked('CH12_S21')",
         chars=['Ivy'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     # 12c
@@ -2853,7 +2867,7 @@ define gallery_scenes = [
         param="gallery_CH12_S22",
         unlocked_if="gallery_scene_unlocked('CH12_S22')",
         chars=['Lena', 'Ian', 'Perry', 'Wade'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2864,7 +2878,7 @@ define gallery_scenes = [
         param="gallery_CH12_S23",
         unlocked_if="gallery_scene_unlocked('CH12_S23')",
         chars=['Lena', 'Emma', 'Holly', 'Wade'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v12_fireworks': True,
             'v11_emma_pics': True
         })
@@ -2898,7 +2912,7 @@ define gallery_scenes = [
         param="gallery_CH12_S26",
         unlocked_if="gallery_scene_unlocked('CH12_S26')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v10_stalkfap': 'ian',
             'lena_bikini': 3,
             'v12_lena_bikini': 3,
@@ -2916,7 +2930,7 @@ define gallery_scenes = [
         param="gallery_CH12_S27",
         unlocked_if="gallery_scene_unlocked('CH12_S27')",
         chars=['Cindy'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_fit': True,
             'cindy_ass': True,
             'cindy_satisfaction': 4,
@@ -2945,7 +2959,7 @@ define gallery_scenes = [
         param="gallery_CH12_S29",
         unlocked_if="gallery_scene_unlocked('CH12_S29')",
         chars=['Ian', 'Emma'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'lena_background': 'wits',
             'v12_emma_sex2': True
         })
@@ -2959,7 +2973,7 @@ define gallery_scenes = [
         param="gallery_CH12_S30",
         unlocked_if="gallery_scene_unlocked('CH12_S30')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v11_lena_squirt': True,
             'v12_lena_squirt': True
         })
@@ -2973,7 +2987,7 @@ define gallery_scenes = [
         param="gallery_CH12_S31",
         unlocked_if="gallery_scene_unlocked('CH12_S31')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_lena_couple': True,
             'ian_chad': 5
         })
@@ -2987,7 +3001,7 @@ define gallery_scenes = [
         param="gallery_CH12_S32",
         unlocked_if="gallery_scene_unlocked('CH12_S32')",
         chars=['Emma', 'Perry'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     GalleryScene(
@@ -2998,7 +3012,7 @@ define gallery_scenes = [
         param="gallery_CH12_S33",
         unlocked_if="gallery_scene_unlocked('CH12_S33')",
         chars=['Ian', 'Lena'],
-        scope=cheatScope
+        scope=coreScope
     ),
 
     #GalleryScene(
@@ -3010,7 +3024,7 @@ define gallery_scenes = [
     #    # param="gallery_CH12_S34",
     #    unlocked_if="gallery_scene_unlocked('CH12_S34')",
     #    chars=['Ian', 'Holly'],
-    #    scope=merge_two_dicts(cheatScope, {
+    #    scope=merge_two_dicts({
     #        'ian_holly_love': True,
     #        'v12_gift': 'holly'
     #    })
@@ -3024,7 +3038,7 @@ define gallery_scenes = [
         param="gallery_CH12_S35",
         unlocked_if="gallery_scene_unlocked('CH12_S35')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'lena_fty_bbc': True,
             'lena_mike_dating': True,
             'v11_mark_sex': True,
@@ -3041,7 +3055,7 @@ define gallery_scenes = [
         param="gallery_CH12_S36",
         unlocked_if="gallery_scene_unlocked('CH12_S36')",
         chars=['Ian', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_chad': 5,
         })
     ),
@@ -3054,7 +3068,7 @@ define gallery_scenes = [
         param="gallery_CH12_S37",
         unlocked_if="gallery_scene_unlocked('CH12_S37')",
         chars=['Ian', 'Holly', 'Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'v12_never_ever': True,
             'holly_trinity': 2
         })
@@ -3068,7 +3082,7 @@ define gallery_scenes = [
         param="gallery_CH12_S38",
         unlocked_if="gallery_scene_unlocked('CH12_S38')",
         chars=['Ian', 'Holly'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'holly_slut': True
         })
     ),
@@ -3091,7 +3105,7 @@ define gallery_scenes = [
         param="gallery_CH12_S41",
         unlocked_if="gallery_scene_unlocked('CH12_S41')",
         chars=['Cherry'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_cherry_love': True,
             'v12_cherry_dom': True,
             'v12_moon_text': 'cherry'
@@ -3115,12 +3129,12 @@ define gallery_scenes = [
     GalleryScene(
         kind="scene",
         chapter=13,
-        name=_("Seymour joins Lena in front of the camera"),
+        name=_("Lena joins Seymour in front of the camera"),
         img = "v13_seymour_pose2.webp",
         param="gallery_CH13_S01",
         unlocked_if="gallery_scene_unlocked('CH13_S01')",
         chars=['Lena', "Seymour"],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_travel': 'italy',
             'lena_posh': 4,
@@ -3138,7 +3152,7 @@ define gallery_scenes = [
         param="gallery_CH13_S02",
         unlocked_if="gallery_scene_unlocked('CH13_S02')",
         chars=['Lena'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'lena_posh': 4,
             'seymour_desire': True
@@ -3153,7 +3167,7 @@ define gallery_scenes = [
         param="gallery_CH13_S03",
         unlocked_if="gallery_scene_unlocked('CH13_S03')",
         chars=['Lena', 'Seymour'],
-        scope=merge_two_dicts(cheatScope, {
+        scope=merge_two_dicts({
             'ian_active': False,
             'seymour_desire': True
         })
@@ -3174,7 +3188,8 @@ define gallery_scenes = [
     #     param= "gallery_WIP",
     #     unlocked_if="gallery_scene_unlocked('CH13_S01')",
     #     chars=[''],
-    #     scope=cheatScope
+    #     scope=merge_two_dicts({
+    #     })
     # ),
 
     ## BASIC IMAGE TEMPLATE ########################################################

@@ -1336,6 +1336,7 @@ label gallVar_seymour_disposition:
     $ flena = "smile"
     $ fseymour = "smile"
     $ lena_look = "wits"
+    $ lena_necklace = "seymour"
     $ seymour_look = 1
 
     scene seymourofficenight
@@ -1360,8 +1361,10 @@ label gallVar_seymour_disposition:
 
             $ fseymour = "n"
             $ flena = "worried"
+
     scene blackbg
     with long
+    $ lena_necklace = False
 return
 
 label gallVar_v13_seymour_shoot:
@@ -1378,10 +1381,14 @@ label gallVar_v13_seymour_shoot:
     with short
     menu:
         gal "How did Lena behave during Seymour's Vanity Fair shoot?"
-        "She refused to pose for the shoot":
-            $ v13_seymour_shoot = 0
+        "{image=icon_athletics.webp}She took control":
+            $ v13_seymour_shoot = 2
 
-        "She followed Seymour's lead":
+            scene v13_seymour_pose3
+            with long
+            pause 2
+
+        "{image=icon_wits.webp}She followed Seymour's lead":
             $ v13_seymour_shoot = 1
 
             scene v13_seymour_pose2
@@ -1397,7 +1404,7 @@ label gallVar_v13_seymour_shoot:
             pause 2
             menu:
                 gal "Did she pull Seymour by his tie?"
-                "Yes, she did":
+                "{image=icon_athletics.webp}Yes, she did":
                     scene v13_seymour_pose3
                     with long
                     pause 2
@@ -1407,17 +1414,13 @@ label gallVar_v13_seymour_shoot:
                 "No, she didn't":
                     pass
 
-        "She took control":
-            $ v13_seymour_shoot = 2
-
-            scene v13_seymour_pose3
-            with long
-            pause 2
+        "She refused to pose for the shoot":
+            $ v13_seymour_shoot = 0
 
     if v13_seymour_shoot > 1:
         menu:
             gal "Did she ask Seymour to touch her?"
-            "Yes, she did":
+            "{image=icon_lust.webp}Yes, she did":
                 scene v13_seymour_pose3
                 show v13_seymour_pose3_hand
                 with long
@@ -1430,4 +1433,6 @@ label gallVar_v13_seymour_shoot:
 
     scene blackbg
     with long
+    $ lena_look = 1
+    $ lena_makeup = 0
 return

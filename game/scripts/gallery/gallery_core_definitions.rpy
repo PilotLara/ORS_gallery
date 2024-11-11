@@ -6,15 +6,30 @@ init offset = -2
 
 define gallery_characters = [None, 'Lena', 'Ian', 'Alison', 'Axel', 'Billy', 'Cherry', 'Cindy', 'Emma', 'Gillian', 'Holly', 'Ivy', 'Jeremy', 'Jessica', 'Louise', 'Marcel', 'Mark', 'Mike', 'Minerva', 'Robert', 'Seymour', 'Stan']
 
-init python:
-    def merge_two_dicts(x, y):
-        z = x.copy()   # start with keys and values of x
-        z.update(y)    # modifies z with keys and values of y
-        return z
+default persistent.gall_lena_tattoo1 = False
+default persistent.gall_lena_tattoo2 = False
+default persistent.gall_lena_tattoo3 = False
+default persistent.gall_lena_piercing1 = False
+default persistent.gall_lena_piercing2 = False
 
-    def merge_three_dicts(w, x, y):
-        z = w.copy()
-        z.update(x)
+init python:
+    def merge_two_dicts(y, lenaPure=False, lenaNoTattoo=False):
+        z = coreScope.copy()        # make dict z a copy of coreScope dict
+        if not (lenaPure or lenaNoTattoo):
+            if persistent.gall_lena_tattoo1:
+                z.update({'lena_tattoo1': True})
+            if persistent.gall_lena_tattoo2:
+                z.update({'lena_tattoo2': True})
+            if persistent.gall_lena_tattoo3:
+                z.update({'lena_tattoo3': True})
+            if persistent.gall_lena_piercing1:
+                z.update({'lena_piercing1': True})
+            elif persistent.gall_lena_piercing2:
+                z.update({'lena_piercing2': True})
+        elif lenaPure:
+            z.update(lenaPureScope)
+        elif lenaNoTattoo:
+            z.update(lenaNoTattooScope)
         z.update(y)
         return z
 
@@ -28,45 +43,50 @@ init python:
 
         return scenes
 
-define cheatScope = {
-    # IAN
+define coreScope = {
+    ############## IAN ##############
     'ian_active': True,
-    # IAN STATS
+
+    # IAN STATS #
     'ian_wits': 99,
     'ian_charisma': 99,
     'ian_athletics': 99,
     'ian_lust': 99,
     'ian_will': 2,
     'ian_money': 50,
-    # IAN RELATIONSHIPS
-    'ian_perry': 12,
-    'ian_lena': 12,
-    'ian_cindy': 12,
-    'ian_wade': 12,
-    'ian_alison': 12,
-    'ian_holly': 12,
-    'ian_jeremy': 12,
-    'ian_emma': 12,
-    'ian_louise': 12,
-    'ian_ivy': 12,
+
+    # IAN MALE RELATIONSHIPS
     'ian_axel': 12,
+    'ian_clark': 12,
+    'ian_dad': 12,
+    'ian_jeremy': 12,
+    'ian_mark': 12,
+    'ian_mike': 12,
+    'ian_perry': 12,
+    'ian_robert': 12,
     'ian_seymour': 12,
     'ian_stan': 12,
-    'ian_default': 12,
-    'ian_minerva': 12,
+    'ian_wade': 12,
     'ian_wen': 12,
-    'ian_robert': 12,
-    'ian_mark': 12,
-    'ian_cherry': 12,
-    'ian_lola': 12,
-    'ian_dad': 12,
-    'ian_gillian': 12,
     'ian_yuri': 12,
-    'ian_mike': 12,
+
+    # IAN FEMALE RELATIONSHIPS
+    'ian_lena': 12,
+    'ian_alison': 12,
+    'ian_cherry': 12,
+    'ian_cindy': 12,
+    'ian_gillian': 12,
+    'ian_emma': 12,
+    'ian_holly': 12,
+    'ian_ivy': 12,
     'ian_jess': 12,
+    'ian_lola': 12,
+    'ian_louise': 12,
+    'ian_minerva': 12,
     'ian_nat': 12,
-    'ian_clark': 12,
-    # LENA
+
+    ############## LENA ##############
+
     # LENA STATS
     'lena_wits': 99,
     'lena_charisma': 99,
@@ -74,43 +94,40 @@ define cheatScope = {
     'lena_lust': 99,
     'lena_will': 2,
     'lena_money': 50,
-    # LENA RELATIONSHIPS
-    'lena_perry': 12,
-    'lena_cindy': 12,
-    'lena_wade': 12,
-    'lena_alison': 12,
-    'lena_holly': 12,
-    'lena_jeremy': 12,
-    'lena_emma': 12,
-    'lena_louise': 12,
-    'lena_ivy': 12,
+
+    # LENA MALE RELATIONSHIPS
+    'lena_arthur': 12,
     'lena_axel': 12,
+    'lena_lenadad': 12,
+    'lena_danny': 12,
+    'lena_ed': 12,
+    'lena_jeremy': 12,
+    'lena_mark': 12,
+    'lena_mike': 12,
+    'lena_perry': 12,
+    'lena_producer': 12,
+    'lena_robert': 12,
     'lena_seymour': 12,
     'lena_stan': 12,
-    'lena_default': 12,
-    'lena_ed': 12,
-    'lena_molly': 12,
-    'lena_robert': 12,
-    'lena_mark': 12,
-    'lena_danny': 12,
-    'lena_lenamom': 12,
-    'lena_lenadad': 12,
-    'lena_cherry': 12,
-    'lena_producer': 12,
-    'lena_lola': 12,
-    'lena_gillian': 12,
-    'lena_mike': 12,
+    'lena_wade': 12,
+
+    # LENA FEMALE RELATIONSHIPS
     'lena_agnes': 12,
+    'lena_alison': 12,
+    'lena_cherry': 12,
+    'lena_cindy': 12,
+    'lena_emma': 12,
+    'lena_gillian': 12,
+    'lena_holly': 12,
+    'lena_ivy': 12,
     'lena_jess': 12,
-    # LENA BODY MODS // EDIT HERE
-    'lena_piercing1': False,    # Barbell piercing
-    'lena_piercing2': False,    # Bowknot piercing
-    'lena_tattoo1': False,      # Small Hip Tattoo
-    'lena_tattoo2': False,      # Medium Shoulder Tattoo
-    'lena_tattoo3': False       # Big Thigh Tattoo
+    'lena_lola': 12,
+    'lena_louise': 12,
+    'lena_molly': 12,
+    'lena_lenamom': 12
 }
 
-define lenaCleanBodyScope = { # DO NOT EDIT // USED TO PROTECT IMG CONTINUITY IN CHAPTERS BEFORE LENA GOT PIERCINGS/TATTOO
+define lenaPureScope = { # DO NOT EDIT // USED TO PROTECT IMG CONTINUITY IN CHAPTERS BEFORE LENA GOT PIERCINGS/TATTOO
     'lena_piercing1': False,
     'lena_piercing2': False,
     'lena_tattoo1': False,
@@ -124,7 +141,7 @@ define lenaNoTattooScope = { # DO NOT EDIT // USED TO PROTECT IMG CONTINUITY IN 
     'lena_tattoo3': False
 }
 
-default gall_lena_look = 1
+default gall_lena_look = 1 # used for scene setup with two Lenas
 default gall_flena = "n"
 
 ############################################################################################################################################################################

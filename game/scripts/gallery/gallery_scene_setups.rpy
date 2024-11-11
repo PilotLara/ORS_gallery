@@ -10806,6 +10806,9 @@ label setup_CH13_S03:
             $ flena = "smile"
             l "I'm going with this one. This color definitely suits me best."
 
+    scene blackbg
+    with long
+
     $ flena = "crazy"
     $ lena_makeup = 0
     $ lena_necklace = "seymour3"
