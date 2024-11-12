@@ -1447,7 +1447,7 @@ define gallery_scenes = [
         param="gallery_CH09_S13",
         unlocked_if="gallery_scene_unlocked('CH09_S13')",
         chars=['Ian', 'Emma'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -1458,7 +1458,7 @@ define gallery_scenes = [
         param="gallery_CH09_S14",
         unlocked_if="gallery_scene_unlocked('CH09_S14')",
         chars=['Emma', 'Jeremy'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2155,7 +2155,7 @@ define gallery_scenes = [
         param="gallery_CH11_S03",
         unlocked_if="gallery_scene_unlocked('CH11_S03')",
         chars=['Gillian'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2182,7 +2182,7 @@ define gallery_scenes = [
         param="gallery_CH11_S05",
         unlocked_if="gallery_scene_unlocked('CH11_S05')",
         chars=['Ian', 'Holly'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2631,7 +2631,7 @@ define gallery_scenes = [
         param="gallery_CH12_S02",
         unlocked_if="gallery_scene_unlocked('CH12_S02')",
         chars=['Ian', 'Minerva'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2643,7 +2643,7 @@ define gallery_scenes = [
         param="gallery_CH12_S03",
         unlocked_if="gallery_scene_unlocked('CH12_S03')",
         chars=['Ian', 'Cindy'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2655,7 +2655,7 @@ define gallery_scenes = [
         param="gallery_CH12_S04",
         unlocked_if="gallery_scene_unlocked('CH12_S04')",
         chars=['Ian', 'Alison'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2762,7 +2762,7 @@ define gallery_scenes = [
         param="gallery_CH12_S10",
         unlocked_if="gallery_scene_unlocked('CH12_S10')",
         chars=['Ian', 'Holly'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2788,7 +2788,7 @@ define gallery_scenes = [
         param="gallery_CH12_S12",
         unlocked_if="gallery_scene_unlocked('CH12_S12')",
         chars=['Holly'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2815,7 +2815,7 @@ define gallery_scenes = [
         param="gallery_CH12_S14",
         unlocked_if="gallery_scene_unlocked('CH12_S14')",
         chars=['Ian', 'Holly'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2843,7 +2843,7 @@ define gallery_scenes = [
         param="gallery_CH12_S16",
         unlocked_if="gallery_scene_unlocked('CH12_S16')",
         chars=['Ian', 'Lena'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2887,7 +2887,7 @@ define gallery_scenes = [
         param="gallery_CH12_S19",
         unlocked_if="gallery_scene_unlocked('CH12_S19')",
         chars=['Ian', 'Lena'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2898,7 +2898,7 @@ define gallery_scenes = [
         param="gallery_CH12_S20",
         unlocked_if="gallery_scene_unlocked('CH12_S20')",
         chars=['Louise'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -2909,7 +2909,7 @@ define gallery_scenes = [
         param="gallery_CH12_S21",
         unlocked_if="gallery_scene_unlocked('CH12_S21')",
         chars=['Ivy'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     # 12c
@@ -2923,7 +2923,7 @@ define gallery_scenes = [
         param="gallery_CH12_S22",
         unlocked_if="gallery_scene_unlocked('CH12_S22')",
         chars=['Lena', 'Ian', 'Perry', 'Wade'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -3058,7 +3058,7 @@ define gallery_scenes = [
         param="gallery_CH12_S32",
         unlocked_if="gallery_scene_unlocked('CH12_S32')",
         chars=['Emma', 'Perry'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     GalleryScene(
@@ -3069,7 +3069,7 @@ define gallery_scenes = [
         param="gallery_CH12_S33",
         unlocked_if="gallery_scene_unlocked('CH12_S33')",
         chars=['Ian', 'Lena'],
-        scope=coreScope
+        scope=merge_two_dicts(coreScope)
     ),
 
     #GalleryScene(

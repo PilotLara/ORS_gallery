@@ -214,7 +214,7 @@ screen navigation_gallery(selected_char=None, char_page=1, chapter=0, page=1):
                 imagebutton:
                     auto "gui/gm_controls_%s.webp" #ToDO Placeholder
                     hovered Play("ch_one", "sfx/paper_hover.mp3")
-                    action Play("ch_three", "sfx/paper_click.mp3")# , ShowMenu('screen_gallery_customisation')
+                    action Play("ch_three", "sfx/paper_click.mp3"), ShowMenu('screen_gallery_customisation')
 
             fixed:
                 xysize (258, 95)
@@ -244,3 +244,17 @@ style navigation_gallery_chapter_button is button:
 
 style navigation_gallery_chapter_button_text is gui_label_text:
     xalign 0.5
+
+screen navigation_gallery_customisation():
+    style_prefix "navigation"
+
+    frame:
+        vbox:
+            fixed:
+                xysize (258, 95)
+                xalign 0.5
+                imagebutton:
+                    auto "gui/gm_gallery_%s.webp"
+                    hovered Play("ch_one", "sfx/paper_hover.mp3")
+                    action Play("ch_three", "sfx/paper_click.mp3"), ShowMenu("screen_gallery")
+                add "gui/gm_back.webp" yalign 0.5 xpos 36
