@@ -4,14 +4,14 @@ define gallery_cols = 3
 define gallery_rows = 2
 define gallery_cols_rows = gallery_cols * gallery_rows
 
-define gallery_scene_xsize = 387
-define gallery_scene_ysize = 217
+define gallery_scene_xsize = 410 #387
+define gallery_scene_ysize = 231 #217
 
-define gallery_scene_zoom = 1.1
-define gallery_scene_zoom_xpos = gallery_scene_xsize * (gallery_scene_zoom - 1.0) / 2 - 1
-define gallery_scene_zoom_ypos = gallery_scene_ysize * (gallery_scene_zoom - 1.0) / 2
-define gallery_scene_zoom_xsize = gallery_scene_xsize / gallery_scene_zoom
-define gallery_scene_zoom_ysize = gallery_scene_ysize / gallery_scene_zoom
+#define gallery_scene_zoom = 1.1
+#define gallery_scene_zoom_xpos = gallery_scene_xsize * (gallery_scene_zoom - 1.0) / 2 - 1
+#define gallery_scene_zoom_ypos = gallery_scene_ysize * (gallery_scene_zoom - 1.0) / 2
+#define gallery_scene_zoom_xsize = gallery_scene_xsize / gallery_scene_zoom
+#define gallery_scene_zoom_ysize = gallery_scene_ysize / gallery_scene_zoom
 
 default persistent.gallery_scenes = []
 
@@ -25,13 +25,17 @@ init python:
         return scene_name in persistent.gallery_scenes
     
     class GalleryScene:
-        def __init__(self, kind, name, img, param, unlocked_if, chars, chapter, scope=None, img_scale=None):
+        def __init__(self, kind, name, img, param, unlocked_if, chars, chapter, textInv=None, scope=None, img_scale=None):
             self.kind = kind
             self.name = name
             self.chapter = chapter
             self.param = param
             self.unlocked_if = unlocked_if
             self.chars = chars
+
+            self.textInv = textInv
+            if self.textInv is None:
+                self.textInv = False
 
             self.scope = scope
             if self.scope is None:
@@ -106,51 +110,6 @@ screen screen_gallery(char=None, _page=1, char_page=1, chapter=0):
                 $scenes_len = len(scenes)
                 $pages = scenes_len // gallery_cols_rows + min(scenes_len % gallery_cols_rows, 1)
 
-                grid gallery_cols gallery_rows:
-                    xalign 0.5
-                    spacing 60
-
-                    $slots = 0
-                    
-                    for i in range(min(gallery_cols_rows, scenes_len)):
-                        $idx = (page-1) * gallery_cols_rows + i
-                        if idx < scenes_len:
-                            $scene_item = scenes[idx]
-                            $slots += 1
-
-                            frame style "empty":
-                                vbox:
-                                    xysize (gallery_scene_xsize, gallery_scene_ysize)
-                                    fixed:
-                                        if scene_item.is_unlocked():
-                                            imagebutton:
-                                                idle scene_item.img align (0.5, 0.5)
-                                                hover scene_item.img #at scene_hover_zoom
-                                                action If(scene_item.is_image(), 
-                                                    true=Show("screen_image", img=scene_item.param, transition=dissolve), 
-                                                    false=Replay(scene_item.param, scope=scene_item.scope, locked=False)
-                                                )
-                                        else:
-                                            imagebutton:
-                                                idle scene_item.img_locked align (0.5, 0.5)
-                                                hover scene_item.img_locked #at scene_hover_zoom
-                                                action NullAction()
-                                        
-                                        text _("Chapter [scene_item.chapter]") align (1.0, 1.0) offset (-8, -3) size 22
-                
-                                        frame style "frame_transparent" xysize (gallery_scene_xsize, gallery_scene_ysize)
-
-                                    if scene_item.is_unlocked():
-                                        text scene_item.name
-                                        text ' & '.join(scene_item.chars) color gui.idle_small_color
-                                    else:
-                                        text _("Locked") color gui.insensitive_color
-                                        text ''
-                    
-                    if slots < gallery_cols_rows:
-                        for i in range(gallery_cols_rows - slots):
-                            null
-
                 if pages > 1:
                     ## Buttons to access other pages.
                     hbox:
@@ -185,6 +144,54 @@ screen screen_gallery(char=None, _page=1, char_page=1, chapter=0):
                             textbutton _(">>")
                 else:
                     textbutton ""
+
+                grid gallery_cols gallery_rows:
+                    xalign 0.5
+                    spacing 60
+
+                    $slots = 0
+
+                    for i in range(min(gallery_cols_rows, scenes_len)):
+                        $idx = (page-1) * gallery_cols_rows + i
+                        if idx < scenes_len:
+                            $scene_item = scenes[idx]
+                            $slots += 1
+
+                            frame style "empty":
+                                vbox:
+                                    xysize (gallery_scene_xsize, gallery_scene_ysize)
+                                    fixed:
+                                        if scene_item.is_unlocked():
+                                            imagebutton:
+                                                idle scene_item.img align (0.5, 0.5)
+                                                hover scene_item.img #at scene_hover_zoom
+                                                action If(scene_item.is_image(), 
+                                                    true=Show("screen_image", img=scene_item.param, transition=dissolve), 
+                                                    false=Replay(scene_item.param, scope=scene_item.scope, locked=False)
+                                                )
+                                        else:
+                                            imagebutton:
+                                                idle scene_item.img_locked align (0.5, 0.5)
+                                                hover scene_item.img_locked #at scene_hover_zoom
+                                                action NullAction()
+
+                                        if scene_item.textInv:
+                                            text _("Chapter [scene_item.chapter]") align (1.0, 1.0) offset (-8, -3) size 22 color "#000000"
+                                        else:
+                                            text _("Chapter [scene_item.chapter]") align (1.0, 1.0) offset (-8, -3) size 22
+
+                                        frame style "frame_transparent" xysize (gallery_scene_xsize, gallery_scene_ysize)
+
+                                    if scene_item.is_unlocked():
+                                        text scene_item.name
+                                        text ' & '.join(scene_item.chars) color gui.idle_small_color
+                                    else:
+                                        text _("Locked") color gui.insensitive_color
+                                        text ''
+
+                    if slots < gallery_cols_rows:
+                        for i in range(gallery_cols_rows - slots):
+                            null
 
     # frame style "scenes_filters_frame":
     #     hbox style "scenes_filters_hbox":
@@ -261,18 +268,18 @@ style scenes_text is about_text:
     size 26
     layout "nobreak"
 
-transform scene_hover_zoom:
-    on hover:
-        zoom 1.0
-        crop (0, 0, gallery_scene_xsize, gallery_scene_ysize)
-        parallel:
-            easein 0.2 zoom gallery_scene_zoom
-        parallel:
-            easein 0.2 crop (gallery_scene_zoom_xpos, gallery_scene_zoom_ypos, gallery_scene_zoom_xsize, gallery_scene_zoom_ysize)
-    on idle:
-        zoom gallery_scene_zoom
-        crop (gallery_scene_zoom_xpos, gallery_scene_zoom_ypos, gallery_scene_zoom_xsize, gallery_scene_zoom_ysize)
-        parallel:
-            easein 0.2 zoom 1.0
-        parallel:
-            easein 0.2 crop (0, 0, gallery_scene_xsize, gallery_scene_ysize)
+#transform scene_hover_zoom:
+#    on hover:
+#        zoom 1.0
+#        crop (0, 0, gallery_scene_xsize, gallery_scene_ysize)
+#        parallel:
+#            easein 0.2 zoom gallery_scene_zoom
+#        parallel:
+#            easein 0.2 crop (gallery_scene_zoom_xpos, gallery_scene_zoom_ypos, gallery_scene_zoom_xsize, gallery_scene_zoom_ysize)
+#    on idle:
+#        zoom gallery_scene_zoom
+#        crop (gallery_scene_zoom_xpos, gallery_scene_zoom_ypos, gallery_scene_zoom_xsize, gallery_scene_zoom_ysize)
+#        parallel:
+#            easein 0.2 zoom 1.0
+#        parallel:
+#            easein 0.2 crop (0, 0, gallery_scene_xsize, gallery_scene_ysize)
