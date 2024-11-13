@@ -13,23 +13,8 @@ default persistent.gall_lena_piercing1 = False
 default persistent.gall_lena_piercing2 = False
 
 init python:
-    def merge_two_dicts(y, lenaPure=False, lenaNoTattoo=False):
+    def merge_two_dicts(y):
         z = coreScope.copy()        # make dict z a copy of coreScope dict
-        if not (lenaPure or lenaNoTattoo):
-            if persistent.gall_lena_tattoo1:
-                z.update({'lena_tattoo1': True})
-            if persistent.gall_lena_tattoo2:
-                z.update({'lena_tattoo2': True})
-            if persistent.gall_lena_tattoo3:
-                z.update({'lena_tattoo3': True})
-            if persistent.gall_lena_piercing1:
-                z.update({'lena_piercing1': True})
-            elif persistent.gall_lena_piercing2:
-                z.update({'lena_piercing2': True})
-        elif lenaPure:
-            z.update(lenaPureScope)
-        elif lenaNoTattoo:
-            z.update(lenaNoTattooScope)
         z.update(y)
         return z
 
@@ -59,6 +44,7 @@ define coreScope = {
     'ian_axel': 12,
     'ian_clark': 12,
     'ian_dad': 12,
+    'ian_default': 12,
     'ian_jeremy': 12,
     'ian_mark': 12,
     'ian_mike': 12,
@@ -100,6 +86,7 @@ define coreScope = {
     'lena_axel': 12,
     'lena_lenadad': 12,
     'lena_danny': 12,
+    'lena_default': 12,
     'lena_ed': 12,
     'lena_jeremy': 12,
     'lena_mark': 12,
@@ -124,21 +111,10 @@ define coreScope = {
     'lena_lola': 12,
     'lena_louise': 12,
     'lena_molly': 12,
-    'lena_lenamom': 12
-}
+    'lena_lenamom': 12,
 
-define lenaPureScope = { # DO NOT EDIT // USED TO PROTECT IMG CONTINUITY IN CHAPTERS BEFORE LENA GOT PIERCINGS/TATTOO
-    'lena_piercing1': False,
-    'lena_piercing2': False,
-    'lena_tattoo1': False,
-    'lena_tattoo2': False,
-    'lena_tattoo3': False
-}
-
-define lenaNoTattooScope = { # DO NOT EDIT // USED TO PROTECT IMG CONTINUITY IN CHAPTERS BEFORE LENA GOT A TATTOO
-    'lena_tattoo1': False,
-    'lena_tattoo2': False,
-    'lena_tattoo3': False
+    # Miscellaneous
+    'ivy_navel': True
 }
 
 default gall_lena_look = 1 # used for scene setup with two Lenas

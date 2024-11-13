@@ -89,6 +89,40 @@ init python:
         def is_for_char(self, char, chapter):
             return (char is None or char in self.chars) and (chapter == 0 or chapter == self.chapter)
 
+    def scope_edit_start(scene_item):
+        if scene_item.chapter < 4:
+            scene_item.scope.update({'lena_tattoo1': False})
+            scene_item.scope.update({'lena_tattoo2': False})
+            scene_item.scope.update({'lena_tattoo3': False})
+            scene_item.scope.update({'lena_piercing1': False})
+            scene_item.scope.update({'lena_piercing2': False})
+        else:
+            if scene_item.scope.get('scene_protection'):
+                scene_item.scope.update({'lena_tattoo1': False})
+                scene_item.scope.update({'lena_tattoo2': False})
+                scene_item.scope.update({'lena_tattoo3': False})
+            else:
+                if persistent.gall_lena_tattoo1:
+                    scene_item.scope.update({'lena_tattoo1': True})
+                else:
+                    scene_item.scope.update({'lena_tattoo1': False})
+                if persistent.gall_lena_tattoo2:
+                    scene_item.scope.update({'lena_tattoo2': True})
+                else:
+                    scene_item.scope.update({'lena_tattoo2': False})
+                if persistent.gall_lena_tattoo3:
+                    scene_item.scope.update({'lena_tattoo3': True})
+                else:
+                    scene_item.scope.update({'lena_tattoo3': False})
+            if persistent.gall_lena_piercing1:
+                scene_item.scope.update({'lena_piercing1': True})
+                scene_item.scope.update({'lena_piercing2': False})
+            elif persistent.gall_lena_piercing2:
+                scene_item.scope.update({'lena_piercing1': False})
+                scene_item.scope.update({'lena_piercing2': True})
+
+        return Replay(scene_item.param, scope=scene_item.scope, locked=False)
+
 screen screen_gallery(char=None, _page=1, char_page=1, chapter=0):
     tag menu
 
@@ -167,7 +201,7 @@ screen screen_gallery(char=None, _page=1, char_page=1, chapter=0):
                                                 hover scene_item.img #at scene_hover_zoom
                                                 action If(scene_item.is_image(), 
                                                     true=Show("screen_image", img=scene_item.param, transition=dissolve), 
-                                                    false=Replay(scene_item.param, scope=scene_item.scope, locked=False)
+                                                    false=scope_edit_start(scene_item)
                                                 )
                                         else:
                                             imagebutton:
