@@ -1,4 +1,4 @@
-- Move Gallery Scene unlock cheat to Gallery
 - Implements changing gallery thumbnails
 - Increase number of images in thumbnail composites
 - Fix mistakes in Mares corrections
+- Watch out with ch13 edits before committing

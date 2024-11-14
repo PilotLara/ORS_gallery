@@ -30,13 +30,13 @@ default greyed_out_disabled = False                 # Remembers if the feature i
 default persistent.gallery_force_unlock = False     # Cheat to unlock all gallery scenes
 default persistent.cheat_rollback = False           # Cheat to force unlock rollback
 
-init: # sets var correctly to start new save file
+init:                                               # sets var correctly to start new save file
     if persistent.include_disabled:
         $ config.menu_include_disabled = True
     elif True:
         $ config.menu_include_disabled = False
 
-label after_load: # sets vars correctly on save file loading
+label after_load:                                   # sets vars correctly on save file loading
     if persistent.include_disabled:
         if greyed_out_disabled:
             $ config.menu_include_disabled = False
@@ -45,7 +45,7 @@ label after_load: # sets vars correctly on save file loading
     else:
         $ config.menu_include_disabled = False
 
-init python: # function for setting button
+init python:                                        # function for setting greyed out funtionality
     def greyed_out_setting():
         if persistent.include_disabled:
             if greyed_out_disabled:
@@ -55,26 +55,24 @@ init python: # function for setting button
         else:
             config.menu_include_disabled = False
 
-    def cheat_rollback():
+    original_block_rollback = renpy.block_rollback  # Save original rollback behaviour
+
+    def cheat_rollback():                           # Overwrite rollback behaviour
         if persistent.cheat_rollback:
             # Code from unren
-            renpy.config.rollback_enabled = True
             def unren_noblock( *args, **kwargs ):
                 return
             renpy.block_rollback = unren_noblock
         else:
-            pass
-            # WIP ? how?
+            renpy.block_rollback = original_block_rollback  # Restore rollback behaviour
 
-    if persistent.cheat_rollback:
+    if persistent.cheat_rollback:                   # Set behaviour on game boot up
         # Code from unren
-        renpy.config.rollback_enabled = True
         def unren_noblock( *args, **kwargs ):
             return
         renpy.block_rollback = unren_noblock
     else:
         pass
-
 
 ## The version of the game. ########################################################################################################################################################################################################## build name
 

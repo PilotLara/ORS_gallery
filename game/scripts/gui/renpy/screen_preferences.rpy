@@ -40,7 +40,7 @@ screen preferences():
                     style_prefix "radio"
                     label _("Prevent rollback block")
                     textbutton _("Enabled") action [SetField(persistent, "cheat_rollback", True), Function(cheat_rollback)]
-                    textbutton _("Disabled (Req Restart)") action [SetField(persistent, "cheat_rollback", False), Function(cheat_rollback)]
+                    textbutton _("Disabled") action [SetField(persistent, "cheat_rollback", False), Function(cheat_rollback)]
 
                 vbox:
                     style_prefix "check"
