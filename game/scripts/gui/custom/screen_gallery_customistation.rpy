@@ -2,9 +2,12 @@ screen screen_gallery_customisation():
     tag menu
 
     use game_menu(_("Customise"), gallery_nav_custom=True):
+        style_prefix "scenes"
+
         vbox:
             spacing 50
-            yalign 0.5
+            xalign 0.5
+            yoffset 100
 
             hbox:
                 xalign 0.5
@@ -36,3 +39,13 @@ screen screen_gallery_customisation():
                     imagebutton idle "gui/gall_piercing2_owned.webp" focus_mask True action SetVariable("persistent.gall_lena_piercing2", False) , [ Play ("ch_one", "sfx/paper_click.mp3") ]
                 else:
                     imagebutton idle "gui/gall_piercing2.webp" focus_mask True action SetVariable("persistent.gall_lena_piercing2", True) , SetVariable("persistent.gall_lena_piercing1", False) , [ Play ("ch_one", "sfx/paper_click.mp3") ]
+
+style scenes_vbox:
+    spacing 8
+    yalign 0.5
+
+style scenes_filters_frame:
+    offset (420, 180)
+    yanchor 1.0
+    xsize 1400
+    xpadding 40

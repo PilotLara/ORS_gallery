@@ -249,6 +249,7 @@ screen navigation_gallery_customisation():
     style_prefix "navigation"
 
     frame:
+        xsize 369
         vbox:
             fixed:
                 xysize (258, 95)
