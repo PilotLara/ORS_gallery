@@ -23,15 +23,15 @@ image gall_lena = Composite(
         "lena_piercing2 == True", "lena_navel2.webp",
         "True", Null()
     ),
-    (0, 0), ConditionSwitch( # TATOO 1
+    (0, 0), ConditionSwitch( # TATTOO 1
         "lena_tattoo1 == True", "lena_tattoo1.webp",
         "True", Null()
     ),
-    (0, 0), ConditionSwitch( # TATOO 2
+    (0, 0), ConditionSwitch( # TATTOO 2
         "lena_tattoo2 == True", "lena_tattoo2.webp",
         "True", Null()
     ),
-    (0, 0), ConditionSwitch( # TATOO 3
+    (0, 0), ConditionSwitch( # TATTOO 3
         "lena_tattoo3 == True", "lena_tattoo3.webp",
         "True", Null()
     ),

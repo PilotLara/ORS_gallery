@@ -3331,6 +3331,173 @@ define gallery_scenes = [
         })
     ),
 
+    # 13b
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena rewards Stan for his services"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S04",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S04')",
+        chars=['Lena', 'Stan'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena fulfills her custom video requests"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S05",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S05')",
+        chars=['Lena'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena finally tries her new toy"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S06",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S06')",
+        chars=['Lena'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena goes on a date with John"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S07",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S07')",
+        chars=['Lena', 'John'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena goes on a date with Robert"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S08",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S08')",
+        chars=['Lena', 'Robert'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena goes on a date with Mark"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S09",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S09')",
+        chars=['Lena', 'Mark'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena goes on a date with Ian"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S10",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S10')",
+        chars=['Lena', 'Ian'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena goes on a date with Stan"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S11",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S11')",
+        chars=['Lena', 'Stan'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena goes on a date with Holly"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S12",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S12')",
+        chars=['Lena', 'Holly'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena goes on a date with Jeremy"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S13",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S13')",
+        chars=['Lena', 'Jeremy'],
+        scope=merge_two_dicts({
+            'ian_active': False
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Iyv takes Holly on an adventure"),
+        # img = ".webp",
+        img = "wipbg.webp",
+        # param="gallery_CH13_S14",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S14')",
+        chars=['Holly', 'Ivy'],
+        scope=merge_two_dicts({
+            'ian_active': False,
+            'holly_guy': 4
+        })
+    ),
+
     ##################################################################################################################
     ## CHAPTER 14 ####################################################################################################
     ##################################################################################################################
@@ -3362,4 +3529,13 @@ define gallery_scenes = [
     #     unlocked_if="renpy.seen_image('')",
     #     chars=['']
     # ),
+
+    ## BASIC SCENE IN SCRIPT FILE ##################################################
+
+    # label gallery_CH13_S14:
+    #     if _in_replay:
+    #         call setup_CH13_S14
+
+    # $ renpy.end_replay()
+    # $ gallery_unlock_scene("CH13_S14")
 ]

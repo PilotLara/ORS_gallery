@@ -10826,6 +10826,132 @@ label setup_CH13_S03:
     pause 1
 return
 
+# 13b
+label setup_CH13_S04:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S05:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S06:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S07:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S08:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S09:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S10:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S11:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S12:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S13:
+    scene blackbg
+    with long
+
+    #$ flena =
+    #$ lena_look = 
+    #$ lena_makeup =
+
+    #ToDO music
+return
+
+label setup_CH13_S14:
+    scene blackbg
+    with long
+
+    $ lena_look = "underwear2"
+    $ flena = "n"
+
+    play music "music/normal_day2.mp3" loop
+
+    scene lenaroomnight
+    with long
+    show lenabra
+    with short
+return
+
 ################################################################################
 ## CHAPTER 14 ##################################################################
 ################################################################################
@@ -10840,14 +10966,5 @@ return
 #     $ lena_look = 
 #     $ lena_makeup =
 
-#     #ToDO  music
+#     #ToDO music
 # return
-
-## BASIC SCENE IN SCRIPT FILE ##################################################
-
-# label gallery_CH12_S01:
-#     if _in_replay:
-#         call setup_CH12_S01
-
-# $ renpy.end_replay()
-# $ gallery_unlock_scene("CH12_S22")

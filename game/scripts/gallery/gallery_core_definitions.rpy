@@ -12,6 +12,9 @@ default persistent.gall_lena_tattoo3 = False
 default persistent.gall_lena_piercing1 = False
 default persistent.gall_lena_piercing2 = False
 
+default gall_lena_look = 1 # used for scene setup with two Lenas
+default gall_flena = "n"
+
 init python:
     def merge_two_dicts(y):
         z = coreScope.copy()        # make dict z a copy of coreScope dict
@@ -29,7 +32,7 @@ init python:
         return scenes
 
 define coreScope = {
-    ############## IAN ##############
+    ############################ IAN ############################
     'ian_active': True,
 
     # IAN STATS #
@@ -71,7 +74,7 @@ define coreScope = {
     'ian_minerva': 12,
     'ian_nat': 12,
 
-    ############## LENA ##############
+    ############################ LENA ############################
 
     # LENA STATS
     'lena_wits': 99,
@@ -116,9 +119,6 @@ define coreScope = {
     # Miscellaneous
     'ivy_navel': True
 }
-
-default gall_lena_look = 1 # used for scene setup with two Lenas
-default gall_flena = "n"
 
 ############################################################################################################################################################################
 ## PHONE IMAGE GALLERY #####################################################################################################################################################

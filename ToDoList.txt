@@ -1,4 +1,3 @@
 - Implements changing gallery thumbnails
 - Increase number of images in thumbnail composites
-- Fix mistakes in Mares corrections
-- Watch out with ch13 edits before committing
+- Add scene fixes from Mares' discord DMs
