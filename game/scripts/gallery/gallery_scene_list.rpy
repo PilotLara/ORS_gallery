@@ -3485,7 +3485,7 @@ define gallery_scenes = [
     GalleryScene(
         kind="scene",
         chapter=13,
-        name=_("Iyv takes Holly on an adventure"),
+        name=_("Ivy takes Holly on an adventure"),
         # img = ".webp",
         img = "wipbg.webp",
         # param="gallery_CH13_S14",

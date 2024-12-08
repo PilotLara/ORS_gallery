@@ -4622,7 +4622,7 @@ label setup_CH10_S14:
     $ v10posingathletics = False
     $ v10posinglust = False
 
-    call gallVar_lena_seymour_dating
+    call gallVar_lena_seymour_dating from _call_gallVar_lena_seymour_dating
 
     if not lena_seymour_dating:
         $ stalkfap_pro = True
@@ -10687,7 +10687,7 @@ label setup_CH12_S41:
     scene blackbg
     with long
 
-    call gallVar_ian_summer_look
+    call gallVar_ian_summer_look from _call_gallVar_ian_summer_look_18
 
     play music "music/calm.mp3" loop
 return
@@ -10700,8 +10700,8 @@ label setup_CH13_S01:
     scene blackbg
     with long
 
-    call gallVar_lena_seymour_dating
-    call gallVar_seymour_disposition
+    call gallVar_lena_seymour_dating from _call_gallVar_lena_seymour_dating_1
+    call gallVar_seymour_disposition from _call_gallVar_seymour_disposition
 
     # no  music
 
@@ -10712,8 +10712,8 @@ label setup_CH13_S02:
     scene blackbg
     with long
 
-    call gallVar_seymour_disposition
-    call gallVar_v13_seymour_shoot
+    call gallVar_seymour_disposition from _call_gallVar_seymour_disposition_1
+    call gallVar_v13_seymour_shoot from _call_gallVar_v13_seymour_shoot
 
     $ flena = "n"
     $ seymour_necklace = False
@@ -10737,8 +10737,8 @@ label setup_CH13_S03:
     scene blackbg
     with long
 
-    call gallVar_seymour_disposition
-    call gallVar_v13_seymour_shoot
+    call gallVar_seymour_disposition from _call_gallVar_seymour_disposition_2
+    call gallVar_v13_seymour_shoot from _call_gallVar_v13_seymour_shoot_1
     if v13_seymour_shoot == 0:
         gal "Uh oh. Lena needs to join Seymour's shoot to unlock this scene, please try again."
         jump setup_CH13_S03
@@ -10865,8 +10865,18 @@ label setup_CH13_S07:
     with long
 
     #$ flena =
-    #$ lena_look = 
+    #$ lena_look = "charisma"/"summer"/else
     #$ lena_makeup =
+
+    # if (lena_lust > lena_wits) and (lena_lust > lena_charisma):
+
+    #ian_lena_couple
+    #ian_cuck
+    #ian_lena_open
+    #lena_cheating
+
+    #lena_seymour_sex
+    #lena_axel_fuck
 
     #ToDO music
 return
@@ -10876,8 +10886,22 @@ label setup_CH13_S08:
     with long
 
     #$ flena =
-    #$ lena_look = 
+    #$ lena_look = "charisma"/"summer"/else
     #$ lena_makeup =
+
+    #v11_robert_sex
+
+    #v12_ian_lena_breakup
+    #lena_seymour_sex
+    #lena_axel_fuck
+    #ian_lena_couple
+    #ian_cuck
+    #ian_lena_open
+    #lena_cheating
+    #ian_lena_love
+
+    #v12_lena_rough
+    #lena_anal
 
     #ToDO music
 return
@@ -10887,8 +10911,21 @@ label setup_CH13_S09:
     with long
 
     #$ flena =
-    #$ lena_look = 
+    #$ lena_look = "charisma"/"summer"/else
     #$ lena_makeup =
+
+    # if (lena_lust > lena_wits) and (lena_lust > lena_charisma):
+
+    #v12_ian_lena_breakup
+    #lena_axel_fuck
+    #lena_seymour_sex
+    #ian_lena_couple
+    #ian_cuck
+    #ian_lena_open
+    #lena_cheating
+
+    #v12_lena_rough
+    #lena_anal > 1
 
     #ToDO music
 return
@@ -10933,6 +10970,10 @@ label setup_CH13_S13:
     #$ flena =
     #$ lena_look = 
     #$ lena_makeup =
+
+    #v10_jeremy_3some
+    #v8_jeremy_sex
+    #v13_bbc_dildo
 
     #ToDO music
 return
