@@ -10967,13 +10967,90 @@ label setup_CH13_S13:
     scene blackbg
     with long
 
+    $ flena = "smile"
+    $ lena_look = 1
+
+    scene lenahome
+    with long
+    show lenabra at rig
+    show louise at lef
+    with short
+    play sound "sfx/door.mp3"
+    hide louise with short
+    $ flena = "shy"
+    show lenabra at truecenter with move
+    menu:
+        gal "Did Lena sneak into Louise's room to wake Jeremy?"
+        "Yes, she did":
+            scene v8_jeremy1b
+            with long
+            pause (2)
+            menu:
+                gal "How far did Lena go with him?"
+                "She only blew him":
+                    $ v8_jeremy_sex = True
+                    scene v8_jeremy5
+                    with long
+                    pause (2)
+
+                "{image=icon_lust.webp} She went all the way":
+                    $ v8_jeremy_sex = True
+                    $ lena_jeremy_sex = True
+                    scene v8_jeremy6c
+                    with long
+                    pause (2)
+        "No, she didn't":
+            pass
+
+    scene blackbg
+    with long
+
+    scene v10_jeremy1
+    if lena_tattoo2:
+        show v10_jeremy1_t2
+    if lena_tattoo3:
+        show v10_jeremy1_t3
+    with long
+    menu:
+        gal "Did Lena have a threesome with Louise and Jeremy?"
+        "Yes, she did":
+            scene v10_jeremy8b
+            with long
+            pause 2
+
+            $ v10_jeremy_3some = True
+
+        "No, she didn't":
+            pass
+
+    scene blackbg
+    with long
+
+    $ lena_look = 4
+    $ flena = "n"
+
+    scene mall
+    with long
+    show lena at rig3
+    with short
+    show toy_mandingo 
+    with short
+    menu:
+        gall "Did Lena buy the big black dildo?"
+        "Yes, she did":
+            $ flena = "flirtshy"
+            pause 1
+            if lena_jeremy_sex or v10_jeremy_3some:
+                $ v13_bbc_dildo = True
+        "No, she didn't":
+            pass
+
+    scene blackbg
+    with long
+
     #$ flena =
     #$ lena_look = 
     #$ lena_makeup =
-
-    #v10_jeremy_3some
-    #v8_jeremy_sex
-    #v13_bbc_dildo
 
     #ToDO music
 return

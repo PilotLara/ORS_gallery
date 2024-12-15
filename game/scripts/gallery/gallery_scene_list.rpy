@@ -3170,20 +3170,19 @@ define gallery_scenes = [
         scope=coreScope
     ),
 
-    #GalleryScene(
-    #    kind="scene",
-    #    chapter=12,
-    #    name=_("Ian gifts Holly the necklace"),
-    #    # img = ".webp",
-    #    img = "wipbg.webp",
-    #    # param="gallery_CH12_S34",
-    #    unlocked_if="gallery_scene_unlocked('CH12_S34')",
-    #    chars=['Ian', 'Holly'],
-    #    scope=merge_two_dicts({
-    #        'ian_holly_love': True,
-    #        'v12_gift': 'holly'
-    #    })
-    #),
+    GalleryScene(
+        kind="scene",
+        chapter=12,
+        name=_("Ian gives his gift to Holly"),
+        img = "v12_holly18_gall.webp",
+        param="gallery_CH12_S34",
+        unlocked_if="gallery_scene_unlocked('CH12_S34')",
+        chars=['Ian', 'Holly'],
+        scope=merge_two_dicts({
+            'ian_holly_love': True,
+            'v12_gift': 'holly'
+        })
+    ),
 
     GalleryScene(
         kind="scene",
