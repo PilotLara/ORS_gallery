@@ -1436,3 +1436,116 @@ label gallVar_v13_seymour_shoot:
     $ lena_look = 1
     $ lena_makeup = 0
 return
+
+label gallVar_toy_mandingo:
+    $ lena_look = 4
+    $ flena = "shy"
+
+    scene sexshop
+    with long
+    show lena at right
+    with short
+    show toy_mandingo
+    with short
+    menu:
+        gal "Did Lena buy the big black dildo?"
+        "{image=icon_pay.webp} Yes, she did":
+            $ flena = "flirtshy"
+            pause 1
+
+            $ toy_mandingo = True
+
+        "No, she didn't":
+            $ flena = "n"
+
+    scene blackbg
+    with long
+return
+
+label gallVar_toy_badboy:
+    $ flena = "shy"
+    $ lena_look = 1
+
+    scene sexshop
+    with long
+    show lena at right
+    with short
+    show toy_badboy
+    with short
+    menu:
+        gal "Did Lena buy the badboy dildo?"
+        "{image=icon_pay.webp} Yes, she did":
+            $ flena = "slut"
+            pause 1
+
+            $ toy_badboy = True
+
+        "No, she didn't":
+            $ flena = "n"
+
+    scene blackbg
+    with long
+return
+
+label gallVar_lena_analch13:
+    scene blackbg
+    with long
+    if ian_lena_dating:
+        scene v6_ian1
+        if lena_piercing1:
+            show v6_robert1_p1
+        elif lena_piercing2:
+            show v6_robert1_p2
+    elif lena_robert_dating:
+        scene v6_robert1
+        if lena_piercing1:
+            show v6_robert1_p1
+        elif lena_piercing2:
+            show v6_robert1_p2
+    else:
+        scene v6_mike1
+        if lena_piercing1:
+            show v6_robert1_p1
+        elif lena_piercing2:
+            show v6_robert1_p2
+    with long
+    menu:
+        gal "Did Lena lose her anal virginity?"
+        "Yes, she did":
+            $ lena_anal = 2
+
+            if ian_lena_dating:
+                scene v6_ian4b
+                with long
+            elif lena_robert_dating:
+                scene v6_robert5
+                show v6_robert5_bunny
+                if lena_piercing1:
+                    show v6_robert5_p1
+                elif lena_piercing2:
+                    show v6_robert5_p2
+                with long
+            else:
+                scene v6_mike6_animation
+                with long
+            pause (2)
+
+        "No, she didn't":
+            if ian_lena_dating:
+                scene v6_ian4
+                with long
+            elif lena_robert_dating:
+                scene v6_robert6
+                show v6_robert6_bunny
+                if lena_piercing1:
+                    show v6_robert6_p1
+                elif lena_piercing2:
+                    show v6_robert6_p2
+                with long
+            else:
+                scene v6_mike6c
+                with long
+            pause (2)
+    scene blackbg
+    with long
+return

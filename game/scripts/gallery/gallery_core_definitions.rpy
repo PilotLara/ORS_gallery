@@ -4,7 +4,7 @@
 
 init offset = -2
 
-define gallery_characters = [None, 'Lena', 'Ian', 'Alison', 'Axel', 'Billy', 'Cherry', 'Cindy', 'Emma', 'Gillian', 'Holly', 'Ivy', 'Jeremy', 'Jessica', 'Louise', 'Marcel', 'Mark', 'Mike', 'Minerva', 'Robert', 'Seymour', 'Stan']
+define gallery_characters = [None, 'Lena', 'Ian', 'Alison', 'Axel', 'Billy', 'Cherry', 'Cindy', 'Emma', 'Gillian', 'Holly', 'Ivy', 'Jack', 'Jeremy', 'Jessica', 'John', 'Louise', 'Marcel', 'Mark', 'Mike', 'Minerva', 'Nat', 'Robert', 'Seymour', 'Stan']
 
 default persistent.gall_lena_tattoo1 = False
 default persistent.gall_lena_tattoo2 = False

@@ -42,50 +42,53 @@ init python:
                 self.scope = {}
 
             self.scope['chapter'] = self.chapter
-            
-            self.img_scale = img_scale
-            if self.img_scale is None:
-                self.img_scale = (gallery_scene_xsize,gallery_scene_ysize)
-                if isinstance(img, list):
-                    self.img = Composite((gallery_scene_xsize, gallery_scene_ysize), 
-                        (0,0), "#eee", 
-                        (0,0), im.Scale(img[0], self.img_scale[0], self.img_scale[1]),
-                        (0,0), im.Scale(img[1], self.img_scale[0], self.img_scale[1])
-                    )
-                    self.img_locked = Composite((gallery_scene_xsize, gallery_scene_ysize), 
-                        (0,0), "#eee", 
-                        (0,0), im.Blur(im.Grayscale(im.Scale(img[0], self.img_scale[0], self.img_scale[1])), 4),
-                        (0,0), im.Blur(im.Grayscale(im.MatrixColor(im.Scale(img[1], self.img_scale[0], self.img_scale[1]), im.matrix.brightness(-0.2))), 4)
-                    )
-                else:
-                    self.img = Composite((gallery_scene_xsize, gallery_scene_ysize), 
-                        (0,0), "#eee", 
-                        (0,0), im.Scale(img, self.img_scale[0], self.img_scale[1])
-                    )
-                    self.img_locked = Composite((gallery_scene_xsize, gallery_scene_ysize), 
-                        (0,0), "#eee", 
-                        (0,0), im.Blur(im.Grayscale(im.MatrixColor(im.Scale(img, self.img_scale[0], self.img_scale[1]), im.matrix.brightness(-0.2))), 4)
-                    )
-            else:
-                self.img = Composite((gallery_scene_xsize, gallery_scene_ysize), 
-                    (0,0), "#eee", 
-                    ((gallery_scene_xsize - self.img_scale[0]) / 2,0), im.Scale(img, self.img_scale[0], self.img_scale[1])
-                )
-                self.img_locked = Composite((gallery_scene_xsize, gallery_scene_ysize), 
-                    (0,0), "#eee", 
-                    ((gallery_scene_xsize - self.img_scale[0]) / 2,0), im.Blur(im.Grayscale(im.MatrixColor(im.Scale(img, self.img_scale[0], self.img_scale[1]), im.matrix.brightness(-0.2))), 4)
-                )
-            
+
+            self.img = img
+            self.img_locked = im.Blur(im.Grayscale(im.MatrixColor(img, im.matrix.brightness(-0.2))), 4)
+
+#            self.img_scale = img_scale
+#            if self.img_scale is None:
+#                self.img_scale = (gallery_scene_xsize,gallery_scene_ysize)
+#                if isinstance(img, list):
+#                    self.img = Composite((gallery_scene_xsize, gallery_scene_ysize), 
+#                        (0,0), "#eee", 
+#                        (0,0), im.Scale(img[0], self.img_scale[0], self.img_scale[1]),
+#                        (0,0), im.Scale(img[1], self.img_scale[0], self.img_scale[1])
+#                    )
+#                    self.img_locked = Composite((gallery_scene_xsize, gallery_scene_ysize), 
+#                        (0,0), "#eee", 
+#                        (0,0), im.Blur(im.Grayscale(im.Scale(img[0], self.img_scale[0], self.img_scale[1])), 4),
+#                        (0,0), im.Blur(im.Grayscale(im.MatrixColor(im.Scale(img[1], self.img_scale[0], self.img_scale[1]), im.matrix.brightness(-0.2))), 4)
+#                    )
+#                else:
+#                    self.img = Composite((gallery_scene_xsize, gallery_scene_ysize), 
+#                        (0,0), "#eee", 
+#                        (0,0), im.Scale(img, self.img_scale[0], self.img_scale[1])
+#                    )
+#                    self.img_locked = Composite((gallery_scene_xsize, gallery_scene_ysize), 
+#                        (0,0), "#eee", 
+#                        (0,0), im.Blur(im.Grayscale(im.MatrixColor(im.Scale(img, self.img_scale[0], self.img_scale[1]), im.matrix.brightness(-0.2))), 4)
+#                    )
+#            else:
+#                self.img = Composite((gallery_scene_xsize, gallery_scene_ysize), 
+#                    (0,0), "#eee", 
+#                    ((gallery_scene_xsize - self.img_scale[0]) / 2,0), im.Scale(img, self.img_scale[0], self.img_scale[1])
+#                )
+#                self.img_locked = Composite((gallery_scene_xsize, gallery_scene_ysize), 
+#                    (0,0), "#eee", 
+#                    ((gallery_scene_xsize - self.img_scale[0]) / 2,0), im.Blur(im.Grayscale(im.MatrixColor(im.Scale(img, self.img_scale[0], self.img_scale[1]), im.matrix.brightness(-0.2))), 4)
+#                )
+
         def is_image(self):
             return self.kind == 'image'
-        
+
         def is_unlocked(self):
             # return True
             if persistent.gallery_force_unlock:
                 return True
             else:
                 return eval(self.unlocked_if)
-        
+
         def is_for_char(self, char, chapter):
             return (char is None or char in self.chars) and (chapter == 0 or chapter == self.chapter)
 
