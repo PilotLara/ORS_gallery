@@ -623,219 +623,215 @@ label gallVar_lena_cheating:
         $ lena_makeup = 0
 
         $ mike_extras = 0
-
-    elif ian_lena_dating:
-        gal "Casual hookups outside of Ian x Lena WIP"
-
-        # ToDO
 return
 
 label gallVar_ian_cuck:
-    if v9_axel_sex or (lena_seymour_dating and seymour_disposition < 2) or (ian_lena_sex == False and lena_robert_sex) or (ian_lena_sex == False and lena_mike_sex):
-        scene v10_ian6
-        show v10_ian6_panties
-        if lena_piercing1:
-            show v10_ian6_p1
-        elif lena_piercing2:
-            show v10_ian6_p2
-        if lena_tattoo1:
-            show v10_ian6_t1
-        with long
-        menu:
-            gal "Did Ian ask Lena what she meant when she said his cock was {i}one{/i} of the best she ever had?" #CH10
-            "Yes, he did":
-                pause (2)
-                $ ian_cuck = True
-                if ian_chad > 1:
-                    $ ian_chad = 1
-                else:
-                    $ ian_chad = 0
-
-            "No, he didn't":
-                pass
-
-        scene blackbg
-        with long
-
-    if ian_lena_sex == False: #ch10
-        $ ian_chad = 0
-
-    if chapter > 10:
-        if (ian_cuck and ian_lust < 6) or (ian_lena_sex == False and ian_lust < 6):
-            $ v11_lena_dom = True #CH11pro
-            if ian_cuck:
-                $ ian_cuck = 1
-
-        else:
-            scene v11_ian0
+    if ian_lena_dating:
+        if v9_axel_sex or (lena_seymour_dating and seymour_disposition < 2) or (ian_lena_sex == False and lena_robert_sex) or (ian_lena_sex == False and lena_mike_sex):
+            scene v10_ian6
+            show v10_ian6_panties
+            if lena_piercing1:
+                show v10_ian6_p1
+            elif lena_piercing2:
+                show v10_ian6_p2
+            if lena_tattoo1:
+                show v10_ian6_t1
             with long
             menu:
-                gal "Did Lena ride Ian's face?" #CH11pro
-                "Yes, she did":
-                    scene v11_ian1
-                    if lena_tattoo1:
-                        show v11_ian1_t1
-                    if lena_tattoo2:
-                        show v11_ian1_t2
-                    if lena_tattoo3:
-                        show v11_ian1_t3
-                    if lena_piercing1:
-                        show v11_ian1_p1
-                    elif lena_piercing2:
-                        show v11_ian1_p2
-                    with long
+                gal "Did Ian ask Lena what she meant when she said his cock was {i}one{/i} of the best she ever had?" #CH10
+                "Yes, he did":
                     pause (2)
+                    $ ian_cuck = True
+                    if ian_chad > 1:
+                        $ ian_chad = 1
+                    else:
+                        $ ian_chad = 0
 
-                    $ v11_lena_dom = True
-                    if ian_cuck:
-                        $ ian_cuck = 1
-
-                "No, she didn't":
+                "No, he didn't":
                     pass
 
             scene blackbg
             with long
 
-        if ian_cuck and ian_lena_sex: #CH11pro
-            scene v11_ian4
-            if lena_tattoo3:
-                show v11_ian4_t3
-            show v11_ian4_iansad
-            if lena_tattoo2:
-                show v11_ian4_t2
-            with long
-            menu: 
-                gal "Did Lena deny him sex?"
-                "Yes, she did":
-                    show v11_ian4_lenasad
-                    with long
+        if ian_lena_sex == False: #ch10
+            $ ian_chad = 0
 
-                    $ ian_cuck = 2
+        if chapter > 10:
+            if (ian_cuck and ian_lust < 6) or (ian_lena_sex == False and ian_lust < 6):
+                $ v11_lena_dom = True #CH11pro
+                if ian_cuck:
+                    $ ian_cuck = 1
 
-                "No, she didn't":
-                    scene v11_ian2
-                    if lena_tattoo2:
-                        show v11_ian2_t2
-                    if lena_tattoo3:
-                        show v11_ian2_t3
-                    with long
-                    pause (2)
+            else:
+                scene v11_ian0
+                with long
+                menu:
+                    gal "Did Lena ride Ian's face?" #CH11pro
+                    "Yes, she did":
+                        scene v11_ian1
+                        if lena_tattoo1:
+                            show v11_ian1_t1
+                        if lena_tattoo2:
+                            show v11_ian1_t2
+                        if lena_tattoo3:
+                            show v11_ian1_t3
+                        if lena_piercing1:
+                            show v11_ian1_p1
+                        elif lena_piercing2:
+                            show v11_ian1_p2
+                        with long
+                        pause (2)
 
-            scene blackbg
-            with long
+                        $ v11_lena_dom = True
+                        if ian_cuck:
+                            $ ian_cuck = 1
 
-        elif ian_lena_sex == False:
-            $ ian_cuck = 2
+                    "No, she didn't":
+                        pass
 
-        if ian_lena_sex == False or ian_cuck or v11_lena_dom: #CH11a
-            $ v11_lena_dom = True
+                scene blackbg
+                with long
 
-            scene v11_lena4
-            if lena_piercing1:
-                show v11_lena4_p1
-            elif lena_piercing2:
-                show v11_lena4_p2
-            if lena_tattoo1:
-                show v11_lena4_t1
-            if lena_tattoo2:
-                show v11_lena4_t2
-            if lena_tattoo3:
-                show v11_lena4_t3
-            with long
-            menu:
-                gal "What was Ian's reaction when she gave him a footjob?" #CH11a
-                "{image=icon_lust.webp} He wanted to know where she learned to do this" if ian_cuck or ian_lust > 6:
+            if ian_cuck and ian_lena_sex: #CH11pro
+                scene v11_ian4
+                if lena_tattoo3:
+                    show v11_ian4_t3
+                show v11_ian4_iansad
+                if lena_tattoo2:
+                    show v11_ian4_t2
+                with long
+                menu: 
+                    gal "Did Lena deny him sex?"
+                    "Yes, she did":
+                        show v11_ian4_lenasad
+                        with long
 
-                    label GallFeetCuck:
-                        menu:
-                            gal "Did Ian ask Lena to tell him more when she told him she learned it from a guy she used to date?" #CH11a
-                            "Yes, he did":
-                                scene v11_lena4b
-                                if lena_tattoo2:
-                                    show v11_lena4_t2
-                                if lena_tattoo3:
-                                    show v11_lena4_t3
-                                with long
-                                pause (2)
+                        $ ian_cuck = 2
 
-                                if ian_cuck < 2:
-                                    $ ian_cuck += 1
+                    "No, she didn't":
+                        scene v11_ian2
+                        if lena_tattoo2:
+                            show v11_ian2_t2
+                        if lena_tattoo3:
+                            show v11_ian2_t3
+                        with long
+                        pause (2)
 
-                                if ian_cuck == 2 and ian_lena_sex:
-                                    scene blackbg
-                                    with long
+                scene blackbg
+                with long
 
+            elif ian_lena_sex == False:
+                $ ian_cuck = 2
+
+            if ian_lena_sex == False or ian_cuck or v11_lena_dom: #CH11a
+                $ v11_lena_dom = True
+
+                scene v11_lena4
+                if lena_piercing1:
+                    show v11_lena4_p1
+                elif lena_piercing2:
+                    show v11_lena4_p2
+                if lena_tattoo1:
+                    show v11_lena4_t1
+                if lena_tattoo2:
+                    show v11_lena4_t2
+                if lena_tattoo3:
+                    show v11_lena4_t3
+                with long
+                menu:
+                    gal "What was Ian's reaction when she gave him a footjob?" #CH11a
+                    "{image=icon_lust.webp} He wanted to know where she learned to do this" if ian_cuck or ian_lust > 6:
+
+                        label GallFeetCuck:
+                            menu:
+                                gal "Did Ian ask Lena to tell him more when she told him she learned it from a guy she used to date?" #CH11a
+                                "Yes, he did":
                                     scene v11_lena4b
                                     if lena_tattoo2:
                                         show v11_lena4_t2
                                     if lena_tattoo3:
                                         show v11_lena4_t3
                                     with long
-                                    menu:
-                                        gal "Did Ian get turned on hearing about these things?"
-                                        "{image=icon_sad.webp} Yeah...":
-                                            pass
-                
-                                        "{image=icon_athletics.webp} Not really" if ian_chad > 2 or ian_athletics > 5:
-                                            scene v11_lena7
-                                            if lena_tattoo2:
-                                                show v10_ian8_t2
-                                            with long
-                                            pause (2)
+                                    pause (2)
 
-                                            $ ian_cuck = 1
+                                    if ian_cuck < 2:
+                                        $ ian_cuck += 1
 
-                            "No, that was enough information for him":
-                                $ ian_cuck = 0
+                                    if ian_cuck == 2 and ian_lena_sex:
+                                        scene blackbg
+                                        with long
 
-                "He complimented her skill":
-                    if ian_cuck == 2:
-                        jump GallFeetCuck
-                    else:
+                                        scene v11_lena4b
+                                        if lena_tattoo2:
+                                            show v11_lena4_t2
+                                        if lena_tattoo3:
+                                            show v11_lena4_t3
+                                        with long
+                                        menu:
+                                            gal "Did Ian get turned on hearing about these things?"
+                                            "{image=icon_sad.webp} Yeah...":
+                                                pass
+                    
+                                            "{image=icon_athletics.webp} Not really" if ian_chad > 2 or ian_athletics > 5:
+                                                scene v11_lena7
+                                                if lena_tattoo2:
+                                                    show v10_ian8_t2
+                                                with long
+                                                pause (2)
+
+                                                $ ian_cuck = 1
+
+                                "No, that was enough information for him":
+                                    $ ian_cuck = 0
+
+                    "He complimented her skill":
+                        if ian_cuck == 2:
+                            jump GallFeetCuck
+                        else:
+                            $ ian_cuck = False
+
+                    "...":
+                        if ian_cuck:
+                            jump GallFeetCuck
+
+                    "{image=icon_athletics.webp} He didn't like it" if (ian_chad > 2 and ian_lena_sex) or (ian_athletics > 5 and ian_lena_sex):
+                        $ v11_lena_dom = False
                         $ ian_cuck = False
 
-                "...":
-                    if ian_cuck:
-                        jump GallFeetCuck
+                scene blackbg
+                with long
 
-                "{image=icon_athletics.webp} He didn't like it" if (ian_chad > 2 and ian_lena_sex) or (ian_athletics > 5 and ian_lena_sex):
-                    $ v11_lena_dom = False
-                    $ ian_cuck = False
+            if ian_cuck > 1:  # CH11epi
+                $ lena_look = "sexy"
+                $ ian_look = 2
+                $ fian = "shy"
+                $ flena = "n"
 
-            scene blackbg
-            with long
+                scene ianhomenight 
+                with long
+                show ian at lef
+                show lenatopless at rig 
+                with short
+                menu: 
+                    gal "Did Lena tease Ian?" # CH11epi
+                    "{image=icon_sad.webp} Yes, she did":
+                        scene v11_lenaian1
+                        if lena_tattoo1:
+                            show v11_mark1_t1
+                        if lena_piercing1:
+                            show v11_mark1_p1
+                        elif lena_piercing2:
+                            show v11_mark1_p2
+                        with long
+                        pause (2)
 
-        if ian_cuck > 1:  # CH11epi
-            $ lena_look = "sexy"
-            $ ian_look = 2
-            $ fian = "shy"
-            $ flena = "n"
+                        $ ian_cuck = 3
 
-            scene ianhomenight 
-            with long
-            show ian at lef
-            show lenatopless at rig 
-            with short
-            menu: 
-                gal "Did Lena tease Ian?" # CH11epi
-                "{image=icon_sad.webp} Yes, she did":
-                    scene v11_lenaian1
-                    if lena_tattoo1:
-                        show v11_mark1_t1
-                    if lena_piercing1:
-                        show v11_mark1_p1
-                    elif lena_piercing2:
-                        show v11_mark1_p2
-                    with long
-                    pause (2)
+                    "No, she didn't":
+                        pass
 
-                    $ ian_cuck = 3
-
-                "No, she didn't":
-                    pass
-
-            scene blackbg
-            with long
+                scene blackbg
+                with long
 return
 
 label gallVar_ian_lena_3some:
@@ -1492,22 +1488,14 @@ label gallVar_lena_analch13:
     with long
     if ian_lena_dating:
         scene v6_ian1
-        if lena_piercing1:
-            show v6_robert1_p1
-        elif lena_piercing2:
-            show v6_robert1_p2
     elif lena_robert_dating:
         scene v6_robert1
-        if lena_piercing1:
-            show v6_robert1_p1
-        elif lena_piercing2:
-            show v6_robert1_p2
     else:
         scene v6_mike1
-        if lena_piercing1:
-            show v6_robert1_p1
-        elif lena_piercing2:
-            show v6_robert1_p2
+    if lena_piercing1:
+        show v6_robert1_p1
+    elif lena_piercing2:
+        show v6_robert1_p2
     with long
     menu:
         gal "Did Lena lose her anal virginity?"
@@ -1546,6 +1534,56 @@ label gallVar_lena_analch13:
                 scene v6_mike6c
                 with long
             pause (2)
+    scene blackbg
+    with long
+return
+
+label gallVar_toy_double:
+    $ lena_look = 4
+    $ flena = "shy"
+
+    scene sexshop
+    with long
+    show lena at right
+    with short
+    show toy_double
+    with short
+    menu:
+        gal "Did Lena buy the double ended dildo?"
+        "{image=icon_pay.webp} Yes, she did":
+            $ flena = "flirtshy"
+            pause 1
+
+            $ toy_double = True
+
+        "No, she didn't":
+            $ flena = "n"
+
+    scene blackbg
+    with long
+return
+
+label gallVar_toy_wand:
+    $ lena_look = 4
+    $ flena = "shy"
+
+    scene sexshop
+    with long
+    show lena at right
+    with short
+    show toy_wand
+    with short
+    menu:
+        gal "Did Lena buy the vibrating wand?"
+        "{image=icon_pay.webp} Yes, she did":
+            $ flena = "flirtshy"
+            pause 1
+
+            $ toy_wand = True
+
+        "No, she didn't":
+            $ flena = "n"
+
     scene blackbg
     with long
 return

@@ -149,6 +149,8 @@ screen navigation_gallery(selected_char=None, char_page=1, chapter=0, page=1):
                     text_selected_hover_color gui.hover_color
                     if chapter < chapters:
                         action ShowMenu('screen_gallery', char=selected_char, char_page=char_page, chapter=chapters, _page=1)
+                    elif chapter == chapters:
+                        action ShowMenu('screen_gallery', char=selected_char, char_page=char_page, chapter=0, _page=1)
 
         vbox:
             yalign 0.0
@@ -208,7 +210,7 @@ screen navigation_gallery(selected_char=None, char_page=1, chapter=0, page=1):
                         text_selected_hover_color gui.hover_color
                         action ShowMenu('screen_gallery', char=selected_char, char_page=navigation_gallery_pages, chapter=chapter, _page=page)
 
-            fixed:
+            hbox:
                 xysize (258, 95)
                 xalign 0.5
                 imagebutton:
@@ -251,12 +253,12 @@ screen navigation_gallery_customisation():
     frame:
         xsize 369
         vbox:
-            imagebutton:
-                xalign 1.0
-                offset (-30, -450)
-                idle "gui/support_lara.png"
-                hovered Play ("ch_one", "sfx/paper_hover.mp3")
-                action Play("ch_three", "sfx/paper_click.mp3"), OpenURL ("https://buymeacoffee.com/pilotlara")
+            #imagebutton:
+            #    xalign 1.0
+            #    offset (-30, -450)
+            #    idle "gui/support_lara.png"
+            #    hovered Play ("ch_one", "sfx/paper_hover.mp3")
+            #    action Play("ch_three", "sfx/paper_click.mp3"), OpenURL ("https://buymeacoffee.com/pilotlara")
 
             fixed:
                 xysize (258, 95)
@@ -264,5 +266,5 @@ screen navigation_gallery_customisation():
                 imagebutton:
                     auto "gui/gm_gallery_%s.webp"
                     hovered Play("ch_one", "sfx/paper_hover.mp3")
-                    action Play("ch_three", "sfx/paper_click.mp3"), ShowMenu("screen_gallery")
+                    action [Play("ch_three", "sfx/paper_click.mp3"), Function(update_all_gallery_images), ShowMenu("screen_gallery")]
                 add "gui/gm_back.webp" yalign 0.5 xpos 36

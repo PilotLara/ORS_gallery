@@ -2468,7 +2468,7 @@ label setup_CH07_S19:
     scene blackbg
     with long
 
-    call gallVar_toy_badboy
+    call gallVar_toy_badboy from _call_gallVar_toy_badboy
 
     # no music
 
@@ -2482,7 +2482,7 @@ label setup_CH07_S20:
     $ ian_look = 1
     $ fian = "smile"
 
-    play music "music/sensual.mp3"
+    play music "music/sensual.mp3" loop
 return
 
 label setup_CH07_S21:
@@ -3119,7 +3119,22 @@ label setup_CH09_S04:
     scene blackbg
     with long
 
-    #ToDO
+    $ flena = "n"
+    $ fjeremy = "smile"
+    $ fivy = "flirt"
+    $ flouise = "blush"
+
+    $ jeremy_look = 1
+    $ louise_look - 2
+    $ ivy_look = "sexy"
+    $ lena_look = "charisma"
+
+    scene ivyroomnight
+    with long
+    show ivy at rig
+    show louise2 at lef
+    show lena at right
+    show jeremy at left
     menu:
         gal "Does Lena have an exhibitionistic fantasy?"
         "Yes, she confessed it to Ivy":
@@ -3153,6 +3168,7 @@ label setup_CH09_S04:
         "6 or lower":
             hide lenaunder
             with short
+            $ lena_lust = 6
             $ lena_look = 4
             show lena at left
             with short
@@ -4564,7 +4580,7 @@ label setup_CH10_S13:
     scene blackbg
     with long
 
-    call gallVar_toy_badboy
+    call gallVar_toy_badboy from _call_gallVar_toy_badboy_1
 
     call gallVar_lena_anal1 from _call_gallVar_lena_anal1_4
 
@@ -4607,7 +4623,7 @@ label setup_CH10_S15:
     scene blackbg
     with long
 
-    call gallVar_toy_badboy
+    call gallVar_toy_badboy from _call_gallVar_toy_badboy_2
 
     $ lena_look = 1
     $ flena = "n"
@@ -5381,7 +5397,7 @@ label setup_CH11_S09:
     $ fian = "smile"
     $ fholly = "sad"
 
-    play music "music/calm.mp3"
+    play music "music/calm.mp3" loop
 
     scene ianhomenight with long
     show ian at lef
@@ -5494,7 +5510,7 @@ label setup_CH11_S10:
     scene blackbg
     with long
 
-    call gallVar_toy_badboy
+    call gallVar_toy_badboy from _call_gallVar_toy_badboy_3
 
     # no music
 
@@ -8083,7 +8099,7 @@ label setup_CH12_S08:
     scene blackbg
     with long
 
-    call gallVar_toy_badboy
+    call gallVar_toy_badboy from _call_gallVar_toy_badboy_4
 
     $ flena = "flirtshy"
 
@@ -9768,7 +9784,7 @@ label setup_CH12_S23:
         "They were just seeing each other": #CH5
             $ ian_lena_dating = True
 
-        "They were just friends" if ian_lena_sex == False:
+        "They were just friends":
             pass
 
     scene blackbg
@@ -9776,12 +9792,22 @@ label setup_CH12_S23:
 
     call gallVar_lena_cheating from _call_gallVar_lena_cheating_3
     call gallVar_ian_cuck from _call_gallVar_ian_cuck_4
-    call gallVar_ian_lena_crisis from _call_gallVar_ian_lena_crisis_2
 
-    # holly_trinity #ToDO
+    if not ian_lena_dating:
+        scene v7_holly10
+        with long
+        menu:
+            gal "Did Ian decide to date Holly?" #CH7
+            "{image=icon_love.webp} Yes, he did":
+                scene v7_holly10
+                with long
+                pause (2)
 
-    # if not ian_lena_dating:
-        # ian_holly_dating #ToDO
+                $ ian_holly_dating = True
+            "No, he didn't":
+                pass
+        scene blackbg
+        with long
 
     $ holly_look = 1
     $ holly_glasses = True
@@ -9790,8 +9816,8 @@ label setup_CH12_S23:
     show holly3
     with short
     menu:
-        gal "Did Holly want to be more like Lena?"
-        "Yes":
+        gal "Did Holly want to be more like Lena?" #CH11
+        "Yes, she did":
             hide holly3
             with short
 
@@ -9803,7 +9829,7 @@ label setup_CH12_S23:
             show holly
             with short
 
-        "No":
+        "No, she didn't":
             hide holly3
             with short
 
@@ -9812,9 +9838,13 @@ label setup_CH12_S23:
 
             show holly
             with short
-
     scene blackbg
     with long
+
+    call gallVar_ian_lena_crisis from _call_gallVar_ian_lena_crisis_2
+
+    if ian_holly_dating: # CH11
+        $ v11_holly_fuck = True
 
     if ian_holly_dating == False and v11_holly_change == True:
         $ holly_look = 5
@@ -9854,11 +9884,69 @@ label setup_CH12_S23:
         with long
 
         $ lena_extras = 0
+        $ lena_makeup = 0
 
-    if holly_slut:
+    if ian_holly_dating: #ToDO
+        $ fholly = "cry"
+        $ fian = "sad"
+        $ ian_look = "summer"
+        $ ian_summer_look = "wits"
+        $ holly_look = "summer"
+        if v11_holly_change:
+            $ holly_hair = 2
+        $ holly_glasses = False
+        scene summerroom
+        with long
+        show ian at centerlef2
+        show holly at rig
+        with short
+        menu:
+            gal "Were Ian and Holly interested in a throuple with Lena?" #CH12
+            "Yes, they were":
+                $ fian = "n"
+                $ fholly = "blush"
+                pause 1
+
+                $ holly_trinity = 2
+
+            "No, they weren't":
+                pass
+        scene blackbg
+        with long
+
+    elif ian_lena_couple and lena_cheating != 1 and ian_cuck =< 1 and ian_lena_crisis == False:
+        $ flena = "worried"
+        $ fian = "smile"
+        $ ian_look = 3
+        if stalkfap_pro:
+            $ lena_look = "summer"
+            $ lena_makeup = 1
+            $ lena_necklace = "choker2"
+        else:
+            $ lena_look = 4
+        scene summerroom
+        with long
+        show ianunder at lef
+        show lenabra at rig
+        with short
+        menu:
+            gal "Were Ian and Lena interested in a throuple with Holly?" #CH12
+            "Yes, they were":
+                $ flena = "blush"
+                pause 1
+
+                $ holly_trinity = 2
+
+            "No, they weren't":
+                pass
+        scene blackbg
+        with long
+
+        $ lena_makeup = 0
+        $ lena_necklace = False
+
+    if holly_slut: #ChH12
         $ v12_holly_compliment = "hot"
-    if ian_holly_dating:
-        $ v11_holly_fuck = True
 
     call gallVar_lena_bikini from _call_gallVar_lena_bikini_4
     call gallVar_emma_bikini from _call_gallVar_emma_bikini_2
@@ -10737,7 +10825,7 @@ label setup_CH13_S04:
     scene blackbg
     with long
 
-    call gallVar_toy_badboy
+    call gallVar_toy_badboy from _call_gallVar_toy_badboy_5
 
     $ fstan = "shy"
     $ flena = "smile"
@@ -10812,7 +10900,7 @@ label setup_CH13_S05:
     scene blackbg
     with long
 
-    call gallVar_toy_badboy
+    call gallVar_toy_badboy from _call_gallVar_toy_badboy_6
 
     $ flena = "smile"
     $ lena_look = 1
@@ -10876,7 +10964,7 @@ label setup_CH13_S05:
     if v8_jeremy_sex or v10_jeremy_3some:
         $ lena_jeremy_dating = True
 
-    call gallVar_toy_mandingo
+    call gallVar_toy_mandingo from _call_gallVar_toy_mandingo
 
     jump gallery_CH13_SceneStart
 return
@@ -10956,37 +11044,6 @@ label setup_CH13_S08:
     scene blackbg
     with long
 
-    # if (lena_lust > lena_wits) and (lena_lust > lena_charisma):
-
-    #ian_lena_couple
-    #ian_cuck
-    #ian_lena_open
-    #lena_cheating
-
-    scene v12_axel1_bg
-    show v12_axel1b
-    if lena_tattoo3:
-        show v12_axel1_t3b
-    if lena_tattoo2:
-        show v12_axel1_t2
-    if lena_piercing1:
-        show v12_axel1_p1
-    elif lena_piercing2:
-        show v12_axel1_p2
-    with long
-    menu:
-        gal "Did Lena fuck Axel right before going on the beach trip?"
-        "Yes, she did":
-            play sound "sfx/mh2.mp3"
-            scene v12_axel15_animation2 with fps
-            pause 4
-
-            $ lena_axel_fuck = True
-        "No, she didn't":
-            pass
-    scene blackbg
-    with long
-
     $ lena_look = "wits"
     $ lena_makeup = 1
     $ lena_necklace = "seymour"
@@ -10999,7 +11056,7 @@ label setup_CH13_S08:
     show seymour2 at lef
     with short
     menu:
-        gal "Did Lena sign Seymour's contract?"
+        gal "Did Lena sign Seymour's contract?" #CH9
         "Yes, she did":
             scene v9_seymour6c
             show v9_seymour6_sy
@@ -11008,86 +11065,24 @@ label setup_CH13_S08:
 
             $ seymour_desire = True
 
-            scene blackbg
-            with long
-            $ lena_necklace = "n"
-            $ lena_makeup = 0
-
-            scene v13_seymour5
-            show v13_seymour5b
-            if lena_tattoo2:
-                show v13_seymour5_t2
-            with long
-            menu:
-                gal "Did Lena surrender herself to Seymour on their trip?"
-                "Yes, she did":
-                    scene v13_seymour13b
-                    if lena_tattoo1:
-                        show v13_seymour12_t1
-                    if lena_tattoo2:
-                        show v13_seymour12_t2
-                    if lena_tattoo3:
-                        show v13_seymour12_t3
-                    show v13_seymour12_squirt
-                    with long
-                    pause 2
-
-                    $ lena_seymour_sex = True
-                "No, she didn't":
-                    pass
         "No, she didn't":
             pass
-
     scene blackbg
     with long
     $ lena_necklace = "n"
     $ lena_makeup = 0
 
-    play music "music/flirty3.mp3"
-
-    $ flena = "smile"
-    # $ lena_look = "charisma"/"summer"/4
-    # $ lena_makeup =
-    # $ lena_extras =
-    # $ lena_necklace =
-
-    scene street
-    with long
-    pause 0.5
-    show lena at rig
-    with long
-return
-
-label setup_CH13_S09:
-    scene blackbg
-    with long
-
-    #ToDO
-    menu:
-        gal "Did Lena confess to having a threesome fantasy?"
-        "Yes, she wants one with two guys":
-            $ lena_fty_3some = 2
-        "Yes, she wants one with two girls":
-            $ lena_fty_3some = 2
-        "No, she didn't":
-            pass
-    scene blackbg
-    with long
-
-    #v12_ian_lena_breakup
-
-    #ian_lena_couple
-    #ian_cuck
-    #ian_lena_open
-    #lena_cheating
-    #ian_lena_love
-
-    #v12_lena_rough
+    call gallVar_lena_summer_look from _call_gallVar_lena_summer_look_9 #CH12
 
     scene v12_axel1_bg
-    show v12_axel1b
-    if lena_tattoo3:
-        show v12_axel1_t3b
+    if lena_look == "summer":
+        show v12_axel1b
+        if lena_tattoo3:
+            show v12_axel1_t3b
+    else:
+        show v12_axel1a
+        if lena_tattoo3:
+            show v12_axel1_t3a
     if lena_tattoo2:
         show v12_axel1_t2
     if lena_piercing1:
@@ -11096,7 +11091,7 @@ label setup_CH13_S09:
         show v12_axel1_p2
     with long
     menu:
-        gal "Did Lena fuck Axel right before going on the beach trip?"
+        gal "Did Lena fuck Axel right before going on the beach trip?" #CH12
         "Yes, she did":
             play sound "sfx/mh2.mp3"
             scene v12_axel15_animation2 with fps
@@ -11108,141 +11103,30 @@ label setup_CH13_S09:
     scene blackbg
     with long
 
-    $ lena_look = "wits"
-    $ lena_makeup = 1
-    $ lena_necklace = "seymour"
-    $ flena = "smile"
-    $ fseymour = "smile"
+    $ ian_look = "summer"
+    $ ian_summer_look = "wits"
+    $ flena = "sad"
+    $ flena = "sad"
 
-    scene seymourofficenight
+    scene beach_3nity
     with long
-    show lena2 at rig
-    show seymour2 at lef
+    show ian at lef
+    show lena at rig
     with short
-    menu:
-        gal "Did Lena sign Seymour's contract?"
-        "Yes, she did":
-            scene v9_seymour6c
-            show v9_seymour6_sy
-            with long
-            pause (2)
-
-            $ seymour_desire = True
-
-            scene blackbg
-            with long
-            $ lena_necklace = "n"
-            $ lena_makeup = 0
-
-            scene v13_seymour5
-            show v13_seymour5b
-            if lena_tattoo2:
-                show v13_seymour5_t2
-            with long
-            menu:
-                gal "Did Lena surrender herself to Seymour on their trip?"
-                "Yes, she did":
-                    scene v13_seymour13b
-                    if lena_tattoo1:
-                        show v13_seymour12_t1
-                    if lena_tattoo2:
-                        show v13_seymour12_t2
-                    if lena_tattoo3:
-                        show v13_seymour12_t3
-                    show v13_seymour12_squirt
-                    with long
-                    pause 2
-
-                    $ lena_seymour_sex = True
-                "No, she didn't":
-                    pass
-        "No, she didn't":
-            pass
-
-    scene blackbg
-    with long
-    $ lena_necklace = "n"
-    $ lena_makeup = 0
-
-    $ lena_robert_dating = True
-    call gallVar_lena_analch13
-
-    play music "music/flirty3.mp3"
-
-    $ flena = "smile"
-    # $ lena_look = "charisma"/"summer"/4
-    # $ lena_makeup =
-    # $ lena_extras =
-    # $ lena_necklace =
-
-    scene street
-    with long
-    pause 0.5
-    show lena at rig
-    with long
-return
-
-label setup_CH13_S10:
-    scene blackbg
-    with long
-
-    # if (lena_lust > lena_wits) and (lena_lust > lena_charisma):
-
-    #ToDO
-    menu:
-        gal "Did Lena confess to having a threesome fantasy?"
-        "Yes, she wants one with two guys":
-            $ lena_fty_3some = 2
-        "Yes, she wants one with two girls":
-            $ lena_fty_3some = 2
-        "No, she didn't":
-            pass
-    scene blackbg
-    with long
-
-    scene v12_axel1_bg
-    show v12_axel1b
-    if lena_tattoo3:
-        show v12_axel1_t3b
-    if lena_tattoo2:
-        show v12_axel1_t2
-    if lena_piercing1:
-        show v12_axel1_p1
-    elif lena_piercing2:
-        show v12_axel1_p2
-    with long
-    menu:
-        gal "Did Lena fuck Axel right before going on the beach trip?"
-        "Yes, she did":
-            play sound "sfx/mh2.mp3"
-            scene v12_axel15_animation2 with fps
-            pause 4
-
-            $ lena_axel_fuck = True
-        "No, she didn't":
-            pass
-    scene blackbg
-    with long
-
-    #ToDO
     menu:
         gal "What is Lena and Ian's relationship status at the moment?"
         "They broke up on the beach trip":
-            #ToDO
+            $ fian = "sad"
+            $ flena = "drama"
+
             $ v12_ian_lena_breakup = True
+
         "They are still a couple":
-            #ToDO
             $ ian_lena_couple = True
             $ ian_lena_dating = True
 
             scene blackbg
             with long
-
-            $ ian_look = "summer"
-            $ ian_summer_look = "wits"
-            $ flena = "sad"
-            $ flena = "sad"
-            # $ lena_look = #ToDO
 
             scene beach_3nity
             with long
@@ -11253,6 +11137,7 @@ label setup_CH13_S10:
                 gal "What was the result of their talk on the beach?"
                 "Ian forgave Lena for cheating on him":
                     $ ian_lena_crisis = "forgive"
+                    $ lena_cheating = 2 #Still cheating
                 "Ian demanded an open relationship":
                     $ ian_lena_open = "ian"
                 "Lena wanted an open relationship":
@@ -11292,7 +11177,7 @@ label setup_CH13_S10:
                         with long
                         pause 1
                         menu:
-                            "Did he tell her that he loved her?"
+                            "Did he tell her that he loves her?"
                             "Yes, he did":
                                 scene v12_lena35
                                 if lena_piercing1:
@@ -11317,6 +11202,88 @@ label setup_CH13_S10:
     scene blackbg
     with long
 
+    if seymour_desire:
+        scene v13_seymour5
+        show v13_seymour5b
+        if lena_tattoo2:
+            show v13_seymour5_t2
+        with long
+        menu:
+            gal "Did Lena surrender herself to Seymour on their trip?" #CH13
+            "Yes, she did":
+                scene v13_seymour13b
+                if lena_tattoo1:
+                    show v13_seymour12_t1
+                if lena_tattoo2:
+                    show v13_seymour12_t2
+                if lena_tattoo3:
+                    show v13_seymour12_t3
+                show v13_seymour12_squirt
+                with long
+                pause 2
+
+                $ lena_seymour_sex = True
+            "No, she didn't":
+                pass
+        scene blackbg
+        with long
+
+    play music "music/flirty3.mp3" loop
+
+    $ flena = "smile"
+    if seymour_desire:
+        $ lena_makeup = 2
+        $ lena_look = "charisma"
+        $ lena_extras = "black_dress"
+    elif lena_lust > 7 or stalkfap_pro:
+        $ lena_look = "summer"
+        $ lena_makeup = 1
+        $ lena_necklace = "choker2"
+        $ cheat_mode = True # for dialogue flavour
+    else:
+        $ lena_look = 4
+
+    scene street
+    with long
+    pause 0.5
+    show lena at rig
+    with long
+return
+
+label setup_CH13_S09:
+    scene blackbg
+    with long
+
+    $ lena_robert_dating = True
+    call gallVar_lena_analch13 from _call_gallVar_lena_analch13 #CH6
+
+    $ flena = "n"
+    $ fjeremy = "smile"
+    $ fivy = "flirt"
+    $ flouise = "blush"
+
+    $ jeremy_look = 1
+    $ louise_look - 2
+    $ ivy_look = "sexy"
+    $ lena_look = "charisma"
+
+    scene ivyroomnight
+    with long
+    show ivy at rig
+    show louise2 at lef
+    show lena at right
+    show jeremy at left
+    menu:
+        gal "Did Lena confess to having a threesome fantasy?" #CH7
+        "Yes, she wants one with two guys":
+            $ lena_fty_3some = 2
+        "Yes, she wants one with two girls":
+            $ lena_fty_3some = 2
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+
     $ lena_look = "wits"
     $ lena_makeup = 1
     $ lena_necklace = "seymour"
@@ -11329,7 +11296,7 @@ label setup_CH13_S10:
     show seymour2 at lef
     with short
     menu:
-        gal "Did Lena sign Seymour's contract?"
+        gal "Did Lena sign Seymour's contract?" #CH9
         "Yes, she did":
             scene v9_seymour6c
             show v9_seymour6_sy
@@ -11338,50 +11305,418 @@ label setup_CH13_S10:
 
             $ seymour_desire = True
 
-            scene blackbg
-            with long
-            $ lena_necklace = "n"
-            $ lena_makeup = 0
-
-            scene v13_seymour5
-            show v13_seymour5b
-            if lena_tattoo2:
-                show v13_seymour5_t2
-            with long
-            menu:
-                gal "Did Lena surrender herself to Seymour on their trip?"
-                "Yes, she did":
-                    scene v13_seymour13b
-                    if lena_tattoo1:
-                        show v13_seymour12_t1
-                    if lena_tattoo2:
-                        show v13_seymour12_t2
-                    if lena_tattoo3:
-                        show v13_seymour12_t3
-                    show v13_seymour12_squirt
-                    with long
-                    pause 2
-
-                    $ lena_seymour_sex = True
-                "No, she didn't":
-                    pass
         "No, she didn't":
             pass
-
     scene blackbg
     with long
     $ lena_necklace = "n"
     $ lena_makeup = 0
 
-    call gallVar_lena_analch13
+    call gallVar_lena_summer_look from _call_gallVar_lena_summer_look_10 #CH12
 
-    play music "music/flirty3.mp3"
+    scene v12_axel1_bg
+    if lena_look == "summer":
+        show v12_axel1b
+        if lena_tattoo3:
+            show v12_axel1_t3b
+    else:
+        show v12_axel1a
+        if lena_tattoo3:
+            show v12_axel1_t3a
+    if lena_tattoo2:
+        show v12_axel1_t2
+    if lena_piercing1:
+        show v12_axel1_p1
+    elif lena_piercing2:
+        show v12_axel1_p2
+    with long
+    menu:
+        gal "Did Lena fuck Axel right before going on the beach trip?" #CH12
+        "Yes, she did":
+            play sound "sfx/mh2.mp3"
+            scene v12_axel15_animation2 with fps
+            pause 4
+
+            $ lena_axel_fuck = True
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+
+    $ ian_look = "summer"
+    $ ian_summer_look = "wits"
+    $ flena = "sad"
+    $ flena = "sad"
+
+    scene beach_3nity
+    with long
+    show ian at lef
+    show lena at rig
+    with short
+    menu:
+        gal "What is Lena and Ian's relationship status at the moment?"
+        "They broke up on the beach trip":
+            $ fian = "sad"
+            $ flena = "drama"
+
+            $ v12_ian_lena_breakup = True
+
+        "They are still a couple":
+            $ ian_lena_couple = True
+            $ ian_lena_dating = True
+
+            scene blackbg
+            with long
+
+            scene beach_3nity
+            with long
+            show ian at lef
+            show lena at rig
+            with short
+            menu:
+                gal "What was the result of their talk on the beach?"
+                "Ian forgave Lena for cheating on him":
+                    $ ian_lena_crisis = "forgive"
+                    $ lena_cheating = 2 #Still cheating
+                "Ian demanded an open relationship":
+                    $ ian_lena_open = "ian"
+                "Lena wanted an open relationship":
+                    $ ian_lena_open = "lena"
+                "Ian has become a cuck":
+                    $ ian_cuck = 2
+
+            if ian_lena_crisis == "forgive" or ian_lena_open == "ian" or ian_lena_open == "lena":
+                scene blackbg
+                with long
+
+                scene v12_lena30
+                show v12_lena30_spank
+                with long
+                menu:
+                    gal "Did Ian punish Lena?"
+                    "Yes, he did":
+                        scene v12_lena33
+                        if lena_tattoo3:
+                            show v12_lena33_t2
+                        if lena_tattoo2:
+                            show v12_lena33_t3
+                        if lena_piercing1:
+                            show v12_lena33_p1
+                        elif lena_piercing2:
+                            show v12_lena33_p2
+                        with long
+                        play sound "sfx/gasp3.mp3"
+                        pause 2
+
+                        $ v12_lena_rough = 2
+
+                        scene blackbg
+                        with long
+
+                        scene v12_lena34
+                        with long
+                        pause 1
+                        menu:
+                            "Did he tell her that he loves her?"
+                            "Yes, he did":
+                                scene v12_lena35
+                                if lena_piercing1:
+                                    show v12_lena35_p1
+                                elif lena_piercing2:
+                                    show v12_lena35_p2
+                                if lena_tattoo1:
+                                    show v12_lena35_t1
+                                if lena_tattoo1:
+                                    show v12_lena35_t2
+                                with long
+                                pause 1
+
+                                $ ian_lena_love = True
+
+                            "No, he didn't":
+                                pass
+                    "No, he didn't":
+                        pass
+        "They were never a couple to begin with":
+            pass
+    scene blackbg
+    with long
+
+    if seymour_desire:
+        scene v13_seymour5
+        show v13_seymour5b
+        if lena_tattoo2:
+            show v13_seymour5_t2
+        with long
+        menu:
+            gal "Did Lena surrender herself to Seymour on their trip?" #CH13
+            "Yes, she did":
+                scene v13_seymour13b
+                if lena_tattoo1:
+                    show v13_seymour12_t1
+                if lena_tattoo2:
+                    show v13_seymour12_t2
+                if lena_tattoo3:
+                    show v13_seymour12_t3
+                show v13_seymour12_squirt
+                with long
+                pause 2
+
+                $ lena_seymour_sex = True
+            "No, she didn't":
+                pass
+        scene blackbg
+        with long
+
+    play music "music/flirty3.mp3" loop
 
     $ flena = "smile"
-    # $ lena_look = "charisma"/"summer"/4
-    # $ lena_makeup =
-    # $ lena_extras =
-    # $ lena_necklace =
+    if seymour_desire:
+        $ lena_makeup = 2
+        $ lena_look = "charisma"
+        $ lena_extras = "black_dress"
+    elif lena_lust > 7 or stalkfap_pro:
+        $ lena_look = "summer"
+        $ lena_makeup = 1
+        $ lena_necklace = "choker2"
+        $ cheat_mode = True # for dialogue flavour
+    else:
+        $ lena_look = 4
+
+    # no scene
+return
+
+label setup_CH13_S10:
+    scene blackbg
+    with long
+
+    call gallVar_lena_analch13 from _call_gallVar_lena_analch13_1 #CH6
+
+    $ flena = "n"
+    $ fjeremy = "smile"
+    $ fivy = "flirt"
+    $ flouise = "blush"
+
+    $ jeremy_look = 1
+    $ louise_look - 2
+    $ ivy_look = "sexy"
+    $ lena_look = "charisma"
+
+    scene ivyroomnight
+    with long
+    show ivy at rig
+    show louise2 at lef
+    show lena at right
+    show jeremy at left
+    menu:
+        gal "Did Lena confess to having a threesome fantasy?" #CH7
+        "Yes, she wants one with two guys":
+            $ lena_fty_3some = 2
+        "Yes, she wants one with two girls":
+            $ lena_fty_3some = 2
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+
+    $ lena_look = "wits"
+    $ lena_makeup = 1
+    $ lena_necklace = "seymour"
+    $ flena = "smile"
+    $ fseymour = "smile"
+
+    scene seymourofficenight
+    with long
+    show lena2 at rig
+    show seymour2 at lef
+    with short
+    menu:
+        gal "Did Lena sign Seymour's contract?" #CH9
+        "Yes, she did":
+            scene v9_seymour6c
+            show v9_seymour6_sy
+            with long
+            pause (2)
+
+            $ seymour_desire = True
+
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+    $ lena_necklace = "n"
+    $ lena_makeup = 0
+
+    call gallVar_lena_summer_look from _call_gallVar_lena_summer_look_11 #CH12
+
+    scene v12_axel1_bg
+    if lena_look == "summer":
+        show v12_axel1b
+        if lena_tattoo3:
+            show v12_axel1_t3b
+    else:
+        show v12_axel1a
+        if lena_tattoo3:
+            show v12_axel1_t3a
+    if lena_tattoo2:
+        show v12_axel1_t2
+    if lena_piercing1:
+        show v12_axel1_p1
+    elif lena_piercing2:
+        show v12_axel1_p2
+    with long
+    menu:
+        gal "Did Lena fuck Axel right before going on the beach trip?" #CH12
+        "Yes, she did":
+            play sound "sfx/mh2.mp3"
+            scene v12_axel15_animation2 with fps
+            pause 4
+
+            $ lena_axel_fuck = True
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+
+    $ ian_look = "summer"
+    $ ian_summer_look = "wits"
+    $ flena = "sad"
+    $ flena = "sad"
+
+    scene beach_3nity
+    with long
+    show ian at lef
+    show lena at rig
+    with short
+    menu:
+        gal "What is Lena and Ian's relationship status at the moment?"
+        "They broke up on the beach trip":
+            $ fian = "sad"
+            $ flena = "drama"
+
+            $ v12_ian_lena_breakup = True
+
+        "They are still a couple":
+            $ ian_lena_couple = True
+            $ ian_lena_dating = True
+
+            scene blackbg
+            with long
+
+            scene beach_3nity
+            with long
+            show ian at lef
+            show lena at rig
+            with short
+            menu:
+                gal "What was the result of their talk on the beach?"
+                "Ian forgave Lena for cheating on him":
+                    $ ian_lena_crisis = "forgive"
+                    $ lena_cheating = 2 #Still cheating
+                "Ian demanded an open relationship":
+                    $ ian_lena_open = "ian"
+                "Lena wanted an open relationship":
+                    $ ian_lena_open = "lena"
+                "Ian has become a cuck":
+                    $ ian_cuck = 2
+
+            if ian_lena_crisis == "forgive" or ian_lena_open == "ian" or ian_lena_open == "lena":
+                scene blackbg
+                with long
+
+                scene v12_lena30
+                show v12_lena30_spank
+                with long
+                menu:
+                    gal "Did Ian punish Lena?"
+                    "Yes, he did":
+                        scene v12_lena33
+                        if lena_tattoo3:
+                            show v12_lena33_t2
+                        if lena_tattoo2:
+                            show v12_lena33_t3
+                        if lena_piercing1:
+                            show v12_lena33_p1
+                        elif lena_piercing2:
+                            show v12_lena33_p2
+                        with long
+                        play sound "sfx/gasp3.mp3"
+                        pause 2
+
+                        $ v12_lena_rough = 2
+
+                        scene blackbg
+                        with long
+
+                        scene v12_lena34
+                        with long
+                        pause 1
+                        menu:
+                            "Did he tell her that he loves her?"
+                            "Yes, he did":
+                                scene v12_lena35
+                                if lena_piercing1:
+                                    show v12_lena35_p1
+                                elif lena_piercing2:
+                                    show v12_lena35_p2
+                                if lena_tattoo1:
+                                    show v12_lena35_t1
+                                if lena_tattoo1:
+                                    show v12_lena35_t2
+                                with long
+                                pause 1
+
+                                $ ian_lena_love = True
+
+                            "No, he didn't":
+                                pass
+                    "No, he didn't":
+                        pass
+        "They were never a couple to begin with":
+            pass
+    scene blackbg
+    with long
+
+    if seymour_desire:
+        scene v13_seymour5
+        show v13_seymour5b
+        if lena_tattoo2:
+            show v13_seymour5_t2
+        with long
+        menu:
+            gal "Did Lena surrender herself to Seymour on their trip?" #CH13
+            "Yes, she did":
+                scene v13_seymour13b
+                if lena_tattoo1:
+                    show v13_seymour12_t1
+                if lena_tattoo2:
+                    show v13_seymour12_t2
+                if lena_tattoo3:
+                    show v13_seymour12_t3
+                show v13_seymour12_squirt
+                with long
+                pause 2
+
+                $ lena_seymour_sex = True
+            "No, she didn't":
+                pass
+        scene blackbg
+        with long
+
+    play music "music/flirty3.mp3" loop
+
+    $ flena = "smile"
+    if seymour_desire:
+        $ lena_makeup = 2
+        $ lena_look = "charisma"
+        $ lena_extras = "black_dress"
+    elif lena_lust > 7 or stalkfap_pro:
+        $ lena_look = "summer"
+        $ lena_makeup = 1
+        $ lena_necklace = "choker2"
+        $ cheat_mode = True # for dialogue flavour
+    else:
+        $ lena_look = 4
 
     scene street
     with long
@@ -11394,28 +11729,226 @@ label setup_CH13_S11:
     scene blackbg
     with long
 
-    # $ ian_lena_dom = 
-    # $ lena_seymour_sex = 
-    # $ lena_axel_fuck = 
-    # $ v13_seymour_lingerie = 
-    # $ ian_lena_pure = 
-    # $ ian_lena_couple = 
-    # $ lena_fty_3some = 
-    # $ ian_lena_mmf = 
-    # $ lena_anal = 
+    $ ian_lena_dating = True
+    call gallVar_lena_analch13 #CH6
 
-    #$ flena =
-    #$ lena_look = 
-    #$ lena_makeup =
+    $ flena = "n"
+    $ fjeremy = "smile"
+    $ fivy = "flirt"
+    $ flouise = "blush"
 
-    #ToDO music
+    $ jeremy_look = 1
+    $ louise_look - 2
+    $ ivy_look = "sexy"
+    $ lena_look = "charisma"
+
+    scene ivyroomnight
+    with long
+    show ivy at rig
+    show louise2 at lef
+    show lena at right
+    show jeremy at left
+    menu:
+        gal "Did Lena confess to having a threesome fantasy?" #CH7
+        "Yes, she wants one with two guys":
+            $ lena_fty_3some = 2
+        "Yes, she wants one with two girls":
+            $ lena_fty_3some = 2
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+
+    $ lena_look = "wits"
+    $ lena_makeup = 1
+    $ lena_necklace = "seymour"
+    $ flena = "smile"
+    $ fseymour = "smile"
+
+    scene seymourofficenight
+    with long
+    show lena2 at rig
+    show seymour2 at lef
+    with short
+    menu:
+        gal "Did Lena sign Seymour's contract?" #CH9
+        "Yes, she did":
+            scene v9_seymour6c
+            show v9_seymour6_sy
+            with long
+            pause (2)
+
+            $ seymour_desire = True
+
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+    $ lena_necklace = "n"
+    $ lena_makeup = 0
+
+    call gallVar_lena_summer_look #CH12
+
+    $ fian = "n"
+    $ ian_look = 2
+
+    scene mall
+    with long
+    show ian
+    with short
+    menu:
+        gal "Did Ian buy a gift for Lena?"
+        "{image=icon_pay.webp} Yes, he did":
+            $ fian = "smile"
+            $ v12_gift = "lena"
+            pause(1)
+
+        "No, he didn't":
+            pass
+
+    scene blackbg
+    with long
+
+    scene v12_axel1_bg
+    if lena_look == "summer":
+        show v12_axel1b
+        if lena_tattoo3:
+            show v12_axel1_t3b
+    else:
+        show v12_axel1a
+        if lena_tattoo3:
+            show v12_axel1_t3a
+    if lena_tattoo2:
+        show v12_axel1_t2
+    if lena_piercing1:
+        show v12_axel1_p1
+    elif lena_piercing2:
+        show v12_axel1_p2
+    with long
+    menu:
+        gal "Did Lena fuck Axel right before going on the beach trip?" #CH12
+        "Yes, she did":
+            play sound "sfx/mh2.mp3"
+            scene v12_axel15_animation2 with fps
+            pause 4
+
+            $ lena_axel_fuck = True
+        "No, she didn't":
+            pass
+    scene blackbg
+    with long
+
+    $ ian_lena_pure = True # is only for one sentence diff
+    $ ian_lena_couple = True # is only for two sentences diff
+
+    scene v12_lena_30_animation
+    if lena_tattoo2:
+        show v12_lena_30_t2
+    with long
+    menu:
+        gal "What was Ian's reaction to Lena proposing a threesome with another guy?"
+        "He found it hot":
+            $ ian_lena_mmf = 2
+            pause 2
+
+        "He would give it a try":
+            $ ian_lena_mmf = 1
+            pause 2
+
+        "He didn't like the idea":
+            pass
+
+    scene blackbg
+    with long
+
+    if seymour_desire:
+        $ v13_seymour_lingerie = 2
+
+        scene v13_seymour5
+        show v13_seymour5b
+        if lena_tattoo2:
+            show v13_seymour5_t2
+        with long
+        menu:
+            gal "Did Lena surrender herself to Seymour on their trip?" #CH13
+            "Yes, she did":
+                scene v13_seymour13b
+                if lena_tattoo1:
+                    show v13_seymour12_t1
+                if lena_tattoo2:
+                    show v13_seymour12_t2
+                if lena_tattoo3:
+                    show v13_seymour12_t3
+                show v13_seymour12_squirt
+                with long
+                pause 2
+
+                $ lena_seymour_sex = True
+            "No, she didn't":
+                pass
+        scene blackbg
+        with long
+
+    #no music
+
+    $ fian = "n"
+    $ flena = "n"
+    $ ian_look = "summer"
+    if seymour_desire:
+        $ lena_makeup = 2
+        $ lena_look = "charisma"
+        $ lena_extras = "black_dress"
+    elif lena_lust > 7 or stalkfap_pro:
+        $ lena_look = "summer"
+        $ lena_makeup = 1
+        $ lena_necklace = "choker2"
+        $ cheat_mode = True # for dialogue flavour
+    else:
+        $ lena_look = 4
+    if (v12_gift == "lena" and ian_lena_pure) or (v12_gift == "lena" and lena_seymour_sex == False):
+        if lena_lust > 7 or stalkfap_pro:
+            $ lena_necklace = "gift2"
+        else:
+            $ lena_necklace = "gift"
+
+    #no scene
 return
 
 label setup_CH13_S12:
     scene blackbg
     with long
 
-    # $ lena_lust > 5
+    scene lenaroom
+    with long
+    $ flena = "n"
+    show lenaunder at left
+    with short
+    menu:
+        gal "How high was Lena's lust?"
+        "{image=icon_lust.webp} Higher than 5":
+            hide lenaunder
+            with short
+            $ lena_look = "sexy"
+            show lena at left
+            with short
+            $ flena = "slut"
+            show lena at truecenter
+            with move
+            pause(1)
+
+        "4 or lower":
+            hide lenaunder
+            with short
+            $ lena_lust = 4
+            $ lena_look = 4
+            show lena at left
+            with short
+            $ flena = "smile"
+            show lena at truecenter
+            with move
+            pause(1)
+    scene blackbg
+    with long
 
     $ lena_look = 4
     $ stan_look = 1
@@ -11452,38 +11985,252 @@ label setup_CH13_S12:
     scene blackbg
     with long
 
-    # $ v13_stan_reward = 
+    $ flena = "flirtevil"
+    $ fstan = "blush"
+    $ stan_look = 3
+    $ stan_camera = True
+
+    scene lenaroom
+    show stan at lef3
+    show lenanude at rig
+    show lena_dildo1 at rig
+    with long
+    menu:
+        "Did Lena reward Stan for his services as her Stalkfap photographer?"
+        "Yes, she blew him" if lena_lust > 8:
+            scene v13_stan6bb
+            if lena_tattoo2:
+                show v13_stan6_t2b
+            with long
+            pause 2
+
+            $ v13_stan_reward = 3
+
+        "Yes, she stroke his cock":
+            scene v13_stan5_animation1
+            pause 2
+
+            $ v13_stan_reward = 2
+
+        "Yes, she let him fondle her boobs":
+            scene v13_stan2c
+            if lena_tattoo2:
+                show v13_stan2_t2
+            with long
+            pause 2
+
+            $ v13_stan_reward = 1
+
+        "No, she didn't/isn't on Stalkfap":
+            pass
+    scene blackbg
+    with long
+    $ stan_camera = False
 
     $ flena = "smile"
-    $ lena_look = 1
+    $ lena_look = "comfystan"
     $ lena_makeup = 0
-
     $ fstan = "smile"
+    $ stan_look = 3
 
+    play music "music/calm2.mp3" loop
 
-    #no music
+    # no scene
 return
 
 label setup_CH13_S13:
     scene blackbg
     with long
 
-    #$ flena =
-    #$ lena_look = 
-    #$ lena_makeup =
+    $ holly_look = 1
+    $ holly_glasses = True
 
-    #ToDO music
+    scene ianroom
+    with long
+    show holly3
+    with short
+    menu:
+        gal "Did Holly want to be more like Lena?"
+        "Yes, she did":
+            hide holly3
+            with short
+
+            $ holly_look = "summer"
+            $ fholly = "smile"
+            $ holly_glasses = 2
+            $ v11_holly_change = True
+
+            show holly
+            with short
+
+        "No, she didn't":
+            hide holly3
+            with short
+
+            $ holly_look = "summer"
+            $ holly_change = 0
+
+            show holly
+            with short
+
+    scene blackbg
+    with long
+
+    call gallVar_ian_summer_look
+
+    if v11_holly_change:
+        $ fholly = "smileshy"
+        $ holly_hair = 2
+        $ holly_glasses = False
+    else:
+        $ holly_look = "summer"
+        $ holly_change = 0
+    $ flena = "smile"
+    $ lena_look = 4
+
+    scene beach_3nity
+    with long
+    show ian
+    show holly2 at lef3
+    show lena at rig3
+    with short
+    menu:
+        gal "Which of the two girls was Ian dating?"
+        "He was dating Lena":
+            $ ian_lena_dating = True
+
+        "He was dating Holly":
+            $ ian_holly_dating = True
+
+    scene blackbg
+    with long
+
+    $ fian = "n"
+    $ ian_look = 2
+
+    scene mall
+    with long
+    show ian
+    with short
+    if ian_lena_dating:
+        menu:
+            gal "Did Ian buy a gift for Lena?"
+            "{image=icon_pay.webp} Yes, he did":
+                $ fian = "smile"
+                $ v12_gift = "lena"
+                pause(1)
+
+            "No, he didn't":
+                pass
+    else:
+        menu:
+            gal "Did Ian buy a gift for Holly?"
+            "{image=icon_pay.webp} Yes, he did":
+                $ fian = "smile"
+                $ v12_gift = "holly"
+                pause(1)
+
+            "No, he didn't":
+                pass
+
+    scene blackbg
+    with long
+
+    $ lena_look = 4
+    $ lena_necklace = 0
+    $ lena_makeup = 0
+    $ holly_look = "summer"
+    $ holly_glasses = False
+    $ holly_hair = 2
+    $ ian_look = "summer"
+
+    play music "music/date.mp3" loop
+
+    scene lenaroom
+    with long
+    show lena at rig
+    show holly3 at lef
+    with short
 return
 
 label setup_CH13_S14:
     scene blackbg
     with long
 
-    #$ flena =
-    #$ lena_look = 
-    #$ lena_makeup =
+    $ holly_look = 1
+    $ holly_glasses = True
 
-    #ToDO music
+    scene ianroom
+    with long
+    show holly3
+    with short
+    menu:
+        gal "Did Holly want to be more like Lena?"
+        "Yes, she did":
+            hide holly3
+            with short
+
+            $ holly_look = "summer"
+            $ fholly = "smile"
+            $ holly_glasses = 2
+            $ v11_holly_change = True
+
+            show holly
+            with short
+
+        "No, she didn't":
+            hide holly3
+            with short
+
+            $ holly_look = "summer"
+            $ holly_change = 0
+
+            show holly
+            with short
+
+    scene blackbg
+    with long
+
+    if v11_holly_change:
+        $ fholly = "smileshy"
+        $ holly_hair = 2
+        $ holly_glasses = False
+    else:
+        $ holly_look = "summer"
+        $ holly_change = 0
+    $ flena = "smile"
+    $ lena_look = 4
+
+    scene beach_3nity
+    show holly2 at lef
+    show lena at rig
+    menu:
+        gal "Were Lena and Holly dating before the beach trip?"
+        "Yes, they were":
+            $ v10_lena_holly_sex = 3
+        "No, they weren't":
+            $ lena_holly_dating = "late"
+
+    scene blackbg
+    with long
+
+    $ flena = "sad"
+    $ lena_look = 4
+    $ lena_necklace = 0
+    $ lena_makeup = 0
+
+    $ fholly = "n"
+    $ holly_look = "summer"
+    $ holly_hair = 2
+    $ holly_glasses = False
+
+    play music "music/date.mp3" loop
+
+    scene lenaroom
+    with long
+    show lena at rig
+    show holly3 at lef
+    with short
 return
 
 label setup_CH13_S15:
@@ -11552,7 +12299,7 @@ label setup_CH13_S15:
     if v8_jeremy_sex or v10_jeremy_3some:
         $ lena_jeremy_dating = True
 
-    call gallVar_toy_mandingo
+    call gallVar_toy_mandingo from _call_gallVar_toy_mandingo_1
     if toy_mandingo:
         if lena_jeremy_sex or v10_jeremy_3some:
             $ v13_bbc_dildo = True
@@ -11576,6 +12323,122 @@ label setup_CH13_S16:
     scene lenaroomnight
     with long
     show lenabra
+    with short
+return
+
+label setup_CH13_S17:
+    scene blackbg
+    with long
+
+    $ lena_bikini = 2
+    call gallVar_emma_bikini from _call_gallVar_emma_bikini_3 #CH11
+
+    call gallVar_toy_double from _call_gallVar_toy_double #CH11
+    call gallVar_toy_wand from _call_gallVar_toy_wand #CH11
+
+    $ emma_look = "summer"
+    $ emma_hair = "pink"
+    $ ian_look = "summer"
+    $ ian_summer_look = "wits"
+    $ lena_look = 4
+    $ flena = "n"
+
+    scene summerhouse
+    with long
+    show ian
+    show lena at lef3
+    show emma at rig3
+    with short
+    menu:
+        gal "Was Ian dating either Emma or Lena?"
+        "Yes, he was dating Lena":
+            scene v12_lena2
+            if lena_tattoo1:
+                show v12_lena2_t1
+            if lena_tattoo2:
+                show v12_lena2_t2
+            if lena_tattoo3:
+                show v12_lena2_t3
+            if lena_piercing1:
+                show v12_lena2_p1
+            elif lena_piercing2:
+                show v12_lena2_p2
+            with long
+            pause 2
+
+            $ ian_lena_couple = True
+            $ emma_hair = False
+
+            scene blackbg
+            with long
+
+            $ fian = "smile"
+            $ flena = "smile"
+
+            scene beach_night
+            with long
+            show ian at lef
+            show lena at rig
+            with short
+            menu:
+                gal "Where they in an open relationship?"
+                "Yes, they were":
+                    $ ian_lena_open = "lena"
+                    $ v12_emma_confide = True
+
+                "No, they weren't":
+                    $ ian_lena_pure = True
+
+        "Yes, he was dating Emma":
+            scene v12_emma8_bg2
+            show v12_emma8_wits
+            with long
+            pause 2
+
+            $ ian_emma_love = 2
+
+        "No, he was dating neither":
+            $ emma_hair = False
+    scene blackbg
+    with long
+
+    if not ian_emma_love == 2:
+        $ emma_look = "summer"
+        $ perry_look = "summer"
+        
+        scene summerhouse
+        with long
+        show emma at lef
+        show perry at rig
+        with long
+        menu:
+            gal "Was Emma hooking up with Perry?"
+            "Yes, she was":
+                scene v12_perry
+                with long
+                pause 2
+
+                $ v12_perry_success = 4
+            "No, she wasn't":
+                pass
+        scene blackbg
+        with long
+
+    play music "music/emmas_theme.mp3" loop
+
+    $ femma = "flirt"
+    $ flena = "shy"
+    $ emma_look = "under"
+    $ lena_look = 1
+    $ lena_earrings = 0
+    $ lena_makeup = 0
+    $ lena_necklace = 0
+
+    scene lenaroomnight
+    with long
+    show emma at lef
+    show lenanude at rig
+    show lenacomfy2 at rig
     with short
 return
 

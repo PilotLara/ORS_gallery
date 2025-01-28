@@ -1,5 +1,4 @@
-- Implements changing gallery thumbnails
-- Increase number of images in thumbnail composites
 - Add scene fixes from Mares' discord DMs
-
 - Change all seen_image instances to include an unlock notification
+- hover animations in controls page
+- hover animation on thumbnails

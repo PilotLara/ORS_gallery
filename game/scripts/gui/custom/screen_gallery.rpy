@@ -25,7 +25,7 @@ init python:
         return scene_name in persistent.gallery_scenes
     
     class GalleryScene:
-        def __init__(self, kind, name, img, param, unlocked_if, chars, chapter, textInv=None, scope=None, img_scale=None):
+        def __init__(self, kind, name, img, param, unlocked_if, chars, chapter, textInv=None, scope=None, img_scale=None, update_logic=None):
             self.kind = kind
             self.name = name
             self.chapter = chapter
@@ -36,6 +36,8 @@ init python:
             self.textInv = textInv
             if self.textInv is None:
                 self.textInv = False
+
+            self.update_logic = update_logic
 
             self.scope = scope
             if self.scope is None:
@@ -78,6 +80,10 @@ init python:
 #                    (0,0), "#eee", 
 #                    ((gallery_scene_xsize - self.img_scale[0]) / 2,0), im.Blur(im.Grayscale(im.MatrixColor(im.Scale(img, self.img_scale[0], self.img_scale[1]), im.matrix.brightness(-0.2))), 4)
 #                )
+
+        def update_img(self):
+            if self.update_logic:  # Check if custom logic exists
+                self.img = self.update_logic()
 
         def is_image(self):
             return self.kind == 'image'
@@ -125,6 +131,11 @@ init python:
                 scene_item.scope.update({'lena_piercing2': True})
 
         return Replay(scene_item.param, scope=scene_item.scope, locked=False)
+
+    # Function to update all images
+    def update_all_gallery_images():
+        for scene in gallery_scenes:
+            scene.update_img()
 
 screen screen_gallery(char=None, _page=1, char_page=1, chapter=0):
     tag menu
@@ -201,7 +212,7 @@ screen screen_gallery(char=None, _page=1, char_page=1, chapter=0):
                                         if scene_item.is_unlocked():
                                             imagebutton:
                                                 idle scene_item.img align (0.5, 0.5)
-                                                hover scene_item.img #at scene_hover_zoom
+                                                # hover scene_item.img at scene_hover_zoom
                                                 action If(scene_item.is_image(), 
                                                     true=Show("screen_image", img=scene_item.param, transition=dissolve), 
                                                     false=scope_edit_start(scene_item)
@@ -209,10 +220,10 @@ screen screen_gallery(char=None, _page=1, char_page=1, chapter=0):
                                         else:
                                             imagebutton:
                                                 idle scene_item.img_locked align (0.5, 0.5)
-                                                hover scene_item.img_locked #at scene_hover_zoom
+                                                # hover scene_item.img_locked at scene_hover_zoom
                                                 action NullAction()
 
-                                        if scene_item.textInv:
+                                        if scene_item.textInv and scene_item.is_unlocked():
                                             text _("Chapter [scene_item.chapter]") align (1.0, 1.0) offset (-8, -3) size 22 color "#000000"
                                         else:
                                             text _("Chapter [scene_item.chapter]") align (1.0, 1.0) offset (-8, -3) size 22
