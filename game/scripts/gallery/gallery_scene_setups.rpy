@@ -3988,7 +3988,7 @@ label setup_CH10_S17:
     scene v9_alison14
     with long
     menu:
-        gal "Did Ian creampie Alison in the hotel?"
+        gal "Did Ian creampie Alison in the hotelroom?"
         "Yes, he did":
             $ v9_alison_creampie = True
             scene v9_alison16
@@ -4852,7 +4852,7 @@ label setup_CH11_S02:
     with short
     menu:
         gal "How high was Ian's lust?"
-        "Level 7 or more":
+        "{image=icon_lust.webp} Level 7 or more":
             $ ian_lust = 10
 
         "Level 6":
@@ -4873,7 +4873,7 @@ label setup_CH11_S02:
     with short
     menu:
         gal "How high was Lena's lust?"
-        "Level 8 or more":
+        "{image=icon_lust.webp} Level 8 or more":
             $ lena_lust = 10
 
         "Level 7 or lower":
@@ -4922,16 +4922,31 @@ label setup_CH11_S04:
     scene blackbg
     with long
 
+    scene v9_cindy3
+    with long
+    menu:
+        gal "Did Ian manage to satisfy Cindy?"
+        "Yes, he did":
+            scene v9_cindy6
+            with long
+            pause (2)
+
+            $ cindy_satisfaction = 3
+
+        "No, he didn't":
+            $ cindy_satisfaction = 2
+    scene blackbg
+    with long
+
     scene v10_cindy10
     with long
     menu:
         gal "Did Ian compliment Cindy after their last time?"
         "Yes, he did":
-            $ cindy_satisfaction = 3
             $ v10_cindy_compliment = True
             pause (1)
         "No, he didn't":
-            $ cindy_satisfaction = 2
+            pass
 
     scene blackbg
     with long
@@ -7304,7 +7319,7 @@ label setup_CH12_S04:
             scene blackbg
             with long
 
-            scene v9_alison18:
+            scene v9_alison18
             with long
             menu:
                 gal "Did Ian ask for Anal sex?"
@@ -9091,7 +9106,7 @@ label setup_CH12_S16:
     with short
     menu:
         gal "How high was Ian's lust?"
-        "Level 6 or more":
+        "{image=icon_lust.webp} Level 6 or more":
             $ ian_lust = 10
 
         "Level 6":
@@ -9305,7 +9320,7 @@ label setup_CH12_S19:
     with short
     menu:
         gal "How high was Ian's lust?"
-        "Level 6 or more":
+        "{image=icon_lust.webp} Level 6 or more":
             $ ian_lust = 10
 
         "Level 6":
@@ -9780,9 +9795,11 @@ label setup_CH12_S23:
 
             $ ian_lena_dating = True
             $ ian_lena_couple = True
+            $ ian_lena_sex = True
 
         "They were just seeing each other": #CH5
             $ ian_lena_dating = True
+            $ ian_lena_sex = True #shortcut for flow
 
         "They were just friends":
             pass
@@ -9886,7 +9903,7 @@ label setup_CH12_S23:
         $ lena_extras = 0
         $ lena_makeup = 0
 
-    if ian_holly_dating: #ToDO
+    if ian_holly_dating:
         $ fholly = "cry"
         $ fian = "sad"
         $ ian_look = "summer"
@@ -9914,7 +9931,7 @@ label setup_CH12_S23:
         scene blackbg
         with long
 
-    elif ian_lena_couple and lena_cheating != 1 and ian_cuck =< 1 and ian_lena_crisis == False:
+    elif ian_lena_couple and lena_cheating != 1 and ian_cuck < 2 and ian_lena_crisis == False:
         $ flena = "worried"
         $ fian = "smile"
         $ ian_look = 3
@@ -12442,13 +12459,594 @@ label setup_CH13_S17:
     with short
 return
 
+label setup_CH13_S19:
+    scene blackbg
+    with long
+
+    call gallVar_ian_summer_look
+
+    $ emma_look = "summer"
+    $ emma_hair = "pink"
+    $ ian_look = "summer"
+    $ lena_look = 4
+    $ flena = "n"
+
+    scene summerhouse
+    with long
+    show ian
+    show lena at lef3
+    show emma at rig3
+    with short
+    menu:
+        "Was Ian dating either Lena or Emma?"
+        "Lena":
+            scene v12_lena6
+            with long
+            pause 2
+
+            $ ian_lena_couple = True
+            $ fian = "n"
+
+        "Emma":
+            scene v12_emma1
+            with long
+            pause 2
+
+            $ ian_emma_love = True
+            $ fian = "smile"
+    scene blackbg
+    with long
+
+    play music "music/calm.mp3" loop
+
+    $ ian_look = "summer"
+
+    scene ianroomnight
+    with long
+    show ianunder
+    with short
+return
+
+label setup_CH13_S20:
+    scene blackbg
+    with long
+
+    scene v11_3some1_mike
+    if lena_tattoo2:
+        show v11_3some1_t2
+    if lena_tattoo3:
+        show v11_3some1_t3
+    with long
+    menu:
+        gal "Did Ian have a threesome with Lena and Louise?"
+        "Yes, he did":
+            scene v11_3some5
+            if lena_tattoo2:
+                show v11_3some5_t2
+            if lena_tattoo1:
+                show v11_3some5_t1
+            if lena_piercing1:
+                show v11_3some5_p1
+            elif lena_piercing2:
+                show v11_3some5_p2
+            with long
+            pause 2
+
+            $ v11_louise_3some = "ian"
+            $ v11_louise_dildo = 3
+
+        "No, he didn't":
+            pass
+    scene blackbg
+    with long
+
+    call gallVar_ian_summer_look
+
+    $ fian = "smile"
+    $ ian_look = "summer"
+
+    scene summerroom
+    with long
+    show ian at left
+    show v12_louise1
+    with short
+    menu:
+        gal "How far did Ian go in flirting with Louise?"
+        "He took it very far/romantically":
+            $ fian = "confident"
+            show v12_louise3
+            with long
+            pause 1
+
+            $ ian_louise_flirt = 2
+
+        "He kept it light":
+            $ ian_louise_flirt = 1
+    scene blackbg
+    with long
+
+    # no music
+
+    # no scene
+return
+
+label setup_CH13_S21:
+    scene blackbg
+    with long
+
+    $ cindy_look = 2
+    $ fcindy = "blush"
+    $ ian_look = "charisma1"
+    $ fian = "n"
+
+    scene street_afternoon
+    with long
+    show ian at lef
+    show cindy at rig
+    with short
+    menu:
+        gal "Did Ian confess his feelings for Cindy?"
+        "{image=icon_love.webp} Yes, he did":
+            $ ian_cindy_love = True
+
+        "No, he didn't":
+            pass
+    scene blackbg
+    with long
+
+    scene v9_cindy3
+    with long
+    menu:
+        gal "Did Ian manage to satisfy Cindy?"
+        "Yes, he did":
+            scene v9_cindy6
+            with long
+            pause (2)
+
+            $ cindy_satisfaction = 3
+            $ v11_cindy_bj = True
+        "No, he didn't":
+            pass
+    scene blackbg
+    with long
+
+    $ fian = "n"
+    $ ian_look = 2
+
+    if ian_cindy_love:
+        scene mall
+        with long
+        show ian
+        with short
+        menu:
+            gal "Did Ian buy a gift for Cindy?"
+            "{image=icon_pay.webp} Yes, he did":
+                $ fian = "smile"
+                $ v12_gift = "cindy"
+                pause(1)
+
+            "No, he didn't":
+                pass
+
+    call gallVar_ian_summer_look
+
+    scene v12_cindy4
+    with long
+    menu:
+        gal "Did Ian eat Cindy's ass?"
+        "{image=icon_lust.webp} Yes, he did":
+            scene v12_cindy5
+            with long
+            pause 2
+
+            $ cindy_ass = True
+            if cindy_satisfaction == 3:
+                $ cindy_satisfaction = 4
+        "No, he didn't":
+            pass
+    scene blackbg
+    with long
+
+    scene v12_cindy7a
+    with long
+    menu:
+        gal "Did Ian give Cindy a bodyshot or creampie?"
+        "{image=icon_lust.webp} He gave her a bodyshot":
+            scene v12_cindy7b
+            with short
+            show v12_cindy7_cum1 with flash
+            pause 0.2
+            hide v12_cindy7_cum1
+            show v12_cindy7_cum2
+            with fps 
+            show v12_cindy7_cum1 with flash
+            pause 0.3
+            hide v12_cindy7_cum1
+            with short
+            pause 2
+
+            $ v12_cindy_cum = True
+        "He gave her a creampie":
+            pass
+    scene blackbg
+    with long
+
+    if ian_cindy_love:
+        $ fian = "n"
+        $ ian_look = 3
+        $ fcindy = "n"
+        $ cindy_look = "comfytopless"
+
+        scene cindyroom
+        with long
+        show ianunder at lef
+        show cindybra at rig
+        with short
+        menu:
+            gal "How did Ian react during the talk about their relationship?"
+            "{image=icon_wits.webp} He set boundaries":
+                $ fcindy = "serious"
+                pause 1
+                $ v12_cindy_rel = 2
+
+            "{image=icon_love.webp} He trusted her":
+                $ fian = "sad"
+                $ fcindy = "blush"
+                pause 1
+
+                $ v12_cindy_rel = 1
+    scene blackbg
+    with long
+
+    $ fian = "confident"
+    $ ian_look = 3
+
+    scene summerroomnight
+    with long
+    show iannude at left
+    show v12_cindy_selfie4
+    with short
+    menu:
+        gal "Did Ian tell Cindy he'd like to cum on her face?"
+        "{image=icon_charisma.webp} Yes, he did":
+            play sound "sfx/sms.mp3"
+            hide v12_cindy_selfie4
+            show v12_cindy_selfie6
+            with long
+            pause 2
+
+            $ v12_cindy_text_cum = True
+        "No, he didn't":
+            pass
+    scene blackbg
+    with long
+
+    # no music
+
+    # no scene
+return
+
+label setup_CH13_S22:
+    scene blackbg
+    with long
+
+    scene restaurant
+    with long
+    $ fian = "n"
+    $ fminerva = "n"
+    $ ian_look = "charisma1"
+    $ minerva_look = "dress"
+    show ian at lef
+    show minerva4 at rig
+    with short
+    menu:
+        gal "What were Ian's feelings towards Minerva?"
+        "{image=icon_love.webp}He was falling for her":
+            scene v10_minerva5
+            with long
+            pause (2)
+
+            $ ian_minerva_dating = 3
+        "He liked her":
+            scene v10_minerva4b
+            with long
+            pause (2)
+
+            $ ian_minerva_dating = 2
+        "He was in it for the sex":
+            scene v10_minerva6b
+            with long
+            pause (2)
+
+            $ ian_minerva_dating = 1
+    scene blackbg
+    with long
+
+    if ian_minerva_dating == 3:
+        $ fian = "n"
+        $ ian_look = 2
+
+        scene mall
+        with long
+        show ian
+        with short
+        menu:
+            gal "Did Ian buy a gift for Minerva?"
+            "{image=icon_pay.webp} Yes, he did":
+                $ fian = "smile"
+                $ v12_gift = "minerva"
+                pause(1)
+
+            "No, he didn't":
+                pass
+
+        scene blackbg
+        with long
+
+        $ v12_moon_text = "minerva"
+    else:
+        $ v12_minerva_sex = True
+        $ v10_minerva_anal = True
+
+    # no music
+
+    $ minerva_look = "hot"
+    $ ian_summer_look = "wits"
+    $ ian_look = "summer"
+
+    # no scene
+return
+
+label setup_CH13_S24:
+    scene blackbg
+    with long
+
+    call gallVar_ian_summer_look
+
+    $ emma_hair = "pink"
+
+    $ femma = "n"
+    $ emma_look = "summer"
+    $ fwade = "n"
+    $ wade_look = "summer"
+    $ ian_look = "summer"
+
+    scene street
+    with long
+    show ian at lef3
+    show emma 
+    show wade at rig3
+    show dog at rig
+    with short
+    menu:
+        gal "What was Ian's reaction to Emma's dress?"
+        "He told her it looked good on her":
+            $ v12_emma_dress = 2
+        "He told her she looked ridiculous":
+            $ v12_emma_dress = 1
+        "He told her he preferred it when she looked hot":
+            $ v12_emma_dress = 3
+            $ emma_hot = True
+        "He didn't comment on it":
+            $ v12_emma_dress = 0
+
+    scene blackbg
+    with long
+
+    if v12_emma_dress == 3:
+        $ emma_look = "cool"
+    elif v12_emma_dress == 1:
+        $ emma_look = 1
+    else:
+        $ emma_look = "summer"
+
+    call gallVar_ian_emma_love
+    call gallVar_ian_emma_dom
+
+    scene v12_emma10
+    with long
+    menu:
+        gal "Did Ian take pictures of Ian during sex at the beach house?"
+        "Yes, he did":
+            show v12_emma10_phone
+            with long
+            play sound "sfx/camera.mp3"
+            pause 2
+
+            $ v12_emma_sexpics = True
+
+        "No, he didn't":
+            pass
+    scene blackbg
+    with long
+
+    # no music
+
+    if emma_hot:
+        $ emma_look = "hot"
+    elif v12_emma_dress == 2 and perry_emma == False:
+        $ emma_look = "summer"
+    else:
+        $ emma_look = 1
+    $ ian_look = "summer"
+
+    # no scene
+return
+
+label setup_CH13_S25:
+    scene blackbg
+    with long
+
+    $ ian_summer_look = "wits"
+    $ ian_look = "summer"
+    $ fian = "n"
+
+    scene summerhouse_rain
+    with long
+    show ian at left
+    show v12_alison_jeremy
+    with short
+    nvl clear
+    a_p "You missed out last night {image=emoji_crazy.webp}"
+    $ fian = "smile"
+    menu:
+        gal "How did Ian react to Alison getting her nipples pierced?"
+        "The piercings made her even hotter":
+            $ alison_nipple = 3
+            $ fian = "confident"
+        "He found it a bold choice":
+            $ alison_nipple = 2
+        "They didn't suit her":
+            $ alison_nipple = 1
+    scene blackbg
+    with long
+
+    # no music
+
+    $ ian_look = "summer"
+    $ alison_makeup = 1
+
+    # no scene
+return
+
+label setup_CH13_S26:
+    scene blackbg
+    with long
+
+    $ ian_look = 7
+
+    scene gym
+    with long
+    show ian at lef2
+    with short
+    menu:
+        gal "How high was Ian's athleticism?"
+        "{image=icon_athletics.webp} Level 5 or more":
+            $ ian_athletics = 10
+        "Level 4 or less":
+            $ ian_athletics = 3
+    scene blackbg
+    with long
+
+    scene v9_alison14
+    with long
+    menu:
+        gal "Did Ian creampie Alison in the hotelroom?"
+        "Yes, he did":
+            $ v9_alison_creampie = True
+            scene v9_alison16
+            with long
+            pause (2)
+        "No, he came on her tits":
+            $ v9_alison_creampie = False
+            scene v9_alison15
+            show v9_alison15_cum2
+            with long
+            pause (2)
+    scene blackbg
+    with long
+
+    $ alison_look = "dress"
+    $ ian_look = "lust1"
+    $ fian = "smile"
+    $ falison = "n"
+
+    scene villagenight
+    with long
+    show ian at lef
+    show alison at rig
+    with short
+    menu:
+        gal "Was Ian in it for the love or just to use Alison as a fuck buddy?"
+        "{image=icon_love.webp} For love":
+            scene v9_alison1_bg2
+            show v9_alison2d
+            with long
+            pause(2)
+
+            $ ian_alison_love = True
+
+        "Fuck buddy":
+            scene v9_alison12
+            with long
+            pause (2)
+
+    scene blackbg
+    with long
+
+    #ToDO $ v10_alison_creampie
+
+    #ToDO $ alison_blonde
+
+    $ fian = "n"
+    $ falison = "n"
+
+    scene alisonhomenight
+    with long
+    show iannude at lef
+    show alisonnude at rig
+    with short
+    menu:
+        gal "Did Ian agree to wear a condom?"
+        "Yes, he did":
+            scene v11_alison1_animation 
+            show v11_alison1_animation_condom
+            play sound "sfx/oh1.mp3"
+            with long
+            pause 4
+
+            $ v11_alison_condom = True
+
+        "No, he didn't":
+            scene v11_alison3_animation 
+            if alison_blonde:
+                show v11_alison2_blonde
+            with long
+            play sound "sfx/bj6.mp3"
+            pause 4
+
+    scene blackbg
+    with long
+
+    $ ian_summer_look = "wits"
+
+    if ian_alison_love:
+        $ fian = "n"
+        $ ian_look = 2
+
+        scene mall
+        with long
+        show ian
+        with short
+        menu:
+            gal "Did Ian buy a gift for Alison?"
+            "{image=icon_pay.webp} Yes, he did":
+                $ fian = "smile"
+                $ v12_gift = "alison"
+                pause(1)
+            "No, he didn't":
+                pass
+        scene blackbg
+        with long
+
+    #ToDO $ v12_alison_sex = 1/2
+
+    # no music
+
+    $ ian_look = "summer"
+    #ToDO $ alison_look = 
+    #ToDO $ alison_makeup = 
+
+    # no scene
+return
+
 ################################################################################
 ## CHAPTER 14 ##################################################################
 ################################################################################
 
 ## BASIC SCENE IN SETUP FILE ###################################################
 
-# label setup_CH01_S01:
+# label setup_CH13_S01:
 #     scene blackbg
 #     with long
 

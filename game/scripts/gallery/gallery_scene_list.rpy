@@ -673,7 +673,7 @@ define gallery_scenes = [
     GalleryScene(
         kind="scene",
         chapter=6,
-        name=_("Ian takes Alison home after bar"),
+        name=_("Ian takes Alison home after the bar"),
         img="gallery/thumb_v6_alison5.webp",
         param="gallery_CH06_S01",
         unlocked_if="gallery_scene_unlocked('CH06_S01')",
@@ -3053,6 +3053,16 @@ define gallery_scenes = [
     # 12c
 
     GalleryScene(
+        kind="image",
+        chapter=12,
+        name=_("Ian has a talk with Gillian in his dreams"),
+        img="gallery/thumb_v12_gillian_dream.webp",
+        param=["v12_gillian_dream"],
+        unlocked_if="gallery_scene_unlocked('CH12_S39')",
+        chars=['Gillian']
+    ),
+
+    GalleryScene(
         kind="scene",
         chapter=12,
         name=_("Lena needs help with sunscreen"),
@@ -3523,6 +3533,7 @@ define gallery_scenes = [
         chapter=13,
         name=_("Ian arrives late"),
         img="gallery/thumb_v13_trinity9.webp",
+        textInv = True,
         update_logic=lambda:"gallery/thumb_v13_trinity9_t2.webp" if persistent.gall_lena_tattoo2 else "gallery/thumb_v13_trinity9.webp",
         param="gallery_CH13_S13",
         unlocked_if="gallery_scene_unlocked('CH13_S13')",
@@ -3538,6 +3549,7 @@ define gallery_scenes = [
         chapter=13,
         name=_("Lena goes on a date with Holly"),
         img="gallery/thumb_v13_holly7.webp",
+        textInv = True,
         param="gallery_CH13_S14",
         unlocked_if="gallery_scene_unlocked('CH13_S14')",
         chars=['Lena', 'Holly'],
@@ -3564,6 +3576,7 @@ define gallery_scenes = [
         chapter=13,
         name=_("Ivy takes Holly on an adventure"),
         img="gallery/thumb_v13_glory5a.webp",
+        textInv = True,
         update_logic=lambda:"gallery/thumb_v13_glory5a_t1.webp" if persistent.gall_lena_tattoo1 else "gallery/thumb_v13_glory5a.webp",
         param="gallery_CH13_S16",
         unlocked_if="gallery_scene_unlocked('CH13_S16')",
@@ -3589,6 +3602,126 @@ define gallery_scenes = [
         })
     ),
 
+    # Ian POV
+
+    GalleryScene(
+        kind="image",
+        chapter=13,
+        name=_("Holly's social media presence"),
+        img="gallery/thumb_v13_holly_pl1.webp",
+        param=["v13_holly_pl1", "v13_holly_pl2"],
+        unlocked_if="gallery_scene_unlocked('CH13_I18')",
+        chars=['Holly'],
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Lena and Emma confesss they were naughty"),
+        # img="gallery/thumb_v13_lena_emma_selfie.webp",
+        img="gallery/thumb_wipbg.webp",
+        # param="gallery_CH13_S19",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S19')",
+        chars=['Lena', 'Emma'],
+        scope=merge_two_dicts({
+            'ian_lena_emma_3some': True
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Louise invites Ian over"),
+        img="gallery/thumb_v13_louise2.webp",
+        param="gallery_CH13_S20",
+        unlocked_if="gallery_scene_unlocked('CH13_S20')",
+        chars=['Ian', 'Louise'],
+        scope=merge_two_dicts({
+            'ian_promotion': True,
+            'v4_show_louise': True,
+            'ian_chad': 4
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Cindy returns from her modeling trip"),
+        img="gallery/thumb_v13_cindy10.webp",
+        param="gallery_CH13_S21",
+        unlocked_if="gallery_scene_unlocked('CH13_S21')",
+        chars=['Ian', 'Cindy'],
+        scope=merge_two_dicts({
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Ian remembered Minerva's birthday"),
+        img="gallery/thumb_v13_minerva7.webp",
+        textInv = True,
+        param="gallery_CH13_S22",
+        unlocked_if="gallery_scene_unlocked('CH13_S22')",
+        chars=['Ian', 'Minerva'],
+        scope=coreScope
+    ),
+
+    GalleryScene(
+        kind="image",
+        chapter=13,
+        name=_("Alison is home alone"),
+        img="gallery/thumb_v13_alison_selfie.webp",
+        param=["v13_alison_selfie"],
+        unlocked_if="gallery_scene_unlocked('CH13_I23')",
+        chars=['Ian', 'Alison'],
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Emma needs her fix in the restroom"),
+        # img="gallery/thumb_XXX.webp",
+        img="gallery/thumb_wipbg.webp",
+        # param="gallery_CH13_S24",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S24')",
+        chars=['Ian', 'Emma'],
+        scope=merge_two_dicts({
+            'v10_emma_sex': True
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Alison is home alone 2"),
+        img="gallery/thumb_v13_alison4.webp",
+        textInv = True,
+        param="gallery_CH13_S25",
+        unlocked_if="gallery_scene_unlocked('CH13_S25')",
+        chars=['Ian', 'Alison'],
+        scope=merge_two_dicts({
+            'v13_alison_fuck': True,
+            'alison_blonde': 3
+        })
+    ),
+
+    GalleryScene(
+        kind="scene",
+        chapter=13,
+        name=_("Ian x Alison Love"), #ToDO replace name
+        # img="gallery/thumb_XXX.webp",
+        img="gallery/thumb_wipbg.webp",
+        # param="gallery_CH13_S26",
+        param= "gallery_WIP",
+        unlocked_if="gallery_scene_unlocked('CH13_S26')",
+        chars=['Ian', 'Alison'],
+        scope=merge_two_dicts({
+        })
+    ),
+
     ##################################################################################################################
     ## CHAPTER 14 ####################################################################################################
     ##################################################################################################################
@@ -3599,6 +3732,7 @@ define gallery_scenes = [
     #     chapter=13,
     #     name=_(""),
     #     # img="gallery/thumb_XXX.webp",
+    #     # update_logic=lambda:"",
     #     img="gallery/thumb_wipbg.webp",
     #     # param="gallery_CH13_S01",
     #     param= "gallery_WIP",
@@ -3614,21 +3748,22 @@ define gallery_scenes = [
     #     chapter=13,
     #     name=_(""),
     #     # img="gallery/thumb_XXX.webp",
+    #     # update_logic=lambda:"",
     #     img="gallery/thumb_wipbg.webp",
     #     # param=[""],
-    #     param=["wipbg"],
-    #     unlocked_if="renpy.seen_image('')",
+    #     param= "gallery_WIP",
+    #     unlocked_if="gallery_scene_unlocked('CH13_I01')",
     #     chars=['']
     # ),
 
     ## BASIC SCENE IN SCRIPT FILE ##################################################
 
-    # label gallery_CH13_S14:
+    # label gallery_CH13_S22:
     #     if _in_replay:
-    #         call setup_CH13_S14
+    #         call setup_CH13_S22
 
     # $ renpy.end_replay()
-    # $ gallery_unlock_scene("CH13_S14")
+    # $ gallery_unlock_scene("CH13_S22")
 
     # T123
     #update_logic=lambda:"gallery/thumb_v9_seymour3_t123.webp" if persistent.gall_lena_tattoo1 and persistent.gall_lena_tattoo2 and persistent.gall_lena_tattoo3 else "gallery/thumb_v9_seymour3_t12.webp" if persistent.gall_lena_tattoo1 and persistent.gall_lena_tattoo2 else "gallery/thumb_v9_seymour3_t13.webp" if persistent.gall_lena_tattoo1 and persistent.gall_lena_tattoo3 else "gallery/thumb_v9_seymour3_t23.webp" if persistent.gall_lena_tattoo2 and persistent.gall_lena_tattoo3 else "gallery/thumb_v9_seymour3_t1.webp" if persistent.gall_lena_tattoo1 else "gallery/thumb_v9_seymour3_t2.webp" if persistent.gall_lena_tattoo2 else "gallery/thumb_v9_seymour3_t3.webp" if persistent.gall_lena_tattoo3 else "gallery/thumb_v9_seymour3.webp",

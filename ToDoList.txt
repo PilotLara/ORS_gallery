@@ -2,3 +2,5 @@
 - Change all seen_image instances to include an unlock notification
 - hover animations in controls page
 - hover animation on thumbnails
+
+- check ian and holly fit body inclusions
